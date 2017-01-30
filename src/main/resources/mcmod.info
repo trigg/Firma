@@ -1,0 +1,16 @@
+[
+{
+  "modid": "firma",
+  "name": "Firma Mod",
+  "description": "A back-to-basics mod, forcing a different perspective of playing minecraft onto the user",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Trigg"],
+  "credits": "KittyChanley for inspiring me to make minecraft great again",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
