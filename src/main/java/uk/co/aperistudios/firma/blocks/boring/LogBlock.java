@@ -12,13 +12,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import uk.co.aperistudios.firma.FirmaMod;
-import uk.co.aperistudios.firma.types.RockEnum;
+import uk.co.aperistudios.firma.types.WoodEnum;
 
-public class RockBlock extends BaseBlock {
-	public static final IProperty<RockEnum> properties = PropertyEnum.create("variants",RockEnum.class);
+public class LogBlock extends BaseBlock {
+	public static final IProperty<WoodEnum> properties = PropertyEnum.create("variants",WoodEnum.class);
 	
-	public RockBlock(Material materialIn) {
-		super(materialIn,"rock");
+	public LogBlock(Material materialIn) {
+		super(materialIn,"log");
 		this.setHardness(10);
 		this.setResistance(10);
 		this.setCreativeTab(FirmaMod.blockTab);
@@ -32,33 +32,33 @@ public class RockBlock extends BaseBlock {
 	
 	@Override
     public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list){
-		for (final RockEnum enumType : RockEnum.values()) {
+		for (final WoodEnum enumType : WoodEnum.values()) {
 			list.add(new ItemStack(this, 1, enumType.getMeta()));
 		}
 	}
 	
 	@Override
     public int getMetaFromState(IBlockState state){
-	    RockEnum type = (RockEnum) state.getValue(properties);
+	    WoodEnum type = (WoodEnum) state.getValue(properties);
 
 		return type.getMeta();
 	}
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-	    return getDefaultState().withProperty(properties, RockEnum.get(meta));
+	    return getDefaultState().withProperty(properties, WoodEnum.get(meta));
 	}
 
 	@Override
 	public String getSpecialName(ItemStack stack) {
 		if(stack==null){ throw new NullPointerException(); }
-		return RockEnum.getName(stack.getMetadata());
+		return WoodEnum.getName(stack.getMetadata());
 	}
 
 	@Override
 	public ArrayList<String> getVariantNames() {
 		ArrayList<String> names = new ArrayList<String>();
-		for(RockEnum tr : RockEnum.values()){
+		for(WoodEnum tr : WoodEnum.values()){
 			names.add(tr.getName());
 		}
 		return names;

@@ -14,11 +14,11 @@ import net.minecraft.util.NonNullList;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.types.RockEnum;
 
-public class RockBlock extends BaseBlock {
+public class GravelBlock extends BaseBlock {
 	public static final IProperty<RockEnum> properties = PropertyEnum.create("variants",RockEnum.class);
 	
-	public RockBlock(Material materialIn) {
-		super(materialIn,"rock");
+	public GravelBlock(Material materialIn) {
+		super(materialIn,"gravel");
 		this.setHardness(10);
 		this.setResistance(10);
 		this.setCreativeTab(FirmaMod.blockTab);

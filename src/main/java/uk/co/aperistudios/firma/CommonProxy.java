@@ -9,8 +9,6 @@ import uk.co.aperistudios.firma.blocks.boring.RockBlock;
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
-    	System.err.println("Registering rock");
-    	FirmaMod.rock = new RockBlock(Material.ROCK);
     }
 
     public void init(FMLInitializationEvent e) {
