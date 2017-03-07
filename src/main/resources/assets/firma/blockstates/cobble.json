@@ -1,0 +1,19 @@
+{"forge_marker":1,"defaults":{"model":"cube_all"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"andesite":{"textures":{"all":"firma:blocks/cobble/andesite"}}
+,"basalt":{"textures":{"all":"firma:blocks/cobble/basalt"}}
+,"chalk":{"textures":{"all":"firma:blocks/cobble/chalk"}}
+,"chert":{"textures":{"all":"firma:blocks/cobble/chert"}}
+,"claystone":{"textures":{"all":"firma:blocks/cobble/claystone"}}
+,"conglomerate":{"textures":{"all":"firma:blocks/cobble/conglomerate"}}
+,"dacite":{"textures":{"all":"firma:blocks/cobble/dacite"}}
+,"diorite":{"textures":{"all":"firma:blocks/cobble/diorite"}}
+,"dolomite":{"textures":{"all":"firma:blocks/cobble/dolomite"}}
+,"gabbro":{"textures":{"all":"firma:blocks/cobble/gabbro"}}
+,"gneiss":{"textures":{"all":"firma:blocks/cobble/gneiss"}}
+,"granite":{"textures":{"all":"firma:blocks/cobble/granite"}}
+,"limestone":{"textures":{"all":"firma:blocks/cobble/limestone"}}
+,"marble":{"textures":{"all":"firma:blocks/cobble/marble"}}
+,"phyllite":{"textures":{"all":"firma:blocks/cobble/phyllite"}}
+,"quartzite":{"textures":{"all":"firma:blocks/cobble/quartzite"}}
+}}}

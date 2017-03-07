@@ -1,0 +1,8 @@
+{"forge_marker":1,"defaults":{"model":"cube_all"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"rhyolite":{"textures":{"all":"firma:blocks/gravel/rhyolite"}}
+,"rocksalt":{"textures":{"all":"firma:blocks/gravel/rocksalt"}}
+,"schist":{"textures":{"all":"firma:blocks/gravel/schist"}}
+,"shale":{"textures":{"all":"firma:blocks/gravel/shale"}}
+,"slate":{"textures":{"all":"firma:blocks/gravel/slate"}}
+}}}

@@ -1,0 +1,19 @@
+{"forge_marker":1,"defaults":{"model":"cube_all"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"acacia":{"textures":{"all":"firma:blocks/plank/acacia"}}
+,"ash":{"textures":{"all":"firma:blocks/plank/ash"}}
+,"aspen":{"textures":{"all":"firma:blocks/plank/aspen"}}
+,"birch":{"textures":{"all":"firma:blocks/plank/birch"}}
+,"chestnut":{"textures":{"all":"firma:blocks/plank/chestnut"}}
+,"douglasfir":{"textures":{"all":"firma:blocks/plank/douglasfir"}}
+,"hickory":{"textures":{"all":"firma:blocks/plank/hickory"}}
+,"kapok":{"textures":{"all":"firma:blocks/plank/kapok"}}
+,"maple":{"textures":{"all":"firma:blocks/plank/maple"}}
+,"oak":{"textures":{"all":"firma:blocks/plank/oak"}}
+,"pine":{"textures":{"all":"firma:blocks/plank/pine"}}
+,"sequoia":{"textures":{"all":"firma:blocks/plank/sequoia"}}
+,"spruce":{"textures":{"all":"firma:blocks/plank/spruce"}}
+,"sycamore":{"textures":{"all":"firma:blocks/plank/sycamore"}}
+,"whitecedar":{"textures":{"all":"firma:blocks/plank/whitecedar"}}
+,"whiteelm":{"textures":{"all":"firma:blocks/plank/whiteelm"}}
+}}}

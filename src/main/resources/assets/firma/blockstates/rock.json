@@ -1,111 +1,19 @@
-{
-	"forge_marker": 1,
-	"defaults": {
-		"model": "minecraft:cube_all"
-	},
-	"rockvariants": {
-		"variant": {
-			"andesite": {
-				"textures": {
-					"all": "firma:blocks/Andesite Raw"
-				}
-			},
-			"basalt": {
-				"textures": {
-					"all": "firma:blocks/Basalt Raw"
-				}
-			},
-			"chalk": {
-				"textures": {
-					"all": "firma:blocks/Chalk Raw"
-				}
-			},
-			"chert": {
-				"textures": {
-					"all": "firma:blocks/Chert Raw"
-				}
-			}
-,
-			"claystone": {
-				"textures": {
-					"all": "firma:blocks/Claystone Raw"
-				}
-			},
-			"conglomerate": {
-				"textures": {
-					"all": "firma:blocks/Conglomerate Raw"
-				}
-			},
-			"dacite": {
-				"textures": {
-					"all": "firma:blocks/Dacite Raw"
-				}
-			},
-			"diorote": {
-				"textures": {
-					"all": "firma:blocks/Diorite Raw"
-				}
-			},
-			"dolomite": {
-				"textures": {
-					"all": "firma:blocks/Dolomite Raw"
-				}
-			},
-			"gabbro": {
-				"textures": {
-					"all": "firma:blocks/Gabbro Raw"
-				}
-			},
-			"granite": {
-				"textures": {
-					"all": "firma:blocks/Granite Raw"
-				}
-			},
-			"limestone": {
-				"textures": {
-					"all": "firma:blocks/Limestone Raw"
-				}
-			},
-			"marble": {
-				"textures": {
-					"all": "firma:blocks/Marble Raw"
-				}
-			},
-			"phyllite": {
-				"textures": {
-					"all": "firma:blocks/Phyllite Raw"
-				}
-			},
-			"quartzite": {
-				"textures": {
-					"all": "firma:blocks/Quartzite Raw"
-				}
-			},
-			"rhyolite": {
-				"textures": {
-					"all": "firma:blocks/Rhyolite Raw"
-				}
-			},
-			"rocksalt": {
-				"textures": {
-					"all": "firma:blocks/Rock Salt Raw"
-				}
-			},
-			"schist": {
-				"textures": {
-					"all": "firma:blocks/Schist Raw"
-				}
-			},
-			"shale": {
-				"textures": {
-					"all": "firma:blocks/Shale Raw"
-				}
-			},
-			"slate": {
-				"textures": {
-					"all": "firma:blocks/Slate Raw"
-				}
-			}
-		}
-	}
-}
+{"forge_marker":1,"defaults":{"model":"cube_all"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"andesite":{"textures":{"all":"firma:blocks/rock/andesite"}}
+,"basalt":{"textures":{"all":"firma:blocks/rock/basalt"}}
+,"chalk":{"textures":{"all":"firma:blocks/rock/chalk"}}
+,"chert":{"textures":{"all":"firma:blocks/rock/chert"}}
+,"claystone":{"textures":{"all":"firma:blocks/rock/claystone"}}
+,"conglomerate":{"textures":{"all":"firma:blocks/rock/conglomerate"}}
+,"dacite":{"textures":{"all":"firma:blocks/rock/dacite"}}
+,"diorite":{"textures":{"all":"firma:blocks/rock/diorite"}}
+,"dolomite":{"textures":{"all":"firma:blocks/rock/dolomite"}}
+,"gabbro":{"textures":{"all":"firma:blocks/rock/gabbro"}}
+,"gneiss":{"textures":{"all":"firma:blocks/rock/gneiss"}}
+,"granite":{"textures":{"all":"firma:blocks/rock/granite"}}
+,"limestone":{"textures":{"all":"firma:blocks/rock/limestone"}}
+,"marble":{"textures":{"all":"firma:blocks/rock/marble"}}
+,"phyllite":{"textures":{"all":"firma:blocks/rock/phyllite"}}
+,"quartzite":{"textures":{"all":"firma:blocks/rock/quartzite"}}
+}}}

@@ -1,0 +1,4 @@
+{"forge_marker":1,"defaults":{"model":"cube_all"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"willow":{"textures":{"all":"firma:blocks/plank/willow"}}
+}}}
