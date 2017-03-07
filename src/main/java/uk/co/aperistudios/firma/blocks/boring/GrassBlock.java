@@ -10,16 +10,16 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.NonNullList;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.types.RockEnum;
 
-public class BrickBlock extends BaseBlock {
-	public static final IProperty<RockEnum> properties = PropertyEnum.create("variants", RockEnum.class);
+public class GrassBlock extends BaseBlock {
+	public static final IProperty<RockEnum> properties = PropertyEnum.create("variants",RockEnum.class);
 	
-	public BrickBlock(Material materialIn) {
-		super(materialIn,"brick");
+	public GrassBlock(Material materialIn) {
+		super(materialIn,"grass");
 		this.setHardness(10);
 		this.setResistance(10);
 		this.setCreativeTab(FirmaMod.blockTab);
@@ -64,5 +64,9 @@ public class BrickBlock extends BaseBlock {
 		}
 		return names;
 	}
-
+	@Override
+	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer) {
+		return BlockRenderLayer.CUTOUT == layer;
+	}
+	
 }

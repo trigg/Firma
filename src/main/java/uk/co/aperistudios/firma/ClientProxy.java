@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
+import uk.co.aperistudios.firma.blocks.boring.GrassColor;
 import uk.co.aperistudios.firma.blocks.boring.LeafColor;
 
 public class ClientProxy extends CommonProxy {
@@ -45,6 +46,8 @@ public class ClientProxy extends CommonProxy {
 	public void init(FMLInitializationEvent e) {
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LeafColor(), FirmaMod.leaf);
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LeafColor(), FirmaMod.leaf2);
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grass);
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grass2);
 		super.init(e);
 	}
 

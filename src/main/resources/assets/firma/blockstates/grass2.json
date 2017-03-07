@@ -1,0 +1,8 @@
+{"forge_marker":1,"defaults":{"model":"firma:firmagrass"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"rhyolite":{"textures":{"dirt":"firma:blocks/dirt2/rhyolite"}}
+,"rocksalt":{"textures":{"dirt":"firma:blocks/dirt2/rocksalt"}}
+,"schist":{"textures":{"dirt":"firma:blocks/dirt2/schist"}}
+,"shale":{"textures":{"dirt":"firma:blocks/dirt2/shale"}}
+,"slate":{"textures":{"dirt":"firma:blocks/dirt2/slate"}}
+}}}

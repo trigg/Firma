@@ -23,6 +23,8 @@ import uk.co.aperistudios.firma.blocks.boring.CobbleBlock;
 import uk.co.aperistudios.firma.blocks.boring.CobbleBlock2;
 import uk.co.aperistudios.firma.blocks.boring.DirtBlock;
 import uk.co.aperistudios.firma.blocks.boring.DirtBlock2;
+import uk.co.aperistudios.firma.blocks.boring.GrassBlock;
+import uk.co.aperistudios.firma.blocks.boring.GrassBlock2;
 import uk.co.aperistudios.firma.blocks.boring.GravelBlock;
 import uk.co.aperistudios.firma.blocks.boring.GravelBlock2;
 import uk.co.aperistudios.firma.blocks.boring.LeafBlock;
@@ -31,6 +33,8 @@ import uk.co.aperistudios.firma.blocks.boring.PlankBlock;
 import uk.co.aperistudios.firma.blocks.boring.PlankBlock2;
 import uk.co.aperistudios.firma.blocks.boring.RockBlock;
 import uk.co.aperistudios.firma.blocks.boring.RockBlock2;
+import uk.co.aperistudios.firma.blocks.boring.SandBlock;
+import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
@@ -56,11 +60,19 @@ public class FirmaMod
     public static PlankBlock2 plank2;
 	public static DirtBlock dirt;
 	public static DirtBlock2 dirt2;
+	public static GrassBlock grass;
+	public static GrassBlock2 grass2;
 	public static GravelBlock gravel;
 	public static GravelBlock2 gravel2;
+	public static SandBlock sand;
+	public static SandBlock2 sand2;
 	public static LeafBlock leaf;
 	public static LeafBlock2 leaf2;
+
 	public static ArrayList<BaseBlock> allBlocks=new ArrayList<BaseBlock>();
+
+	
+
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
