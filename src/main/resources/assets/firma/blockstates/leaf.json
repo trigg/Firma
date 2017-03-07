@@ -1,0 +1,19 @@
+{"forge_marker":1,"defaults":{"model":"leaves"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"acacia":{"textures":{"all":"firma:blocks/log/acacialeavesfancy"}}
+,"ash":{"textures":{"all":"firma:blocks/log/ashleavesfancy"}}
+,"aspen":{"textures":{"all":"firma:blocks/log/aspenleavesfancy"}}
+,"birch":{"textures":{"all":"firma:blocks/log/birchleavesfancy"}}
+,"chestnut":{"textures":{"all":"firma:blocks/log/chestnutleavesfancy"}}
+,"douglasfir":{"textures":{"all":"firma:blocks/log/douglasfirleavesfancy"}}
+,"hickory":{"textures":{"all":"firma:blocks/log/hickoryleavesfancy"}}
+,"kapok":{"textures":{"all":"firma:blocks/log/kapokleavesfancy"}}
+,"maple":{"textures":{"all":"firma:blocks/log/mapleleavesfancy"}}
+,"oak":{"textures":{"all":"firma:blocks/log/oakleavesfancy"}}
+,"pine":{"textures":{"all":"firma:blocks/log/pineleavesfancy"}}
+,"sequoia":{"textures":{"all":"firma:blocks/log/sequoialeavesfancy"}}
+,"spruce":{"textures":{"all":"firma:blocks/log/spruceleavesfancy"}}
+,"sycamore":{"textures":{"all":"firma:blocks/log/sycamoreleavesfancy"}}
+,"whitecedar":{"textures":{"all":"firma:blocks/log/whitecedarleavesfancy"}}
+,"whiteelm":{"textures":{"all":"firma:blocks/log/whiteelmleavesfancy"}}
+}}}

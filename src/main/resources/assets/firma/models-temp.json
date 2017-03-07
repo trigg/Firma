@@ -1,5 +1,8 @@
 {
     "parent":"firma:block/rock",
+    "textures": {
+        "all": "firma:imagefile"
+    },
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

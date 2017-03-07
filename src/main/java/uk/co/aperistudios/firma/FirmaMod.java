@@ -25,6 +25,8 @@ import uk.co.aperistudios.firma.blocks.boring.DirtBlock;
 import uk.co.aperistudios.firma.blocks.boring.DirtBlock2;
 import uk.co.aperistudios.firma.blocks.boring.GravelBlock;
 import uk.co.aperistudios.firma.blocks.boring.GravelBlock2;
+import uk.co.aperistudios.firma.blocks.boring.LeafBlock;
+import uk.co.aperistudios.firma.blocks.boring.LeafBlock2;
 import uk.co.aperistudios.firma.blocks.boring.PlankBlock;
 import uk.co.aperistudios.firma.blocks.boring.PlankBlock2;
 import uk.co.aperistudios.firma.blocks.boring.RockBlock;
@@ -56,34 +58,13 @@ public class FirmaMod
 	public static DirtBlock2 dirt2;
 	public static GravelBlock gravel;
 	public static GravelBlock2 gravel2;
+	public static LeafBlock leaf;
+	public static LeafBlock2 leaf2;
 	public static ArrayList<BaseBlock> allBlocks=new ArrayList<BaseBlock>();
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
-//s    	MinecraftForge.EVENT_BUS.register(this);
     	proxy.preInit(e);
-    	FirmaMod.rock = new RockBlock(Material.ROCK);
-    	FirmaMod.rock2 = new RockBlock2(Material.ROCK);
-    	FirmaMod.rockb = new BrickBlock(Material.ROCK);
-    	FirmaMod.rockb2 = new BrickBlock2(Material.ROCK);
-    	FirmaMod.rockc = new CobbleBlock(Material.ROCK);
-    	FirmaMod.rockc2 = new CobbleBlock2(Material.ROCK);
-    	FirmaMod.rocks = new SmoothBlock(Material.ROCK);
-    	FirmaMod.rocks2 = new SmoothBlock2(Material.ROCK);
-    	FirmaMod.dirt = new DirtBlock(Material.GROUND);
-    	FirmaMod.dirt2 = new DirtBlock2(Material.GROUND);
-    	FirmaMod.gravel = new GravelBlock(Material.GROUND);
-    	FirmaMod.gravel2 = new GravelBlock2(Material.GROUND);
-    	
-    	FirmaMod.plank = new PlankBlock(Material.WOOD);
-    	FirmaMod.plank2 = new PlankBlock2(Material.WOOD);
-    	
-    	for(BaseBlock b : allBlocks){
-    		GameRegistry.register(b);
-    		Item i = new MetaBlockItem(b);
-    		GameRegistry.register(i);
-    		b.registerRender();
-    	}
     }
 
     @EventHandler

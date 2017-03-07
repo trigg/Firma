@@ -1,0 +1,4 @@
+{"forge_marker":1,"defaults":{"model":"leaves"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"willow":{"textures":{"all":"firma:blocks/log/willowleavesfancy"}}
+}}}
