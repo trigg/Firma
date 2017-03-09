@@ -45,6 +45,7 @@ import uk.co.aperistudios.firma.items.MetaBlockItem;
 import uk.co.aperistudios.firma.items.MetaItem;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
+import uk.co.aperistudios.firma.items.ScrapMetalItem;
 
 @Mod(modid = FirmaMod.MODID, version = FirmaMod.VERSION)
 public class FirmaMod
@@ -82,11 +83,10 @@ public class FirmaMod
 	public static IngotItem ingot;
 	public static DoubleIngotItem doubleingot;
 	public static MetalSheetItem metalsheet;
-
+	public static ScrapMetalItem scrapmetal;
 
 	public static ArrayList<BaseBlock> allBlocks=new ArrayList<BaseBlock>();
 	public static ArrayList<Item> allItems=new ArrayList<Item>();
-
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {

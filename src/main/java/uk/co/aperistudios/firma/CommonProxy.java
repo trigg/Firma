@@ -34,6 +34,7 @@ import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
+import uk.co.aperistudios.firma.items.ScrapMetalItem;
 
 public class CommonProxy {
 
@@ -65,6 +66,7 @@ public class CommonProxy {
     	FirmaMod.ingot = new IngotItem("ingot");
     	FirmaMod.doubleingot = new DoubleIngotItem("doubleingot");
     	FirmaMod.metalsheet = new MetalSheetItem("metalsheet");
+    	FirmaMod.scrapmetal = new ScrapMetalItem("scrapmetal");
     	
     	
     	for(BaseBlock b : FirmaMod.allBlocks){
