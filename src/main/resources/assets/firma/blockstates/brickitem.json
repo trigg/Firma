@@ -1,0 +1,26 @@
+{"forge_marker":1,"defaults":{"model":"firma:item/generated"},"variants":{    "normal": [{}],
+    "inventory": [{"model": "firma:item/generated"}],"variants":{
+"andesite":{"textures":{"layer0":"firma:items/rock/andesitebrick"}}
+,"basalt":{"textures":{"layer0":"firma:items/rock/basaltbrick"}}
+,"chalk":{"textures":{"layer0":"firma:items/rock/chalkbrick"}}
+,"chert":{"textures":{"layer0":"firma:items/rock/chertbrick"}}
+,"clayfirebrick":{"textures":{"layer0":"firma:items/rock/clayfirebrick"}}
+,"claystone":{"textures":{"layer0":"firma:items/rock/claystonebrick"}}
+,"conglomerate":{"textures":{"layer0":"firma:items/rock/conglomeratebrick"}}
+,"dacite":{"textures":{"layer0":"firma:items/rock/dacitebrick"}}
+,"diorite":{"textures":{"layer0":"firma:items/rock/dioritebrick"}}
+,"dolomite":{"textures":{"layer0":"firma:items/rock/dolomitebrick"}}
+,"firebrick":{"textures":{"layer0":"firma:items/rock/firebrick"}}
+,"gabbro":{"textures":{"layer0":"firma:items/rock/gabbrobrick"}}
+,"gneiss":{"textures":{"layer0":"firma:items/rock/gneissbrick"}}
+,"granite":{"textures":{"layer0":"firma:items/rock/granitebrick"}}
+,"limestone":{"textures":{"layer0":"firma:items/rock/limestonebrick"}}
+,"marble":{"textures":{"layer0":"firma:items/rock/marblebrick"}}
+,"phyllite":{"textures":{"layer0":"firma:items/rock/phyllitebrick"}}
+,"quartzite":{"textures":{"layer0":"firma:items/rock/quartzitebrick"}}
+,"rhyolite":{"textures":{"layer0":"firma:items/rock/rhyolitebrick"}}
+,"rocksalt":{"textures":{"layer0":"firma:items/rock/rocksaltbrick"}}
+,"schist":{"textures":{"layer0":"firma:items/rock/schistbrick"}}
+,"shale":{"textures":{"layer0":"firma:items/rock/shalebrick"}}
+,"slate":{"textures":{"layer0":"firma:items/rock/slatebrick"}}
+}}}

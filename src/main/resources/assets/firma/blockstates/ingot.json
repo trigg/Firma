@@ -1,0 +1,25 @@
+{"forge_marker":1,"defaults":{"model":"firma:item/generated"},"variants":{    "normal": [{}],
+    "inventory": [{"model": "firma:item/generated"}],"variants":{
+"bismuthbronze":{"textures":{"layer0":"firma:items/ingot/bismuthbronzeingot"}}
+,"bismuth":{"textures":{"layer0":"firma:items/ingot/bismuthingot"}}
+,"blackbronze":{"textures":{"layer0":"firma:items/ingot/blackbronzeingot"}}
+,"blacksteel":{"textures":{"layer0":"firma:items/ingot/blacksteelingot"}}
+,"bluesteel":{"textures":{"layer0":"firma:items/ingot/bluesteelingot"}}
+,"brass":{"textures":{"layer0":"firma:items/ingot/brassingot"}}
+,"bronze":{"textures":{"layer0":"firma:items/ingot/bronzeingot"}}
+,"copper":{"textures":{"layer0":"firma:items/ingot/copperingot"}}
+,"gold":{"textures":{"layer0":"firma:items/ingot/goldingot"}}
+,"lead":{"textures":{"layer0":"firma:items/ingot/leadingot"}}
+,"nickel":{"textures":{"layer0":"firma:items/ingot/nickelingot"}}
+,"pigiron":{"textures":{"layer0":"firma:items/ingot/pigironingot"}}
+,"platinum":{"textures":{"layer0":"firma:items/ingot/platinumingot"}}
+,"redsteel":{"textures":{"layer0":"firma:items/ingot/redsteelingot"}}
+,"rosegold":{"textures":{"layer0":"firma:items/ingot/rosegoldingot"}}
+,"silver":{"textures":{"layer0":"firma:items/ingot/silveringot"}}
+,"steel":{"textures":{"layer0":"firma:items/ingot/steelingot"}}
+,"sterlingsilver":{"textures":{"layer0":"firma:items/ingot/sterlingsilveringot"}}
+,"tin":{"textures":{"layer0":"firma:items/ingot/tiningot"}}
+,"unknown":{"textures":{"layer0":"firma:items/ingot/unknowningot"}}
+,"wroughtiron":{"textures":{"layer0":"firma:items/ingot/wroughtironingot"}}
+,"zinc":{"textures":{"layer0":"firma:items/ingot/zincingot"}}
+}}}

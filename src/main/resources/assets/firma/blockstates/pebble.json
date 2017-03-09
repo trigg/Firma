@@ -1,0 +1,24 @@
+{"forge_marker":1,"defaults":{"model":"firma:item/generated"},"variants":{    "normal": [{}],
+    "inventory": [{"model": "firma:item/generated"}],"variants":{
+"andesite":{"textures":{"layer0":"firma:items/rock/andesiterock"}}
+,"basalt":{"textures":{"layer0":"firma:items/rock/basaltrock"}}
+,"chalk":{"textures":{"layer0":"firma:items/rock/chalkrock"}}
+,"chert":{"textures":{"layer0":"firma:items/rock/chertrock"}}
+,"claystone":{"textures":{"layer0":"firma:items/rock/claystonerock"}}
+,"conglomerate":{"textures":{"layer0":"firma:items/rock/conglomeraterock"}}
+,"dacite":{"textures":{"layer0":"firma:items/rock/daciterock"}}
+,"diorite":{"textures":{"layer0":"firma:items/rock/dioriterock"}}
+,"dolomite":{"textures":{"layer0":"firma:items/rock/dolomiterock"}}
+,"gabbro":{"textures":{"layer0":"firma:items/rock/gabbrorock"}}
+,"gneiss":{"textures":{"layer0":"firma:items/rock/gneissrock"}}
+,"granite":{"textures":{"layer0":"firma:items/rock/graniterock"}}
+,"limestone":{"textures":{"layer0":"firma:items/rock/limestonerock"}}
+,"marble":{"textures":{"layer0":"firma:items/rock/marblerock"}}
+,"phyllite":{"textures":{"layer0":"firma:items/rock/phylliterock"}}
+,"quartzite":{"textures":{"layer0":"firma:items/rock/quartziterock"}}
+,"rhyolite":{"textures":{"layer0":"firma:items/rock/rhyoliterock"}}
+,"rocksalt":{"textures":{"layer0":"firma:items/rock/rocksaltrock"}}
+,"schist":{"textures":{"layer0":"firma:items/rock/schistrock"}}
+,"shale":{"textures":{"layer0":"firma:items/rock/shalerock"}}
+,"slate":{"textures":{"layer0":"firma:items/rock/slaterock"}}
+}}}

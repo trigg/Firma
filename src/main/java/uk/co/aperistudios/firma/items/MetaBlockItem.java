@@ -8,19 +8,8 @@ import net.minecraft.item.ItemStack;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
 
-public class MetaBlockItem extends ItemBlock {
-	private static Function<ItemStack, String> f= new Function<ItemStack, String>(){
-		@Override
-		public String apply(ItemStack input) {
-			Block b = Block.getBlockFromItem(input.getItem());
-			if(b instanceof BaseBlock){
-				return ((BaseBlock)b).getSpecialName(input);
-			}
-			return "";
-		}
-	};
-	
-	Block block;
+public class MetaBlockItem extends ItemBlock {	
+	BaseBlock block;
 
 	public MetaBlockItem(BaseBlock block) {
 		super(block);
@@ -40,7 +29,6 @@ public class MetaBlockItem extends ItemBlock {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-    	BaseBlock b = ((BaseBlock)this.block);
-        return  FirmaMod.MODID+":"+b.getName()+ "." + b.getSpecialName(stack);
+        return  FirmaMod.MODID+":"+block.getName()+ "." + block.getSpecialName(stack);
     }
 }

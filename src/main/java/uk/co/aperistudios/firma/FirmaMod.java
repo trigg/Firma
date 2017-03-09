@@ -37,7 +37,12 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock;
 import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
+import uk.co.aperistudios.firma.items.BrickItem;
+import uk.co.aperistudios.firma.items.GemItem;
+import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
+import uk.co.aperistudios.firma.items.MetaItem;
+import uk.co.aperistudios.firma.items.PebbleItem;
 
 @Mod(modid = FirmaMod.MODID, version = FirmaMod.VERSION)
 public class FirmaMod
@@ -47,7 +52,7 @@ public class FirmaMod
 	
     public static final String MODID = "firma";
     public static final String VERSION = "1.0";
-    public static CreativeTabs blockTab, itemTab;
+    public static CreativeTabs blockTab, itemTab, gemTab;
     public static RockBlock rock;
     public static RockBlock2 rock2;
     public static BrickBlock rockb;
@@ -68,11 +73,14 @@ public class FirmaMod
 	public static SandBlock2 sand2;
 	public static LeafBlock leaf;
 	public static LeafBlock2 leaf2;
+	
+	public static PebbleItem pebble;
+	public static BrickItem brick;
+	public static GemItem gem;
+	public static IngotItem ingot;
 
 	public static ArrayList<BaseBlock> allBlocks=new ArrayList<BaseBlock>();
-
-	
-
+	public static ArrayList<Item> allItems=new ArrayList<Item>();
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {

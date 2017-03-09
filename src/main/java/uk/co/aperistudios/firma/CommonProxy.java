@@ -27,7 +27,11 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock;
 import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
+import uk.co.aperistudios.firma.items.BrickItem;
+import uk.co.aperistudios.firma.items.GemItem;
+import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
+import uk.co.aperistudios.firma.items.PebbleItem;
 
 public class CommonProxy {
 
@@ -53,9 +57,19 @@ public class CommonProxy {
     	FirmaMod.leaf = new LeafBlock(Material.LEAVES);
     	FirmaMod.leaf2 = new LeafBlock2(Material.LEAVES);
     	
+    	FirmaMod.pebble = new PebbleItem("pebble");
+    	FirmaMod.brick = new BrickItem("brickitem");
+    	FirmaMod.gem = new GemItem("gem");
+    	FirmaMod.ingot = new IngotItem("ingot");
+    	
+    	
     	for(BaseBlock b : FirmaMod.allBlocks){
     		GameRegistry.register(b);
     		Item i = new MetaBlockItem(b);
+    		GameRegistry.register(i);
+    	}
+    	
+    	for(Item i : FirmaMod.allItems){
     		GameRegistry.register(i);
     	}
     	
