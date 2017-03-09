@@ -38,10 +38,12 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
 import uk.co.aperistudios.firma.items.BrickItem;
+import uk.co.aperistudios.firma.items.DoubleIngotItem;
 import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
 import uk.co.aperistudios.firma.items.MetaItem;
+import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 
 @Mod(modid = FirmaMod.MODID, version = FirmaMod.VERSION)
@@ -78,9 +80,13 @@ public class FirmaMod
 	public static BrickItem brick;
 	public static GemItem gem;
 	public static IngotItem ingot;
+	public static DoubleIngotItem doubleingot;
+	public static MetalSheetItem metalsheet;
+
 
 	public static ArrayList<BaseBlock> allBlocks=new ArrayList<BaseBlock>();
 	public static ArrayList<Item> allItems=new ArrayList<Item>();
+
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {

@@ -28,9 +28,11 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
 import uk.co.aperistudios.firma.items.BrickItem;
+import uk.co.aperistudios.firma.items.DoubleIngotItem;
 import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
+import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 
 public class CommonProxy {
@@ -61,6 +63,8 @@ public class CommonProxy {
     	FirmaMod.brick = new BrickItem("brickitem");
     	FirmaMod.gem = new GemItem("gem");
     	FirmaMod.ingot = new IngotItem("ingot");
+    	FirmaMod.doubleingot = new DoubleIngotItem("doubleingot");
+    	FirmaMod.metalsheet = new MetalSheetItem("metalsheet");
     	
     	
     	for(BaseBlock b : FirmaMod.allBlocks){
