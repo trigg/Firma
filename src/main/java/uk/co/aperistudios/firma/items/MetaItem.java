@@ -37,6 +37,15 @@ public abstract class MetaItem extends Item {
         return damage;
     }
     
+    public int getSubMeta(String s){
+    	for(int i = 0; i < this.subs.size(); i++){
+    		if(this.subs.get(i).equalsIgnoreCase(s)){
+    			return i;
+    		}
+    	}
+		return -1;
+    }
+    
     public int getSubCount(){
     	return subs.size();
     }

@@ -1,0 +1,22 @@
+{"forge_marker":1,"defaults":{"model":"firma:item/generated"},"variants":{    "normal": [{}],
+    "inventory": [{"model": "firma:item/generated"}],"variants":{
+"bowl":{"textures":{"layer0":"firma:items/clay/claybowl"}}
+,"firebrick":{"textures":{"layer0":"firma:items/clay/clayfirebrick"}}
+,"jug":{"textures":{"layer0":"firma:items/clay/clayjug"}}
+,"mold":{"textures":{"layer0":"firma:items/clay/claymold"}}
+,"moldaxe":{"textures":{"layer0":"firma:items/clay/claymoldaxe"}}
+,"moldchisel":{"textures":{"layer0":"firma:items/clay/claymoldchisel"}}
+,"moldhammer":{"textures":{"layer0":"firma:items/clay/claymoldhammer"}}
+,"moldhoe":{"textures":{"layer0":"firma:items/clay/claymoldhoe"}}
+,"moldjavelin":{"textures":{"layer0":"firma:items/clay/claymoldjavelin"}}
+,"moldknife":{"textures":{"layer0":"firma:items/clay/claymoldknife"}}
+,"moldmace":{"textures":{"layer0":"firma:items/clay/claymoldmace"}}
+,"moldpick":{"textures":{"layer0":"firma:items/clay/claymoldpick"}}
+,"moldpropick":{"textures":{"layer0":"firma:items/clay/claymoldpropick"}}
+,"moldsaw":{"textures":{"layer0":"firma:items/clay/claymoldsaw"}}
+,"moldscythe":{"textures":{"layer0":"firma:items/clay/claymoldscythe"}}
+,"moldshovel":{"textures":{"layer0":"firma:items/clay/claymoldshovel"}}
+,"moldsword":{"textures":{"layer0":"firma:items/clay/claymoldsword"}}
+,"pot":{"textures":{"layer0":"firma:items/clay/claypot"}}
+,"vessel":{"textures":{"layer0":"firma:items/clay/clayvessel"}}
+}}}

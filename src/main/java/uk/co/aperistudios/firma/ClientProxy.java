@@ -1,24 +1,34 @@
 package uk.co.aperistudios.firma;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAir;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
-import uk.co.aperistudios.firma.blocks.boring.GrassColor;
-import uk.co.aperistudios.firma.blocks.boring.LeafColor;
+import uk.co.aperistudios.firma.blocks.liquids.BaseLiquid;
+import uk.co.aperistudios.firma.blocks.recolour.GrassColor;
+import uk.co.aperistudios.firma.blocks.recolour.LeafColor;
+import uk.co.aperistudios.firma.blocks.recolour.LiquidColor;
+import uk.co.aperistudios.firma.blocks.recolour.LiquidItemColor;
 import uk.co.aperistudios.firma.items.MetaItem;
+import net.minecraft.client.renderer.ItemMeshDefinition;
+
 
 public class ClientProxy extends CommonProxy {
 	
@@ -45,6 +55,12 @@ public class ClientProxy extends CommonProxy {
 				return new ItemStack(FirmaMod.gem, 1, 40);
 			}
 		};
+		FirmaMod.headTab = new CreativeTabs("FirmaHead"){
+			@Override
+			public ItemStack getTabIconItem() {
+				return new ItemStack(FirmaMod.metalHeads,1,14);
+			}
+		};
 		super.preInit(e);
 		
     	for(BaseBlock b : FirmaMod.allBlocks){
@@ -67,6 +83,27 @@ public class ClientProxy extends CommonProxy {
     			ModelBakery.registerItemVariants(mi,list);
     		}
     	}
+    	
+    	for(BaseLiquid f : FirmaMod.allFluids){
+    		final Item item = Item.getItemFromBlock((Block) f.getFluidBlock());
+    		assert !(item instanceof ItemAir);
+
+    		ModelBakery.registerItemVariants(item);
+
+    		ItemMeshDefinition imd = new ItemMeshDefinition(){
+				@Override
+				public ModelResourceLocation getModelLocation(ItemStack stack) {
+					return new ModelResourceLocation(f.getModelPath(), ((IFluidBlock) f.getFluidBlock()).getFluid().getName());
+				}};
+    		ModelLoader.setCustomMeshDefinition(item, imd);
+
+    		ModelLoader.setCustomStateMapper((Block) f.getFluidBlock(), new StateMapperBase() {
+    			@Override
+    			protected ModelResourceLocation getModelResourceLocation(IBlockState p_178132_1_) {
+    				return new ModelResourceLocation(f.getModelPath(), ((IFluidBlock) f.getFluidBlock()).getFluid().getName());
+    			}
+    		});
+    	}
 	}
 
 	@Override
@@ -75,6 +112,9 @@ public class ClientProxy extends CommonProxy {
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LeafColor(), FirmaMod.leaf2);
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grass);
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grass2);
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LiquidColor(0xffaaff00), FirmaMod.saltwater.getFluidBlock());
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LiquidColor(0xffaaff00), FirmaMod.freshwater.getFluidBlock());
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new LiquidItemColor(), FirmaMod.saltwater.getFluidItem());
 		super.init(e);
 	}
 

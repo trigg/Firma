@@ -1,4 +1,4 @@
-package uk.co.aperistudios.firma.blocks.boring;
+package uk.co.aperistudios.firma.blocks.recolour;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;

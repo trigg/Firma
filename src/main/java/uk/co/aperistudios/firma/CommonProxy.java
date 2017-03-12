@@ -1,10 +1,17 @@
 package uk.co.aperistudios.firma;
 
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.client.main.Main;
 import net.minecraft.item.Item;
+import net.minecraftforge.fluids.BlockFluidClassic;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock;
@@ -27,14 +34,21 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock;
 import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
+import uk.co.aperistudios.firma.blocks.liquids.BaseLiquid;
+import uk.co.aperistudios.firma.gui.GuiHandler;
 import uk.co.aperistudios.firma.items.BrickItem;
+import uk.co.aperistudios.firma.items.ClayItem;
 import uk.co.aperistudios.firma.items.DoubleIngotItem;
 import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
+import uk.co.aperistudios.firma.items.MetalHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
+import uk.co.aperistudios.firma.items.StoneHeads;
+import uk.co.aperistudios.firma.items.UnfiredClay;
+import uk.co.aperistudios.firma.packet.KnapToServer;
 
 public class CommonProxy {
 
@@ -67,7 +81,18 @@ public class CommonProxy {
     	FirmaMod.doubleingot = new DoubleIngotItem("doubleingot");
     	FirmaMod.metalsheet = new MetalSheetItem("metalsheet");
     	FirmaMod.scrapmetal = new ScrapMetalItem("scrapmetal");
+    	FirmaMod.unfiredClayBits = new UnfiredClay("unfiredclay");
+    	FirmaMod.stoneHeads = new StoneHeads("stoneheads");
+    	FirmaMod.metalHeads = new MetalHeads("metalheads");
+    	FirmaMod.clay = new ClayItem("clay");
     	
+    	
+    	FirmaMod.saltwater = new BaseLiquid("saltwater",fluid -> fluid.setLuminosity(10).setDensity(800).setViscosity(1500), MapColor.WATER);
+    	FirmaMod.freshwater = new BaseLiquid("freshwater",fluid -> fluid.setLuminosity(10).setDensity(800).setViscosity(1500), MapColor.WATER);
+    	
+        NetworkRegistry.INSTANCE.registerGuiHandler(FirmaMod.instance, new GuiHandler());
+        
+        KnapToServer.init();
     	
     	for(BaseBlock b : FirmaMod.allBlocks){
     		GameRegistry.register(b);
@@ -77,6 +102,11 @@ public class CommonProxy {
     	
     	for(Item i : FirmaMod.allItems){
     		GameRegistry.register(i);
+    	}
+    	FluidRegistry.enableUniversalBucket();
+    	for(Fluid f : FirmaMod.allFluids){
+    		
+    		FluidRegistry.addBucketForFluid(f);
     	}
     	
     }

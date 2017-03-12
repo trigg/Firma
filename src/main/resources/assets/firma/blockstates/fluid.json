@@ -1,0 +1,34 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "forge:fluid",
+		"fluid": "normal",
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"fluid": [
+			{
+				"custom": {
+					"fluid": "saltwater",					"tintindex": 255
+					
+				}
+			}
+		],
+		"saltwater": [
+			{
+				"custom": {
+					"fluid": "saltwater",					"tintindex": 255
+					
+				}
+			}
+		],
+		"freshwater": [
+			{
+				"custom": {
+					"fluid": "saltwater", 					"tintindex": 255
+					
+				}
+			}
+		]
+	}
+}

@@ -8,13 +8,17 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock;
@@ -37,25 +41,32 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock;
 import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
+import uk.co.aperistudios.firma.blocks.liquids.BaseLiquid;
 import uk.co.aperistudios.firma.items.BrickItem;
+import uk.co.aperistudios.firma.items.ClayItem;
 import uk.co.aperistudios.firma.items.DoubleIngotItem;
 import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
 import uk.co.aperistudios.firma.items.MetaItem;
+import uk.co.aperistudios.firma.items.MetalHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
+import uk.co.aperistudios.firma.items.StoneHeads;
+import uk.co.aperistudios.firma.items.UnfiredClay;
 
 @Mod(modid = FirmaMod.MODID, version = FirmaMod.VERSION)
 public class FirmaMod
 {
+	@Instance
+	public static FirmaMod instance;
 	@SidedProxy(clientSide="uk.co.aperistudios.firma.ClientProxy", serverSide="uk.co.aperistudios.firma.ServerProxy")
 	public static CommonProxy proxy;
 	
     public static final String MODID = "firma";
     public static final String VERSION = "1.0";
-    public static CreativeTabs blockTab, itemTab, gemTab;
+    public static CreativeTabs blockTab, itemTab, gemTab, headTab;
     public static RockBlock rock;
     public static RockBlock2 rock2;
     public static BrickBlock rockb;
@@ -84,9 +95,26 @@ public class FirmaMod
 	public static DoubleIngotItem doubleingot;
 	public static MetalSheetItem metalsheet;
 	public static ScrapMetalItem scrapmetal;
+	
+	public static BaseLiquid freshwater;
+	public static BaseLiquid saltwater;
 
 	public static ArrayList<BaseBlock> allBlocks=new ArrayList<BaseBlock>();
 	public static ArrayList<Item> allItems=new ArrayList<Item>();
+	public static ArrayList<BaseLiquid> allFluids=new ArrayList<BaseLiquid>();
+	public static int packetCounter=0;
+	public static final SimpleNetworkWrapper dispatcher = NetworkRegistry.INSTANCE.newSimpleChannel(FirmaMod.MODID);
+	public static CraftingManager craftingManager = new CraftingManager();
+	public static ClayItem clay;
+	public static ToolKnifeItem toolKnife;
+	public static MetalHeads metalHeads;
+	public static StoneHeads stoneHeads;
+	public static UnfiredClay unfiredClayBits;
+
+	
+	 public FirmaMod() {
+		 instance = this;
+	}
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {

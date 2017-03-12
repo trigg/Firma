@@ -1,0 +1,24 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "forge:fluid",
+		"fluid": "normal",
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"fluid": [
+			{
+				"custom": {
+					"fluid": "saltwater"
+				}
+			}
+		],
+		"normal": [
+			{
+				"custom": {
+					"fluid": "normal"
+				}
+			}
+		]
+	}
+}
