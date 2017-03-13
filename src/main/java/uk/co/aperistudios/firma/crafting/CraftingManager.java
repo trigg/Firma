@@ -1,10 +1,8 @@
-package uk.co.aperistudios.firma;
+package uk.co.aperistudios.firma.crafting;
 
 import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
-import uk.co.aperistudios.firma.crafting.CraftMat;
-import uk.co.aperistudios.firma.crafting.Recipe;
-import uk.co.aperistudios.firma.crafting.RecipeShape;
+import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.MetaItem;
 
@@ -62,8 +60,8 @@ public class CraftingManager {
 		RecipeShape javelinShape = RecipeShape.makeRecipeShape("  S  ", " SSS ", " SSS ", " SSS ", " SSS ");
 		RecipeShape shovelShape = RecipeShape.makeRecipeShape(" SSS ", " SSS ", " SSS ", " SSS ", "  S  ");
 		RecipeShape jugShape = RecipeShape.makeRecipeShape("S SSS", "    S", "   S ", "    S", "   SS");
-		RecipeShape moldShape = RecipeShape.makeRecipeShape("SSSS", "S  S", "S  S", "S  S", "SSSS");
-		RecipeShape chiselShape = RecipeShape.makeRecipeShape("S", "S", "S", "S", "S");
+		RecipeShape moldShape = RecipeShape.makeRecipeShape("    ", " SS ", " SS ", " SS ", "    ");
+		RecipeShape chiselShape = RecipeShape.makeRecipeShape(" S ", " S ", " S ", " S ", " S ");
 		RecipeShape maceShape = RecipeShape.makeRecipeShape(" S ", "SSS", "SSS", "SSS", "S");
 		RecipeShape pickaxeShape = RecipeShape.makeRecipeShape(" SSS ", "S   S");
 		RecipeShape propickaxeShape = RecipeShape.makeRecipeShape("SSSS ", "S   S", "S    ");

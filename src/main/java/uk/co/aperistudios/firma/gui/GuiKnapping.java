@@ -14,10 +14,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.GuiScreenEvent.ActionPerformedEvent;
 import net.minecraftforge.common.MinecraftForge;
-import uk.co.aperistudios.firma.CraftingManager;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.container.ContainerSpecialCrafting;
 import uk.co.aperistudios.firma.crafting.CraftMat;
+import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.crafting.Recipe;
 import uk.co.aperistudios.firma.packet.KnapToServer;
 import uk.co.aperistudios.firma.player.PlayerData;
@@ -25,9 +25,10 @@ import uk.co.aperistudios.firma.player.PlayerData;
 public class GuiKnapping extends FirmaGuiContainer {
 	public GuiKnapping(EntityPlayer player, int x, int y, int z) {
 		super(new ContainerSpecialCrafting(player.inventory, x, y, z), 176, 103);
-		//inventorySlots = ;
+		// inventorySlots = ;
 		tex = new ResourceLocation(FirmaMod.MODID + ":textures/gui/guiknapping.png");
 	}
+
 	public static CraftMat staticMaterial;
 	public static String staticMaterialRock;
 
@@ -71,7 +72,7 @@ public class GuiKnapping extends FirmaGuiContainer {
 		if (staticMaterial == CraftMat.ANVIL) {
 
 		} else if (staticMaterial == CraftMat.CLAY) {
-
+			return "firma:textures/blocks/clay.png";
 		} else if (staticMaterial == CraftMat.STONE) {
 			if (staticMaterialRock != null) {
 				return "firma:textures/blocks/rock/" + staticMaterialRock + ".png";

@@ -18,9 +18,6 @@ public class ContainerSpecialCrafting extends Container {
 		addSlotToContainer(outputSlot);
 
 		PlayerInv.buildInventoryLayout(this, inventoryplayer, 8, 108,true, true);
-
-		// this.onCraftMatrixChanged(this.craftMatrix);
-		// isConstructing = false;
 	}
 
 	@Override

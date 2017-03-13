@@ -42,6 +42,7 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
 import uk.co.aperistudios.firma.blocks.liquids.BaseLiquid;
+import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.items.BrickItem;
 import uk.co.aperistudios.firma.items.ClayItem;
 import uk.co.aperistudios.firma.items.DoubleIngotItem;
@@ -54,6 +55,7 @@ import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
 import uk.co.aperistudios.firma.items.StoneHeads;
+import uk.co.aperistudios.firma.items.ToolKnifeItem;
 import uk.co.aperistudios.firma.items.UnfiredClay;
 
 @Mod(modid = FirmaMod.MODID, version = FirmaMod.VERSION)

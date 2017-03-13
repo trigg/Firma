@@ -1,7 +1,6 @@
 package uk.co.aperistudios.firma.crafting;
 
 import java.util.ArrayList;
-import uk.co.aperistudios.firma.CraftingManager;
 
 public class RecipeShape {
 	public int width;

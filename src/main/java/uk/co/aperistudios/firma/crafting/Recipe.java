@@ -1,7 +1,7 @@
 package uk.co.aperistudios.firma.crafting;
 
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import uk.co.aperistudios.firma.CraftingManager;
 import uk.co.aperistudios.firma.FirmaMod;
 
 public class Recipe {
@@ -16,7 +16,7 @@ public class Recipe {
 		r.is = output.copy();
 		r.material = mat;
 		r.rs = rs;
-		
+
 		if (is != null) {
 			if (r.material == CraftMat.STONE && is.getItem() == FirmaMod.pebble) {
 				r.itemName = "pebble";
@@ -38,8 +38,10 @@ public class Recipe {
 				System.err.println("Leather cannot have a specified ItemStack");
 				assert r == null;
 			} else {
-				// Specifying an itemstack with a craftmat that does not match. So specifying leather crafting with metal or stonecrafting with a sandwich
-				System.err.println("Itemstack "+is+" does not match Craft Mat "+mat);
+				// Specifying an itemstack with a craftmat that does not match.
+				// So specifying leather crafting with metal or stonecrafting
+				// with a sandwich
+				System.err.println("Itemstack " + is + " does not match Craft Mat " + mat);
 				assert r == null;
 			}
 		}
@@ -62,8 +64,8 @@ public class Recipe {
 	public int getWidth() {
 		return rs.width;
 	}
-	
-	public int getHeight(){
+
+	public int getHeight() {
 		return rs.height;
 	}
 
@@ -73,6 +75,34 @@ public class Recipe {
 
 	public ItemStack getOutput() {
 		return is.copy();
+	}
+
+	public boolean payPrice(EntityPlayerMP p) {
+		ItemStack i = p.getHeldItemMainhand();
+		if (material == CraftMat.STONE) {
+			if (i.getItem() == FirmaMod.pebble) {
+				if (i.getCount() > 1) {
+					i.setCount(i.getCount() - 1);
+					return true;
+				}
+			}
+			return false;
+		} else if (material == CraftMat.CLAY) {
+			if (i.getItem() == FirmaMod.clay) {
+				if (i.getCount() > 5) {
+					i.setCount(i.getCount() - 5);
+					return true;
+				}
+			}
+			return false;
+		} else if (material == CraftMat.LEATHER) {
+			// BLOCK BASED
+			assert 1 == 0;
+		} else if (material == CraftMat.ANVIL) {
+			// BLOCK BASED
+			assert 1 == 0;
+		}
+		return false;
 	}
 
 }
