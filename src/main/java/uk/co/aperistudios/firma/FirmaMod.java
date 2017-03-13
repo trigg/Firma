@@ -1,7 +1,6 @@
 package uk.co.aperistudios.firma;
 
 import java.util.ArrayList;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,6 +19,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import uk.co.aperistudios.firma.blocks.CrucibleBlock;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock2;
@@ -57,26 +57,25 @@ import uk.co.aperistudios.firma.items.StoneHeads;
 import uk.co.aperistudios.firma.items.UnfiredClay;
 
 @Mod(modid = FirmaMod.MODID, version = FirmaMod.VERSION)
-public class FirmaMod
-{
+public class FirmaMod {
 	@Instance
 	public static FirmaMod instance;
-	@SidedProxy(clientSide="uk.co.aperistudios.firma.ClientProxy", serverSide="uk.co.aperistudios.firma.ServerProxy")
+	@SidedProxy(clientSide = "uk.co.aperistudios.firma.ClientProxy", serverSide = "uk.co.aperistudios.firma.ServerProxy")
 	public static CommonProxy proxy;
-	
-    public static final String MODID = "firma";
-    public static final String VERSION = "1.0";
-    public static CreativeTabs blockTab, itemTab, gemTab, headTab;
-    public static RockBlock rock;
-    public static RockBlock2 rock2;
-    public static BrickBlock rockb;
-    public static BrickBlock2 rockb2;
-    public static CobbleBlock rockc;
-    public static CobbleBlock2 rockc2;
-    public static SmoothBlock rocks;
-    public static SmoothBlock2 rocks2;
-    public static PlankBlock plank;
-    public static PlankBlock2 plank2;
+
+	public static final String MODID = "firma";
+	public static final String VERSION = "1.0";
+	public static CreativeTabs blockTab, itemTab, gemTab, headTab;
+	public static RockBlock rock;
+	public static RockBlock2 rock2;
+	public static BrickBlock rockb;
+	public static BrickBlock2 rockb2;
+	public static CobbleBlock rockc;
+	public static CobbleBlock2 rockc2;
+	public static SmoothBlock rocks;
+	public static SmoothBlock2 rocks2;
+	public static PlankBlock plank;
+	public static PlankBlock2 plank2;
 	public static DirtBlock dirt;
 	public static DirtBlock2 dirt2;
 	public static GrassBlock grass;
@@ -87,7 +86,7 @@ public class FirmaMod
 	public static SandBlock2 sand2;
 	public static LeafBlock leaf;
 	public static LeafBlock2 leaf2;
-	
+
 	public static PebbleItem pebble;
 	public static BrickItem brick;
 	public static GemItem gem;
@@ -95,14 +94,14 @@ public class FirmaMod
 	public static DoubleIngotItem doubleingot;
 	public static MetalSheetItem metalsheet;
 	public static ScrapMetalItem scrapmetal;
-	
+
 	public static BaseLiquid freshwater;
 	public static BaseLiquid saltwater;
 
-	public static ArrayList<BaseBlock> allBlocks=new ArrayList<BaseBlock>();
-	public static ArrayList<Item> allItems=new ArrayList<Item>();
-	public static ArrayList<BaseLiquid> allFluids=new ArrayList<BaseLiquid>();
-	public static int packetCounter=0;
+	public static ArrayList<BaseBlock> allBlocks = new ArrayList<BaseBlock>();
+	public static ArrayList<Item> allItems = new ArrayList<Item>();
+	public static ArrayList<BaseLiquid> allFluids = new ArrayList<BaseLiquid>();
+	public static int packetCounter = 0;
 	public static final SimpleNetworkWrapper dispatcher = NetworkRegistry.INSTANCE.newSimpleChannel(FirmaMod.MODID);
 	public static CraftingManager craftingManager = new CraftingManager();
 	public static ClayItem clay;
@@ -110,25 +109,25 @@ public class FirmaMod
 	public static MetalHeads metalHeads;
 	public static StoneHeads stoneHeads;
 	public static UnfiredClay unfiredClayBits;
+	public static CrucibleBlock crucible;
 
-	
-	 public FirmaMod() {
-		 instance = this;
+	public FirmaMod() {
+		instance = this;
 	}
-    
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent e) {
-    	proxy.preInit(e);
-    }
 
-    @EventHandler
-    public void init(FMLInitializationEvent e) {
-        proxy.init(e);
-    }
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent e) {
+		proxy.preInit(e);
+	}
 
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent e) {
-        proxy.postInit(e);
-    }
-    
+	@EventHandler
+	public void init(FMLInitializationEvent e) {
+		proxy.init(e);
+	}
+
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent e) {
+		proxy.postInit(e);
+	}
+
 }

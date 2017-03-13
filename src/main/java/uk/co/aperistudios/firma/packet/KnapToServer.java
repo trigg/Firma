@@ -8,32 +8,36 @@ import net.minecraftforge.fml.relauncher.Side;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.player.PlayerData;
 
-public class KnapToServer implements IMessage{
-	
-	int x=-1, y=-1;
-	boolean b=false;
-	
-	public KnapToServer(){
-		
-	}
-	
-	public KnapToServer(int x, int y, boolean b) {
-		this.x=x;this.y=y;this.b=b;
+public class KnapToServer implements IMessage {
+
+	int x = -1, y = -1;
+	boolean b = false;
+
+	public KnapToServer() {
+
 	}
 
-	public static void init(){
-		FirmaMod.dispatcher.registerMessage(KnapToServerHandler.class,KnapToServer.class, FirmaMod.packetCounter++, Side.SERVER);
+	public KnapToServer(int x, int y, boolean b) {
+		this.x = x;
+		this.y = y;
+		this.b = b;
+	}
+
+	public static void init() {
+		FirmaMod.dispatcher.registerMessage(KnapToServerHandler.class, KnapToServer.class, FirmaMod.packetCounter++, Side.SERVER);
 	}
 
 	@Override
 	public void fromBytes(ByteBuf buf) {
-		x = buf.readInt(); y = buf.readInt();
+		x = buf.readInt();
+		y = buf.readInt();
 		b = buf.readBoolean();
 	}
 
 	@Override
 	public void toBytes(ByteBuf buf) {
-		buf.writeInt(x); buf.writeInt(y);
+		buf.writeInt(x);
+		buf.writeInt(y);
 		buf.writeBoolean(b);
 	}
 

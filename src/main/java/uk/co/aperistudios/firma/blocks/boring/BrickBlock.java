@@ -1,7 +1,6 @@
 package uk.co.aperistudios.firma.blocks.boring;
 
 import java.util.ArrayList;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -17,49 +16,51 @@ import uk.co.aperistudios.firma.types.RockEnum;
 
 public class BrickBlock extends BaseBlock {
 	public static final IProperty<RockEnum> properties = PropertyEnum.create("variants", RockEnum.class);
-	
+
 	public BrickBlock(Material materialIn) {
-		super(materialIn,"brick");
+		super(materialIn, "brick");
 		this.setHardness(10);
 		this.setResistance(10);
 		this.setCreativeTab(FirmaMod.blockTab);
 		this.setDefaultState(this.getStateFromMeta(0));
 	}
-	
+
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, properties);
 	}
-	
+
 	@Override
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list){
+	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
 		for (final RockEnum enumType : RockEnum.values()) {
 			list.add(new ItemStack(this, 1, enumType.getMeta()));
 		}
 	}
-	
+
 	@Override
-    public int getMetaFromState(IBlockState state){
-	    RockEnum type = (RockEnum) state.getValue(properties);
+	public int getMetaFromState(IBlockState state) {
+		RockEnum type = (RockEnum) state.getValue(properties);
 
 		return type.getMeta();
 	}
-	
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-	    return getDefaultState().withProperty(properties, RockEnum.get(meta));
+		return getDefaultState().withProperty(properties, RockEnum.get(meta));
 	}
 
 	@Override
 	public String getSpecialName(ItemStack stack) {
-		if(stack==null){ throw new NullPointerException(); }
+		if (stack == null) {
+			throw new NullPointerException();
+		}
 		return RockEnum.getName(stack.getMetadata());
 	}
 
 	@Override
 	public ArrayList<String> getVariantNames() {
 		ArrayList<String> names = new ArrayList<String>();
-		for(RockEnum tr : RockEnum.values()){
+		for (RockEnum tr : RockEnum.values()) {
 			names.add(tr.getName());
 		}
 		return names;

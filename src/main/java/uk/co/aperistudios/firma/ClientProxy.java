@@ -29,9 +29,8 @@ import uk.co.aperistudios.firma.blocks.recolour.LiquidItemColor;
 import uk.co.aperistudios.firma.items.MetaItem;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 
-
 public class ClientProxy extends CommonProxy {
-	
+
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
 		FirmaMod.blockTab = new CreativeTabs("FirmaBlocks") {
@@ -49,61 +48,64 @@ public class ClientProxy extends CommonProxy {
 				return new ItemStack(FirmaMod.brick);
 			}
 		};
-		FirmaMod.gemTab = new CreativeTabs("FirmaGems"){
+		FirmaMod.gemTab = new CreativeTabs("FirmaGems") {
 			@Override
 			public ItemStack getTabIconItem() {
 				return new ItemStack(FirmaMod.gem, 1, 40);
 			}
 		};
-		FirmaMod.headTab = new CreativeTabs("FirmaHead"){
+		FirmaMod.headTab = new CreativeTabs("FirmaHead") {
 			@Override
 			public ItemStack getTabIconItem() {
-				return new ItemStack(FirmaMod.metalHeads,1,14);
+				return new ItemStack(FirmaMod.metalHeads, 1, 14);
 			}
 		};
 		super.preInit(e);
-		
-    	for(BaseBlock b : FirmaMod.allBlocks){
-    		b.registerRender();
-    	}
-    	
-    	for(Item i : FirmaMod.allItems){
-    		if(i instanceof MetaItem){
-    			MetaItem mi = (MetaItem) i;
-    			ResourceLocation[] list = new ResourceLocation[mi.getSubCount()];
-    			for(int d=0;d<mi.getSubCount();d++){
-    				String loc = mi.getRegistryName().toString();//+"#variants="+s;
-    				ResourceLocation res = new ResourceLocation(loc);
-    				// FirmaMod.MODID + ":" + this.getUnlocalizedName().substring(5)+"."+s
-    				ModelResourceLocation mrl=new ModelResourceLocation(loc, "variants="+mi.getSubName(d));
-    				ModelLoader.setCustomModelResourceLocation(i, d, mrl);
-    				//ModelBakery.registerItemVariants(Item.getItemFromBlock(this), res);
-    				list[d]=res;
-    			}
-    			ModelBakery.registerItemVariants(mi,list);
-    		}
-    	}
-    	
-    	for(BaseLiquid f : FirmaMod.allFluids){
-    		final Item item = Item.getItemFromBlock((Block) f.getFluidBlock());
-    		assert !(item instanceof ItemAir);
 
-    		ModelBakery.registerItemVariants(item);
+		for (BaseBlock b : FirmaMod.allBlocks) {
+			b.registerRender();
+		}
 
-    		ItemMeshDefinition imd = new ItemMeshDefinition(){
+		for (Item i : FirmaMod.allItems) {
+			if (i instanceof MetaItem) {
+				MetaItem mi = (MetaItem) i;
+				ResourceLocation[] list = new ResourceLocation[mi.getSubCount()];
+				for (int d = 0; d < mi.getSubCount(); d++) {
+					String loc = mi.getRegistryName().toString();// +"#variants="+s;
+					ResourceLocation res = new ResourceLocation(loc);
+					// FirmaMod.MODID + ":" +
+					// this.getUnlocalizedName().substring(5)+"."+s
+					ModelResourceLocation mrl = new ModelResourceLocation(loc, "variants=" + mi.getSubName(d));
+					ModelLoader.setCustomModelResourceLocation(i, d, mrl);
+					// ModelBakery.registerItemVariants(Item.getItemFromBlock(this),
+					// res);
+					list[d] = res;
+				}
+				ModelBakery.registerItemVariants(mi, list);
+			}
+		}
+
+		for (BaseLiquid f : FirmaMod.allFluids) {
+			final Item item = Item.getItemFromBlock((Block) f.getFluidBlock());
+			assert !(item instanceof ItemAir);
+
+			ModelBakery.registerItemVariants(item);
+
+			ItemMeshDefinition imd = new ItemMeshDefinition() {
 				@Override
 				public ModelResourceLocation getModelLocation(ItemStack stack) {
 					return new ModelResourceLocation(f.getModelPath(), ((IFluidBlock) f.getFluidBlock()).getFluid().getName());
-				}};
-    		ModelLoader.setCustomMeshDefinition(item, imd);
+				}
+			};
+			ModelLoader.setCustomMeshDefinition(item, imd);
 
-    		ModelLoader.setCustomStateMapper((Block) f.getFluidBlock(), new StateMapperBase() {
-    			@Override
-    			protected ModelResourceLocation getModelResourceLocation(IBlockState p_178132_1_) {
-    				return new ModelResourceLocation(f.getModelPath(), ((IFluidBlock) f.getFluidBlock()).getFluid().getName());
-    			}
-    		});
-    	}
+			ModelLoader.setCustomStateMapper((Block) f.getFluidBlock(), new StateMapperBase() {
+				@Override
+				protected ModelResourceLocation getModelResourceLocation(IBlockState p_178132_1_) {
+					return new ModelResourceLocation(f.getModelPath(), ((IFluidBlock) f.getFluidBlock()).getFluid().getName());
+				}
+			});
+		}
 	}
 
 	@Override

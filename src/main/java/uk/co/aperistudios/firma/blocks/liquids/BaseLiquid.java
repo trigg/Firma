@@ -2,7 +2,6 @@ package uk.co.aperistudios.firma.blocks.liquids;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -21,16 +20,17 @@ import uk.co.aperistudios.firma.FirmaMod;
 public class BaseLiquid extends Fluid {
 	public Block b;
 	public Item i;
+
 	public BaseLiquid(String fluidName, Consumer<Fluid> f, MapColor col) {
-		super(fluidName, new ResourceLocation(FirmaMod.MODID+":blocks/water_still"), new ResourceLocation(FirmaMod.MODID+":blocks/water_flow"));
-		this.setUnlocalizedName(FirmaMod.MODID+":fluid."+fluidName);
+		super(fluidName, new ResourceLocation(FirmaMod.MODID + ":blocks/water_still"), new ResourceLocation(FirmaMod.MODID + ":blocks/water_flow"));
+		this.setUnlocalizedName(FirmaMod.MODID + ":fluid." + fluidName);
 		FluidRegistry.registerFluid(this);
 		f.accept(this);
 		b = new BlockFluidClassic(this, Material.WATER);
-		b.setRegistryName(FirmaMod.MODID+":"+fluidName);
-		b.setUnlocalizedName(FirmaMod.MODID+":blocks.fluid."+fluidName);
+		b.setRegistryName(FirmaMod.MODID + ":" + fluidName);
+		b.setUnlocalizedName(FirmaMod.MODID + ":blocks.fluid." + fluidName);
 		b.setCreativeTab(FirmaMod.blockTab);
-        //((BlockFluidBase) b).setQuantaPerBlock(1);
+		// ((BlockFluidBase) b).setQuantaPerBlock(1);
 		GameRegistry.register(block);
 		final Block block = (Block) b;
 		i = new ItemBlock(block);
@@ -38,13 +38,13 @@ public class BaseLiquid extends Fluid {
 		GameRegistry.register(i);
 		FirmaMod.allFluids.add(this);
 	}
-	
-	public Block getFluidBlock(){
+
+	public Block getFluidBlock() {
 		return b;
 	}
 
 	public ResourceLocation getModelPath() {
-		return new ResourceLocation(FirmaMod.MODID+":fluid");
+		return new ResourceLocation(FirmaMod.MODID + ":fluid");
 	}
 
 	public Item getFluidItem() {

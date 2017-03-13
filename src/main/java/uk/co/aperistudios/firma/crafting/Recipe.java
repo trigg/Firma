@@ -1,58 +1,78 @@
 package uk.co.aperistudios.firma.crafting;
 
-import java.util.ArrayList;
-
 import net.minecraft.item.ItemStack;
 import uk.co.aperistudios.firma.CraftingManager;
 import uk.co.aperistudios.firma.FirmaMod;
 
 public class Recipe {
-	int width, height;
 	CraftMat material;
+	String itemName;
 	String metaSub;
-	ArrayList<String> map;
-	
-	public static Recipe makeRecipe( ItemStack output, Object... objects){
+	RecipeShape rs;
+	ItemStack is;
+
+	public static Recipe makeRecipe(ItemStack output, CraftMat mat, ItemStack is, RecipeShape rs) {
 		Recipe r = new Recipe();
-		r.width=-1;
-		r.height=0;
-		r.material = null;
-		for(int i = 0; i < objects.length;i++){
-			if(objects[i] instanceof String){
-				String line = ((String)objects[i]);
-				int strlen = line.length();
-				if(r.width == -1){
-					r.width = strlen;
-				}
-				assert r.width==strlen;
-				for(int c = 0; c < line.length(); c++){
-					r.map.add(line.substring(c, c+1));
-				}
-				r.height++;
-			}else if(objects[i] instanceof ItemStack){
-				ItemStack is = (ItemStack) objects[i];
-				if(r.material == CraftMat.STONE && is.getItem() == FirmaMod.pebble){
-					
-				}else if(r.material == CraftMat.CLAY && is.getItem() == FirmaMod.clay){
-					
-				}else if(r.material == CraftMat.ANVIL && is.getItem() == FirmaMod.ingot){
-					
-				}else if(r.material == CraftMat.ANVIL && is.getItem() == FirmaMod.doubleingot){
-					
-				}else if(r.material == CraftMat.ANVIL && is.getItem() == FirmaMod.metalsheet){
-					
-				}else if(r.material == CraftMat.LEATHER){ // Takes no subtypes yet
-					assert r==null;
-				}else{
-					assert r==null;
-				}
-			}else if(objects[i] instanceof CraftMat){
-				assert r.material == null;
-				r.material = (CraftMat) objects[i];
+		r.is = output.copy();
+		r.material = mat;
+		r.rs = rs;
+		
+		if (is != null) {
+			if (r.material == CraftMat.STONE && is.getItem() == FirmaMod.pebble) {
+				r.itemName = "pebble";
+				r.metaSub = FirmaMod.pebble.getSubName(is.getItemDamage());
+			} else if (r.material == CraftMat.CLAY && is.getItem() == FirmaMod.clay) {
+				r.itemName = "clay";
+				r.metaSub = FirmaMod.clay.getSubName(is.getItemDamage());
+			} else if (r.material == CraftMat.ANVIL && is.getItem() == FirmaMod.ingot) {
+				r.itemName = "ingot";
+				r.metaSub = FirmaMod.ingot.getSubName(is.getItemDamage());
+			} else if (r.material == CraftMat.ANVIL && is.getItem() == FirmaMod.doubleingot) {
+				r.itemName = "doubleingot";
+				r.metaSub = FirmaMod.doubleingot.getSubName(is.getItemDamage());
+			} else if (r.material == CraftMat.ANVIL && is.getItem() == FirmaMod.metalsheet) {
+				r.itemName = "metalsheet";
+				r.metaSub = FirmaMod.metalsheet.getSubName(is.getItemDamage());
+			} else if (r.material == CraftMat.LEATHER) { // Takes no subtypes
+															// yet
+				System.err.println("Leather cannot have a specified ItemStack");
+				assert r == null;
+			} else {
+				// Specifying an itemstack with a craftmat that does not match. So specifying leather crafting with metal or stonecrafting with a sandwich
+				System.err.println("Itemstack "+is+" does not match Craft Mat "+mat);
+				assert r == null;
 			}
 		}
 		CraftingManager.addRecipe(r);
 		return r;
 	}
+
+	public CraftMat getCraftMat() {
+		return material;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public String getSubItemName() {
+		return metaSub;
+	}
+
+	public int getWidth() {
+		return rs.width;
+	}
 	
+	public int getHeight(){
+		return rs.height;
+	}
+
+	public RecipeShape getShape() {
+		return rs;
+	}
+
+	public ItemStack getOutput() {
+		return is.copy();
+	}
+
 }
