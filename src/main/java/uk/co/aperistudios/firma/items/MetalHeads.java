@@ -10,8 +10,7 @@ public class MetalHeads extends MetaItem {
 		ArrayList<String> list = new ArrayList<String>();
 		for (String type : new String[] { "axe", "chisel", "hammer", "hoe", "javelin", "knife", "mace", "pick", "propick", "saw", "scythe", "shovel",
 				"sword" }) {
-			for (String mat : new String[] { "bismuthbronze", "blackbronze", "blacksteel", "bluesteel", "bronze", "copper", "redsteel", "steel",
-					"wroughtiron" }) {
+			for (String mat : new String[] { "blacksteel", "blackbronze","redsteel","copper","bronze","bismuthbronze","bluesteel","steel","wroughtiron" }) {
 				list.add(mat + type);
 			}
 		}

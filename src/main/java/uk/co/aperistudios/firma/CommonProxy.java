@@ -85,8 +85,8 @@ public class CommonProxy {
 		FirmaMod.metalsheet = new MetalSheetItem("metalsheet");
 		FirmaMod.scrapmetal = new ScrapMetalItem("scrapmetal");
 		FirmaMod.unfiredClayBits = new UnfiredClay("unfiredclay");
-		FirmaMod.stoneHeads = new StoneHeads("stoneheads");
 		FirmaMod.metalHeads = new MetalHeads("metalheads");
+		FirmaMod.stoneHeads = new StoneHeads("stoneheads");
 		FirmaMod.clay = new ClayItem("clay");
 
 		FirmaMod.saltwater = new BaseLiquid("saltwater", fluid -> fluid.setLuminosity(10).setDensity(800).setViscosity(1500), MapColor.WATER);
