@@ -12,7 +12,7 @@ public class MetalHeads extends MetaItem {
 				"sword" }) {
 			for (String mat : new String[] { "bismuthbronze", "blackbronze", "blacksteel", "bluesteel", "bronze", "copper", "redsteel", "steel",
 					"wroughtiron" }) {
-				list.add(mat + type + "head");
+				list.add(mat + type);
 			}
 		}
 		setSubs(list);

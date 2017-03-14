@@ -1,0 +1,16 @@
+{"forge_marker":1,"defaults":{"model":"firma:item/generated"},"variants":{    "normal": [{}],
+    "inventory": [{"model": "firma:item/generated"}],"variants":{
+"axe":{"textures":{"layer0":"firma:items/toolheads/stoneaxe"}}
+,"chisel":{"textures":{"layer0":"firma:items/toolheads/stonechisel"}}
+,"hammer":{"textures":{"layer0":"firma:items/toolheads/stonehammer"}}
+,"hoe":{"textures":{"layer0":"firma:items/toolheads/stonehoe"}}
+,"javelin":{"textures":{"layer0":"firma:items/toolheads/stonejavelin"}}
+,"knife":{"textures":{"layer0":"firma:items/toolheads/stoneknife"}}
+,"mace":{"textures":{"layer0":"firma:items/toolheads/stonemace"}}
+,"pick":{"textures":{"layer0":"firma:items/toolheads/stonepick"}}
+,"propick":{"textures":{"layer0":"firma:items/toolheads/stonepropick"}}
+,"saw":{"textures":{"layer0":"firma:items/toolheads/stonesaw"}}
+,"scythe":{"textures":{"layer0":"firma:items/toolheads/stonescythe"}}
+,"shovel":{"textures":{"layer0":"firma:items/toolheads/stoneshovel"}}
+,"sword":{"textures":{"layer0":"firma:items/toolheads/stonesword"}}
+}}}
