@@ -41,6 +41,7 @@ import uk.co.aperistudios.firma.gui.GuiHandler;
 import uk.co.aperistudios.firma.items.BrickItem;
 import uk.co.aperistudios.firma.items.ClayItem;
 import uk.co.aperistudios.firma.items.DoubleIngotItem;
+import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
@@ -49,8 +50,11 @@ import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
 import uk.co.aperistudios.firma.items.StoneHeads;
+import uk.co.aperistudios.firma.items.ToolItem;
 import uk.co.aperistudios.firma.items.UnfiredClay;
 import uk.co.aperistudios.firma.packet.KnapToServer;
+import uk.co.aperistudios.firma.types.ToolMetals;
+import uk.co.aperistudios.firma.types.ToolType;
 
 public class CommonProxy {
 
@@ -88,6 +92,14 @@ public class CommonProxy {
 		FirmaMod.metalHeads = new MetalHeads("metalheads");
 		FirmaMod.stoneHeads = new StoneHeads("stoneheads");
 		FirmaMod.clay = new ClayItem("clay");
+		ToolItem thisTool = null;
+		for(ToolMetals tm : ToolMetals.values()){
+			for(ToolType tt : ToolType.values()){
+				thisTool = new ToolItem(tm,tt);
+				FirmaMod.bunchOfTools.add(thisTool);
+				thisTool.addRecipe();
+			}
+		}
 
 		FirmaMod.saltwater = new BaseLiquid("saltwater", fluid -> fluid.setLuminosity(10).setDensity(800).setViscosity(1500), MapColor.WATER);
 		FirmaMod.freshwater = new BaseLiquid("freshwater", fluid -> fluid.setLuminosity(10).setDensity(800).setViscosity(1500), MapColor.WATER);
@@ -103,7 +115,7 @@ public class CommonProxy {
 			GameRegistry.register(i);
 		}
 
-		for (Item i : FirmaMod.allItems) {
+		for (FirmaItem i : FirmaMod.allItems) {
 			GameRegistry.register(i);
 		}
 		FluidRegistry.enableUniversalBucket();

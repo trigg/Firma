@@ -26,6 +26,7 @@ import uk.co.aperistudios.firma.blocks.recolour.GrassColor;
 import uk.co.aperistudios.firma.blocks.recolour.LeafColor;
 import uk.co.aperistudios.firma.blocks.recolour.LiquidColor;
 import uk.co.aperistudios.firma.blocks.recolour.LiquidItemColor;
+import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.MetaItem;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 
@@ -60,13 +61,19 @@ public class ClientProxy extends CommonProxy {
 				return new ItemStack(FirmaMod.metalHeads, 1, 14);
 			}
 		};
+		FirmaMod.toolTab = new CreativeTabs("FirmaTools"){
+			@Override
+			public ItemStack getTabIconItem() {
+				return new ItemStack(FirmaMod.bunchOfTools.get(4));
+			}
+		};
 		super.preInit(e);
 
 		for (BaseBlock b : FirmaMod.allBlocks) {
 			b.registerRender();
 		}
 
-		for (Item i : FirmaMod.allItems) {
+		for (FirmaItem i : FirmaMod.allItems) {
 			if (i instanceof MetaItem) {
 				MetaItem mi = (MetaItem) i;
 				ResourceLocation[] list = new ResourceLocation[mi.getSubCount()];
@@ -82,6 +89,13 @@ public class ClientProxy extends CommonProxy {
 					list[d] = res;
 				}
 				ModelBakery.registerItemVariants(mi, list);
+			}else{
+				FirmaItem fi = (FirmaItem) i;
+				String loc = fi.getBlockStateName();
+				ResourceLocation rl = new ResourceLocation(loc);
+				ModelResourceLocation mrl = new ModelResourceLocation(loc, "variants="+fi.getVariant());
+				ModelLoader.setCustomModelResourceLocation(i, 0, mrl);
+				//ModelBakery.registerItemVariants(fi, rl);
 			}
 		}
 

@@ -15,7 +15,6 @@ public abstract class MetaItem extends FirmaItem {
 		super(name);
 		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
-		FirmaMod.allItems.add(this);
 		this.setCreativeTab(FirmaMod.itemTab);
 	}
 

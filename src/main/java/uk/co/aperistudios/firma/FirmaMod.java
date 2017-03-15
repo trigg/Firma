@@ -46,6 +46,7 @@ import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.items.BrickItem;
 import uk.co.aperistudios.firma.items.ClayItem;
 import uk.co.aperistudios.firma.items.DoubleIngotItem;
+import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
@@ -55,7 +56,7 @@ import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
 import uk.co.aperistudios.firma.items.StoneHeads;
-import uk.co.aperistudios.firma.items.ToolKnifeItem;
+import uk.co.aperistudios.firma.items.ToolItem;
 import uk.co.aperistudios.firma.items.UnfiredClay;
 
 @Mod(modid = FirmaMod.MODID, version = FirmaMod.VERSION)
@@ -101,17 +102,18 @@ public class FirmaMod {
 	public static BaseLiquid saltwater;
 
 	public static ArrayList<BaseBlock> allBlocks = new ArrayList<BaseBlock>();
-	public static ArrayList<Item> allItems = new ArrayList<Item>();
+	public static ArrayList<FirmaItem> allItems = new ArrayList<FirmaItem>();
 	public static ArrayList<BaseLiquid> allFluids = new ArrayList<BaseLiquid>();
 	public static int packetCounter = 0;
 	public static final SimpleNetworkWrapper dispatcher = NetworkRegistry.INSTANCE.newSimpleChannel(FirmaMod.MODID);
 	public static CraftingManager craftingManager = new CraftingManager();
 	public static ClayItem clay;
-	public static ToolKnifeItem toolKnife;
+	public static ArrayList<ToolItem> bunchOfTools = new ArrayList<ToolItem>();
 	public static MetalHeads metalHeads;
 	public static StoneHeads stoneHeads;
 	public static UnfiredClay unfiredClayBits;
 	public static CrucibleBlock crucible;
+	public static CreativeTabs toolTab;
 
 	public FirmaMod() {
 		instance = this;
