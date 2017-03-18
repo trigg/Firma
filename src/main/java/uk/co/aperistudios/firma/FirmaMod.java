@@ -33,6 +33,8 @@ import uk.co.aperistudios.firma.blocks.boring.GravelBlock;
 import uk.co.aperistudios.firma.blocks.boring.GravelBlock2;
 import uk.co.aperistudios.firma.blocks.boring.LeafBlock;
 import uk.co.aperistudios.firma.blocks.boring.LeafBlock2;
+import uk.co.aperistudios.firma.blocks.boring.LogBlock;
+import uk.co.aperistudios.firma.blocks.boring.LogBlock2;
 import uk.co.aperistudios.firma.blocks.boring.PlankBlock;
 import uk.co.aperistudios.firma.blocks.boring.PlankBlock2;
 import uk.co.aperistudios.firma.blocks.boring.RockBlock;
@@ -42,6 +44,8 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
 import uk.co.aperistudios.firma.blocks.liquids.BaseLiquid;
+import uk.co.aperistudios.firma.blocks.living.SaplingBlock;
+import uk.co.aperistudios.firma.blocks.living.SaplingBlock2;
 import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.items.BrickItem;
 import uk.co.aperistudios.firma.items.ClayItem;
@@ -89,6 +93,10 @@ public class FirmaMod {
 	public static SandBlock2 sand2;
 	public static LeafBlock leaf;
 	public static LeafBlock2 leaf2;
+	public static SaplingBlock sapling;
+	public static SaplingBlock2 sapling2;
+	public static LogBlock log;
+	public static LogBlock2 log2;
 
 	public static PebbleItem pebble;
 	public static BrickItem brick;

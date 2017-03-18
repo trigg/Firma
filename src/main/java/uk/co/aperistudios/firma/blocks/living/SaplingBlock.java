@@ -1,4 +1,4 @@
-package uk.co.aperistudios.firma.blocks.boring;
+package uk.co.aperistudios.firma.blocks.living;
 
 import java.util.ArrayList;
 import net.minecraft.block.material.Material;
@@ -10,18 +10,21 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import uk.co.aperistudios.firma.FirmaMod;
+import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
 import uk.co.aperistudios.firma.types.WoodEnum;
 
-public class PlankBlock extends BaseBlock {
+public class SaplingBlock extends BaseBlock {
+
 	public static final IProperty<WoodEnum> properties = PropertyEnum.create("variants", WoodEnum.class);
 
-	public PlankBlock(Material materialIn) {
-		super(materialIn, "plank");
+	public SaplingBlock(Material materialIn) {
+		super(materialIn, "sapling");
 		this.setHardness(10);
 		this.setResistance(10);
 		this.setCreativeTab(FirmaMod.blockTab);
@@ -77,6 +80,16 @@ public class PlankBlock extends BaseBlock {
 	@Override
 	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer) {
 		return BlockRenderLayer.CUTOUT == layer;
+	}
+	
+	@Override
+	public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return false;
+	}
+	
+	@Override
+	public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return false;
 	}
 
 }

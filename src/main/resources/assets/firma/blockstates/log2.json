@@ -1,0 +1,4 @@
+{"forge_marker":1,"defaults":{"model":"cube_column"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"willow":{"textures":{"side":"firma:blocks/log/willow", "end":"firma:blocks/log/willowtop"}}
+}}}

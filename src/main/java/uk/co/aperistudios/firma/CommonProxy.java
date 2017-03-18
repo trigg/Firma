@@ -27,6 +27,8 @@ import uk.co.aperistudios.firma.blocks.boring.GravelBlock;
 import uk.co.aperistudios.firma.blocks.boring.GravelBlock2;
 import uk.co.aperistudios.firma.blocks.boring.LeafBlock;
 import uk.co.aperistudios.firma.blocks.boring.LeafBlock2;
+import uk.co.aperistudios.firma.blocks.boring.LogBlock;
+import uk.co.aperistudios.firma.blocks.boring.LogBlock2;
 import uk.co.aperistudios.firma.blocks.boring.PlankBlock;
 import uk.co.aperistudios.firma.blocks.boring.PlankBlock2;
 import uk.co.aperistudios.firma.blocks.boring.RockBlock;
@@ -36,6 +38,8 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
 import uk.co.aperistudios.firma.blocks.liquids.BaseLiquid;
+import uk.co.aperistudios.firma.blocks.living.SaplingBlock;
+import uk.co.aperistudios.firma.blocks.living.SaplingBlock2;
 import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.gui.GuiHandler;
 import uk.co.aperistudios.firma.items.BrickItem;
@@ -79,6 +83,11 @@ public class CommonProxy {
 		FirmaMod.sand2 = new SandBlock2(Material.GROUND);
 		FirmaMod.leaf = new LeafBlock(Material.LEAVES);
 		FirmaMod.leaf2 = new LeafBlock2(Material.LEAVES);
+		
+		FirmaMod.sapling = new SaplingBlock(Material.PLANTS);
+		FirmaMod.sapling2 = new SaplingBlock2(Material.PLANTS);
+		FirmaMod.log = new LogBlock(Material.WOOD);
+		FirmaMod.log2 = new LogBlock2(Material.WOOD);
 		FirmaMod.crucible = new CrucibleBlock();
 
 		FirmaMod.pebble = new PebbleItem("pebble");
@@ -92,6 +101,7 @@ public class CommonProxy {
 		FirmaMod.metalHeads = new MetalHeads("metalheads");
 		FirmaMod.stoneHeads = new StoneHeads("stoneheads");
 		FirmaMod.clay = new ClayItem("clay");
+
 		ToolItem thisTool = null;
 		for(ToolMetals tm : ToolMetals.values()){
 			for(ToolType tt : ToolType.values()){

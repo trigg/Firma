@@ -1,0 +1,4 @@
+{"forge_marker":1,"defaults":{"model":"cross"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"willow":{"textures":{"cross":"firma:blocks/sapling/willow"}}
+}}}

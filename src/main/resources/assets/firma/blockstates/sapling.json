@@ -1,0 +1,19 @@
+{"forge_marker":1,"defaults":{"model":"cross"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"acacia":{"textures":{"cross":"firma:blocks/sapling/acacia"}}
+,"ash":{"textures":{"cross":"firma:blocks/sapling/ash"}}
+,"aspen":{"textures":{"cross":"firma:blocks/sapling/aspen"}}
+,"birch":{"textures":{"cross":"firma:blocks/sapling/birch"}}
+,"chestnut":{"textures":{"cross":"firma:blocks/sapling/chestnut"}}
+,"douglasfir":{"textures":{"cross":"firma:blocks/sapling/douglasfir"}}
+,"hickory":{"textures":{"cross":"firma:blocks/sapling/hickory"}}
+,"kapok":{"textures":{"cross":"firma:blocks/sapling/kapok"}}
+,"maple":{"textures":{"cross":"firma:blocks/sapling/maple"}}
+,"oak":{"textures":{"cross":"firma:blocks/sapling/oak"}}
+,"pine":{"textures":{"cross":"firma:blocks/sapling/pine"}}
+,"sequoia":{"textures":{"cross":"firma:blocks/sapling/sequoia"}}
+,"spruce":{"textures":{"cross":"firma:blocks/sapling/spruce"}}
+,"sycamore":{"textures":{"cross":"firma:blocks/sapling/sycamore"}}
+,"whitecedar":{"textures":{"cross":"firma:blocks/sapling/whitecedar"}}
+,"whiteelm":{"textures":{"cross":"firma:blocks/sapling/whiteelm"}}
+}}}

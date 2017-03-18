@@ -1,0 +1,19 @@
+{"forge_marker":1,"defaults":{"model":"cube_column"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"acacia":{"textures":{"side":"firma:blocks/log/acacia","end":"firma:blocks/log/acaciatop"}}
+,"ash":{"textures":{"side":"firma:blocks/log/ash","end":"firma:blocks/log/ashtop"}}
+,"aspen":{"textures":{"side":"firma:blocks/log/aspen","end":"firma:blocks/log/aspentop"}}
+,"birch":{"textures":{"side":"firma:blocks/log/birch","end":"firma:blocks/log/birchtop"}}
+,"chestnut":{"textures":{"side":"firma:blocks/log/chestnut","end":"firma:blocks/log/chestnuttop"}}
+,"douglasfir":{"textures":{"side":"firma:blocks/log/douglasfir","end":"firma:blocks/log/douglasfirtop"}}
+,"hickory":{"textures":{"side":"firma:blocks/log/hickory","end":"firma:blocks/log/hickorytop"}}
+,"kapok":{"textures":{"side":"firma:blocks/log/kapok","end":"firma:blocks/log/kapoktop"}}
+,"maple":{"textures":{"side":"firma:blocks/log/maple","end":"firma:blocks/log/mapletop"}}
+,"oak":{"textures":{"side":"firma:blocks/log/oak","end":"firma:blocks/log/oaktop"}}
+,"pine":{"textures":{"side":"firma:blocks/log/pine","end":"firma:blocks/log/pinetop"}}
+,"sequoia":{"textures":{"side":"firma:blocks/log/sequoia","end":"firma:blocks/log/sequoiatop"}}
+,"spruce":{"textures":{"side":"firma:blocks/log/spruce","end":"firma:blocks/log/sprucetop"}}
+,"sycamore":{"textures":{"side":"firma:blocks/log/sycamore","end":"firma:blocks/log/sycamoretop"}}
+,"whitecedar":{"textures":{"side":"firma:blocks/log/whitecedar","end":"firma:blocks/log/whitecedartop"}}
+,"whiteelm":{"textures":{"side":"firma:blocks/log/whiteelm","end":"firma:blocks/log/whiteelmtop"}}
+}}}
