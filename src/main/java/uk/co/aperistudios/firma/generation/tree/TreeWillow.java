@@ -26,7 +26,6 @@ public class TreeWillow extends FirmaTree {
 			for(int bc = 0; bc < 5; bc++){
 				x+=incx; y+=incy; z+=incz;
 				BlockPos p = pos.add(x, y+5, z);
-				Mouse.setGrabbed(false);
 				fill(w,p);
 				filler.fillLeaves(w, p, rand);
 			}
