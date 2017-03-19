@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.NonNullList;
 import uk.co.aperistudios.firma.FirmaMod;
+import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.RockEnum2;
 
 public class GrassBlock2 extends BaseBlock {
@@ -69,6 +70,11 @@ public class GrassBlock2 extends BaseBlock {
 	@Override
 	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer) {
 		return BlockRenderLayer.CUTOUT == layer;
+	}
+	
+	@Override
+	public String getMetaName(int meta) {
+		return RockEnum2.getName(meta);
 	}
 
 }

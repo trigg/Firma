@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import uk.co.aperistudios.firma.FirmaMod;
+import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.WoodEnum2;
 
 public class PlankBlock2 extends BaseBlock {
@@ -63,6 +64,11 @@ public class PlankBlock2 extends BaseBlock {
 			names.add(tr.getName());
 		}
 		return names;
+	}
+	
+	@Override
+	public String getMetaName(int meta) {
+		return WoodEnum2.getName(meta);
 	}
 
 }

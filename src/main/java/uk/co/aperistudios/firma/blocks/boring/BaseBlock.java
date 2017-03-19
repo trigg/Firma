@@ -93,5 +93,7 @@ public abstract class BaseBlock extends Block {
 	public String getName() {
 		return name;
 	}
+	
+	public abstract String getMetaName(int meta);
 
 }

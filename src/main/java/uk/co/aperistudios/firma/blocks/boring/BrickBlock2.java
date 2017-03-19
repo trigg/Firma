@@ -65,4 +65,9 @@ public class BrickBlock2 extends BaseBlock {
 		return names;
 	}
 
+	@Override
+	public String getMetaName(int meta) {
+		return RockEnum2.getName(meta);
+	}
+
 }

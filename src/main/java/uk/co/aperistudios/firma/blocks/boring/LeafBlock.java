@@ -15,6 +15,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import uk.co.aperistudios.firma.FirmaMod;
+import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.WoodEnum;
 
 public class LeafBlock extends BaseBlock {
@@ -91,6 +92,16 @@ public class LeafBlock extends BaseBlock {
 
 	@Override
 	public boolean isFoliage(IBlockAccess world, BlockPos pos) {
+		return true;
+	}
+	
+	@Override
+	public String getMetaName(int meta) {
+		return WoodEnum.getName(meta);
+	}
+	
+	@Override
+	public boolean canBeReplacedByLeaves(IBlockState state, IBlockAccess world, BlockPos pos) {
 		return true;
 	}
 

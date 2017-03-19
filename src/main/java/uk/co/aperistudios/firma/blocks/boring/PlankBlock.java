@@ -15,6 +15,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import uk.co.aperistudios.firma.FirmaMod;
+import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.WoodEnum;
 
 public class PlankBlock extends BaseBlock {
@@ -77,6 +78,11 @@ public class PlankBlock extends BaseBlock {
 	@Override
 	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer) {
 		return BlockRenderLayer.CUTOUT == layer;
+	}
+	
+	@Override
+	public String getMetaName(int meta) {
+		return WoodEnum.getName(meta);
 	}
 
 }

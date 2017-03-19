@@ -1,6 +1,7 @@
 package uk.co.aperistudios.firma.blocks.living;
 
 import java.util.ArrayList;
+import java.util.Random;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -15,8 +16,13 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import uk.co.aperistudios.firma.FirmaBiome;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
+import uk.co.aperistudios.firma.generation.tree.FirmaTree;
+import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.WoodEnum;
 
 public class SaplingBlock extends BaseBlock {
@@ -29,6 +35,7 @@ public class SaplingBlock extends BaseBlock {
 		this.setResistance(10);
 		this.setCreativeTab(FirmaMod.blockTab);
 		this.setDefaultState(this.getStateFromMeta(0));
+		this.setTickRandomly(true);
 	}
 
 	@Override
@@ -91,5 +98,28 @@ public class SaplingBlock extends BaseBlock {
 	public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
 		return false;
 	}
+	
+	@Override
+	public String getMetaName(int meta) {
+		return WoodEnum.getName(meta);
+	}
 
+	public void growTree(World world, BlockPos bp, Random rand)
+	{
+		IBlockState state = world.getBlockState(bp);
+		int meta = this.getMetaFromState(state);
+		String name = this.getMetaName(meta);
+		world.setBlockToAir(bp);
+		FirmaTree worldGen = FirmaBiome.getTreeGen(name);
+		if (worldGen != null){
+			worldGen.set(FirmaMod.log.getStateFromMeta(meta), FirmaMod.leaf.getStateFromMeta(meta));
+			worldGen.generate(world, rand, bp);
+		}
+	}
+
+	@Override
+	public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random random) {
+		super.randomTick(worldIn, pos, state, random);
+		growTree(worldIn, pos, random);
+	}
 }

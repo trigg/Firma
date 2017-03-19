@@ -71,4 +71,8 @@ public class GrassBlock extends BaseBlock {
 		return BlockRenderLayer.CUTOUT == layer;
 	}
 
+	@Override
+	public String getMetaName(int meta) {
+		return RockEnum.getName(meta);
+	}
 }

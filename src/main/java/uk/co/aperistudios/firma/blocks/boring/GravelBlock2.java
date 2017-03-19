@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import uk.co.aperistudios.firma.FirmaMod;
+import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.RockEnum2;
 
 public class GravelBlock2 extends BaseBlock {
@@ -65,4 +66,8 @@ public class GravelBlock2 extends BaseBlock {
 		return names;
 	}
 
+	@Override
+	public String getMetaName(int meta) {
+		return RockEnum2.getName(meta);
+	}
 }
