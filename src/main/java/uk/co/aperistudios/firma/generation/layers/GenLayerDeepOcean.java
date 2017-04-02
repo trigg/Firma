@@ -54,7 +54,7 @@ public class GenLayerDeepOcean extends FirmaGenLayer {
 
 				if (isOceanic(thisID) && oceanCount > 3)
 				{
-					outCache[outIndex] = Biome.getIdForBiome(FirmaBiome.DEEPOCEAN);
+					outCache[outIndex] = Layer.DOCEAN;//Biome.getIdForBiome(FirmaBiome.DEEPOCEAN);
 				}
 				else
 				{
@@ -62,7 +62,6 @@ public class GenLayerDeepOcean extends FirmaGenLayer {
 				}
 			}
 		}
-
 		return outCache;
 	}
 

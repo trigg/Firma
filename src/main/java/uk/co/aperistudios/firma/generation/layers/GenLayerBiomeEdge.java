@@ -30,7 +30,7 @@ public class GenLayerBiomeEdge extends FirmaGenLayer {
 				var11 = inCache[x + 1 + 1 + (z + 1) * (xSize + 2)];
 				var12 = inCache[x + 1 - 1 + (z + 1) * (xSize + 2)];
 				var13 = inCache[x + 1 + (z + 1 + 1) * (xSize + 2)];
-
+				outCache[x + z * xSize] = thisID;
 				if (thisID == Layer.EXHILLS) {
 					if(!(isMountain(var10) && isMountain(var11) && isMountain(var12) && isMountain(var13))){
 						outCache[x + z * xSize] = Layer.EXHILLSEDGE;
@@ -39,8 +39,6 @@ public class GenLayerBiomeEdge extends FirmaGenLayer {
 					if (!(isMountain(var10) && isMountain(var11) && isMountain(var12) && isMountain(var13))){
 						outCache[x + z * xSize] = Layer.HILLSEDGE;
 					}
-				} else {
-					outCache[x + z * xSize] = thisID;
 				}
 			}
 		}

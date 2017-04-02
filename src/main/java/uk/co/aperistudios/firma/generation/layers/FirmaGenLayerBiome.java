@@ -13,7 +13,6 @@ public class FirmaGenLayerBiome extends FirmaGenLayer {
 			FirmaBiome.FOREST,
 			FirmaBiome.HILLS,
 			FirmaBiome.EXHILLS,
-			FirmaBiome.BEACH,
 			FirmaBiome.LAKE,
 			FirmaBiome.SWAMP
 	};
@@ -39,13 +38,14 @@ public class FirmaGenLayerBiome extends FirmaGenLayer {
 			{
 				this.initChunkSeed(currentY + x, currentX + y);
 				int id = parentInts[currentY + currentX * w];
+				newInts[currentY+currentX*w]=id;
 				if (id==0){
 					newInts[currentY + currentX * w] = Layer.OCEAN;
+				}else if(id==Layer.DOCEAN){
+					continue;
 				}else{ 
 					newInts[currentY + currentX * w] = Biome.getIdForBiome(this.allowedBiomes[this.nextInt(this.allowedBiomes.length)]);
 				}
-
-				validateInt(newInts, currentY + currentX * w);
 			}
 		}
 		validateIntArray(newInts, w, h);
