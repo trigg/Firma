@@ -1,13 +1,8 @@
 package uk.co.aperistudios.firma;
 
 import java.util.ArrayList;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -15,26 +10,22 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import uk.co.aperistudios.firma.blocks.CrucibleBlock;
+import uk.co.aperistudios.firma.blocks.OreBlock;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock2;
+import uk.co.aperistudios.firma.blocks.boring.ClayBlock;
+import uk.co.aperistudios.firma.blocks.boring.ClayBlock2;
 import uk.co.aperistudios.firma.blocks.boring.CobbleBlock;
 import uk.co.aperistudios.firma.blocks.boring.CobbleBlock2;
 import uk.co.aperistudios.firma.blocks.boring.DirtBlock;
 import uk.co.aperistudios.firma.blocks.boring.DirtBlock2;
-import uk.co.aperistudios.firma.blocks.boring.GrassBlock;
-import uk.co.aperistudios.firma.blocks.boring.GrassBlock2;
 import uk.co.aperistudios.firma.blocks.boring.GravelBlock;
 import uk.co.aperistudios.firma.blocks.boring.GravelBlock2;
-import uk.co.aperistudios.firma.blocks.boring.LeafBlock;
-import uk.co.aperistudios.firma.blocks.boring.LeafBlock2;
-import uk.co.aperistudios.firma.blocks.boring.LogBlock;
-import uk.co.aperistudios.firma.blocks.boring.LogBlock2;
+import uk.co.aperistudios.firma.blocks.boring.IceBlock;
 import uk.co.aperistudios.firma.blocks.boring.PlankBlock;
 import uk.co.aperistudios.firma.blocks.boring.PlankBlock2;
 import uk.co.aperistudios.firma.blocks.boring.RockBlock;
@@ -44,6 +35,12 @@ import uk.co.aperistudios.firma.blocks.boring.SandBlock2;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock;
 import uk.co.aperistudios.firma.blocks.boring.SmoothBlock2;
 import uk.co.aperistudios.firma.blocks.liquids.BaseLiquid;
+import uk.co.aperistudios.firma.blocks.living.GrassBlock;
+import uk.co.aperistudios.firma.blocks.living.GrassBlock2;
+import uk.co.aperistudios.firma.blocks.living.LeafBlock;
+import uk.co.aperistudios.firma.blocks.living.LeafBlock2;
+import uk.co.aperistudios.firma.blocks.living.LogBlock;
+import uk.co.aperistudios.firma.blocks.living.LogBlock2;
 import uk.co.aperistudios.firma.blocks.living.SaplingBlock;
 import uk.co.aperistudios.firma.blocks.living.SaplingBlock2;
 import uk.co.aperistudios.firma.crafting.CraftingManager;
@@ -53,8 +50,6 @@ import uk.co.aperistudios.firma.items.DoubleIngotItem;
 import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
-import uk.co.aperistudios.firma.items.MetaBlockItem;
-import uk.co.aperistudios.firma.items.MetaItem;
 import uk.co.aperistudios.firma.items.MetalHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
@@ -97,6 +92,8 @@ public class FirmaMod {
 	public static SaplingBlock2 sapling2;
 	public static LogBlock log;
 	public static LogBlock2 log2;
+	public static ClayBlock clayBlock;
+	public static ClayBlock2 clayBlock2;
 
 	public static PebbleItem pebble;
 	public static BrickItem brick;
@@ -108,6 +105,7 @@ public class FirmaMod {
 
 	public static BaseLiquid freshwater;
 	public static BaseLiquid saltwater;
+	public static BaseLiquid lava;
 
 	public static ArrayList<BaseBlock> allBlocks = new ArrayList<BaseBlock>();
 	public static ArrayList<FirmaItem> allItems = new ArrayList<FirmaItem>();
@@ -122,9 +120,14 @@ public class FirmaMod {
 	public static UnfiredClay unfiredClayBits;
 	public static CrucibleBlock crucible;
 	public static CreativeTabs toolTab;
+	public static IceBlock ice;
+	public static OreBlock ore;
+	
+	
 
 	public FirmaMod() {
 		instance = this;
+		FluidRegistry.enableUniversalBucket();
 	}
 
 	@EventHandler

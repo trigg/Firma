@@ -8,21 +8,21 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import uk.co.aperistudios.firma.FirmaBiome;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
+import uk.co.aperistudios.firma.generation.FirmaBiome;
 import uk.co.aperistudios.firma.generation.tree.FirmaTree;
-import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.WoodEnum;
 
 public class SaplingBlock extends BaseBlock {
@@ -52,7 +52,7 @@ public class SaplingBlock extends BaseBlock {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		WoodEnum type = (WoodEnum) state.getValue(properties);
+		WoodEnum type = state.getValue(properties);
 
 		return type.getMeta();
 	}
@@ -80,7 +80,7 @@ public class SaplingBlock extends BaseBlock {
 	}
 	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState bState, IBlockAccess worldIn, BlockPos pos) {
 		return null;
 	}
 
@@ -121,5 +121,12 @@ public class SaplingBlock extends BaseBlock {
 	public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random random) {
 		super.randomTick(worldIn, pos, state, random);
 		growTree(worldIn, pos, random);
+	}
+	
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX,
+			float hitY, float hitZ) {
+		growTree(worldIn,pos,new Random());
+		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
 	}
 }

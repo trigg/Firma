@@ -1,6 +1,7 @@
 package uk.co.aperistudios.firma.blocks.boring;
 
 import java.util.ArrayList;
+import com.google.common.base.Predicate;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -10,6 +11,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.types.RockEnum;
 
@@ -38,7 +41,7 @@ public class GravelBlock extends BaseBlock {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		RockEnum type = (RockEnum) state.getValue(properties);
+		RockEnum type = state.getValue(properties);
 
 		return type.getMeta();
 	}
@@ -70,4 +73,8 @@ public class GravelBlock extends BaseBlock {
 		return RockEnum.getName(meta);
 	}
 
+	@Override
+	public boolean isReplaceableOreGen(IBlockState state, IBlockAccess world, BlockPos pos, Predicate<IBlockState> target) {
+		return true;
+	}
 }

@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.blocks.GravityType;
 
@@ -28,6 +29,11 @@ public abstract class BaseBlock extends Block {
 		this.name = name;
 		this.setUnlocalizedName(FirmaMod.MODID + ":" + name);
 		this.setRegistryName(name);
+		this.lightValue=0;
+		this.lightOpacity=15; // Fuck Sake. Don't document something as 0-255 if it causes huge world-gen lag > 15 and assumes 0-15.
+		this.fullBlock=true;
+		this.translucent=false;
+		this.setDefaultState(this.getStateFromMeta(0));
 		FirmaMod.allBlocks.add(this);
 	}
 
@@ -62,28 +68,15 @@ public abstract class BaseBlock extends Block {
 	}
 
 	public void registerRender() {
-		// Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-		// .register(Item.getItemFromBlock(this), 0, new
-		// ModelResourceLocation(FirmaMod.MODID+":"+this.getUnlocalizedName().substring(5),
-		// "inventory"));
 		int i = 0;
 		Item item = Item.getItemFromBlock(this);
 		ResourceLocation[] list = new ResourceLocation[getVariantNames().size()];
 		for (String s : getVariantNames()) {
 
-			// Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			// .register(Item.getItemFromBlock(this), i, new
-			// ModelResourceLocation(FirmaMod.MODID + ":" +
-			// this.getUnlocalizedName().substring(5)+"."+s, "inventory"));
-			// String loc = this.getUnlocalizedName().substring(5)+"."+s;
 			String loc = this.getRegistryName().toString();// +"#variants="+s;
 			ResourceLocation res = new ResourceLocation(loc);
-			// FirmaMod.MODID + ":" +
-			// this.getUnlocalizedName().substring(5)+"."+s
 			ModelResourceLocation mrl = new ModelResourceLocation(loc, "variants=" + s);
 			ModelLoader.setCustomModelResourceLocation(item, i, mrl);
-			// ModelBakery.registerItemVariants(Item.getItemFromBlock(this),
-			// res);
 			list[i] = res;
 			i++;
 		}
@@ -95,5 +88,54 @@ public abstract class BaseBlock extends Block {
 	}
 	
 	public abstract String getMetaName(int meta);
-
+	
+	@Override
+	public boolean canBeReplacedByLeaves(IBlockState state, IBlockAccess world, BlockPos pos){
+		return false;
+	}
+	
+	@Override
+	public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return true;
+	}
+	
+	@Override
+	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer) {
+		return layer == BlockRenderLayer.SOLID;
+	}
+	
+	@Override
+	public boolean isBlockNormalCube(IBlockState state) {
+		return true;
+	}
+	
+	@Override
+	public int getLightOpacity(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return this.lightOpacity;
+	}
+	
+	@Override
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return this.lightValue;
+	}
+	
+	@Override
+	public boolean isFullBlock(IBlockState state) {
+		return true;
+	}
+	
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return true;
+	}
+	
+	@Override
+	public boolean isFullyOpaque(IBlockState state) {
+		return true;
+	}
+	
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return true;
+	}
 }

@@ -1,6 +1,5 @@
 package uk.co.aperistudios.firma.player;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 import net.minecraft.client.Minecraft;

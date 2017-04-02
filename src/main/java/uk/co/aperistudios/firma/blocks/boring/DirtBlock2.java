@@ -11,7 +11,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import uk.co.aperistudios.firma.FirmaMod;
-import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.RockEnum2;
 
 public class DirtBlock2 extends BaseBlock {
@@ -39,7 +38,7 @@ public class DirtBlock2 extends BaseBlock {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		RockEnum2 type = (RockEnum2) state.getValue(properties);
+		RockEnum2 type = state.getValue(properties);
 
 		return type.getMeta();
 	}

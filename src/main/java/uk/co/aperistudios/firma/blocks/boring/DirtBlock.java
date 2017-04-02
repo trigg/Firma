@@ -7,9 +7,12 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLiving.SpawnPlacementType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.types.RockEnum;
 
@@ -38,7 +41,7 @@ public class DirtBlock extends BaseBlock {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		RockEnum type = (RockEnum) state.getValue(properties);
+		RockEnum type = state.getValue(properties);
 
 		return type.getMeta();
 	}
@@ -68,5 +71,10 @@ public class DirtBlock extends BaseBlock {
 	@Override
 	public String getMetaName(int meta) {
 		return RockEnum.getName(meta);
+	}
+	
+	@Override
+	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, SpawnPlacementType type) {
+		return super.canCreatureSpawn(state, world, pos, type);
 	}
 }

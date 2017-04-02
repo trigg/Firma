@@ -31,9 +31,9 @@ public abstract class FirmaGuiContainer extends GuiContainer {
 			this.mc.getTextureManager().bindTexture(rl);
 			guiLeft = (width - xSize) / 2;
 			guiTop = (height - ySize) / 2;
-			int height = drawInventory ? this.getShiftedYSize() : ySize;
+			int sHeight = drawInventory ? this.getShiftedYSize() : ySize;
 
-			drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, height);
+			drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, sHeight);
 
 			drawForeground(guiLeft, guiTop);
 		}

@@ -12,24 +12,26 @@ public class ToolItem extends FirmaItem {
 	private ToolType tt;
 	private ToolMetals tm;
 
-	public ToolItem(ToolMetals tm, ToolType tt){
-		super("tool."+tm.getName()+tt.getName());
+	public ToolItem(ToolMetals tm, ToolType tt) {
+		super("tool." + tm.getName() + tt.getName());
 		this.tm = tm;
 		this.tt = tt;
 
 		this.setCreativeTab(FirmaMod.toolTab);
 	}
-	
+
 	@Override
 	public int getHarvestLevel(ItemStack stack, String toolClass, EntityPlayer player, IBlockState bs) {
 		Block b = bs.getBlock();
-		boolean isRock = (b == FirmaMod.rock || b==FirmaMod.rock2 || b==FirmaMod.rockb || b==FirmaMod.rockb2 || b==FirmaMod.rockc || b==FirmaMod.rockc2 || b==FirmaMod.rocks || b==FirmaMod.rocks2);
-		boolean isWood = (b == FirmaMod.plank || b == FirmaMod.plank2); //(b==FirmaMod)
+		boolean isRock = (b == FirmaMod.rock || b == FirmaMod.rock2 || b == FirmaMod.rockb || b == FirmaMod.rockb2 || b == FirmaMod.rockc
+				|| b == FirmaMod.rockc2 || b == FirmaMod.rocks || b == FirmaMod.rocks2);
+		boolean isWood = (b == FirmaMod.plank || b == FirmaMod.plank2); // (b==FirmaMod)
 		boolean isLeaf = (b == FirmaMod.leaf || b == FirmaMod.leaf2);
-		boolean isDirt = (b == FirmaMod.dirt || b == FirmaMod.dirt2 || b == FirmaMod.grass || b == FirmaMod.grass2 || b == FirmaMod.gravel || b == FirmaMod.gravel2 || b == FirmaMod.sand || b == FirmaMod.sand2);
-		switch(tt){
+		boolean isDirt = (b == FirmaMod.dirt || b == FirmaMod.dirt2 || b == FirmaMod.grass || b == FirmaMod.grass2 || b == FirmaMod.gravel
+				|| b == FirmaMod.gravel2 || b == FirmaMod.sand || b == FirmaMod.sand2);
+		switch (tt) {
 		case Axe:
-			if(isWood){
+			if (isWood) {
 				return tm.getHarvestLevel();
 			}
 			break;
@@ -42,14 +44,14 @@ public class ToolItem extends FirmaItem {
 		case Javelin:
 			break;
 		case Knife:
-			if(isLeaf){
+			if (isLeaf) {
 				return tm.getHarvestLevel();
 			}
 			break;
 		case Mace:
 			break;
 		case Pick:
-			if(isRock){
+			if (isRock) {
 				return tm.getHarvestLevel();
 			}
 			break;
@@ -58,26 +60,26 @@ public class ToolItem extends FirmaItem {
 		case Saw:
 			break;
 		case Scythe:
-			if(isRock){
+			if (isRock) {
 				return tm.getHarvestLevel();
 			}
 			break;
 		case Shovel:
-			if(isDirt){
+			if (isDirt) {
 				return tm.getHarvestLevel();
 			}
 			break;
 		case Sword:
+			break;
+		default:
 			break;
 		}
 		return -1;
 	}
-	
-	
-	
+
 	@Override
 	public boolean canHarvestBlock(IBlockState blockIn) {
-		switch(tt){
+		switch (tt) {
 		case Axe:
 			break;
 		case Chisel:
@@ -103,6 +105,8 @@ public class ToolItem extends FirmaItem {
 		case Shovel:
 			break;
 		case Sword:
+			break;
+		default:
 			break;
 		}
 		return super.canHarvestBlock(blockIn);
@@ -110,16 +114,17 @@ public class ToolItem extends FirmaItem {
 
 	public void addRecipe() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
+	@Override
 	public String getBlockStateName() {
-		return FirmaMod.MODID+":tool";
+		return FirmaMod.MODID + ":tool";
 	}
 
+	@Override
 	public String getVariant() {
-		return tm.getName()+tt.getName();
+		return tm.getName() + tt.getName();
 	}
-
 
 }

@@ -1,6 +1,5 @@
 package uk.co.aperistudios.firma.generation.tree;
 
-import java.util.ArrayList;
 import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

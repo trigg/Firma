@@ -38,7 +38,7 @@ public class SandBlock extends BaseBlock {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		RockEnum type = (RockEnum) state.getValue(properties);
+		RockEnum type = state.getValue(properties);
 
 		return type.getMeta();
 	}

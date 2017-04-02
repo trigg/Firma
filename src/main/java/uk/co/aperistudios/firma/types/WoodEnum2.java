@@ -37,4 +37,13 @@ public enum WoodEnum2 implements IStringSerializable {
 		}
 		return null;
 	}
+	
+	public static WoodEnum2 get(String string) {
+		for(WoodEnum2 e : WoodEnum2.values()){
+			if(e.getName() == string){
+				return e;
+			}
+		}
+		return null;
+	}
 }

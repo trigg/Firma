@@ -19,11 +19,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import uk.co.aperistudios.firma.FirmaBiome;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
+import uk.co.aperistudios.firma.generation.FirmaBiome;
 import uk.co.aperistudios.firma.generation.tree.FirmaTree;
-import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.WoodEnum2;
 
 public class SaplingBlock2 extends BaseBlock {
@@ -52,7 +51,7 @@ public class SaplingBlock2 extends BaseBlock {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		WoodEnum2 type = (WoodEnum2) state.getValue(properties);
+		WoodEnum2 type = state.getValue(properties);
 
 		return type.getMeta();
 	}
@@ -80,7 +79,7 @@ public class SaplingBlock2 extends BaseBlock {
 	}
 	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState bState, IBlockAccess worldIn, BlockPos pos) {
 		return null;
 	}
 

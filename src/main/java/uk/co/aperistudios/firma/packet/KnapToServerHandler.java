@@ -1,15 +1,11 @@
 package uk.co.aperistudios.firma.packet;
 
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import uk.co.aperistudios.firma.container.ContainerSpecialCrafting;
-import uk.co.aperistudios.firma.crafting.CraftMat;
 import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.crafting.Recipe;
-import uk.co.aperistudios.firma.gui.FirmaGuiContainer;
-import uk.co.aperistudios.firma.gui.GuiKnapping;
 import uk.co.aperistudios.firma.player.PlayerData;
 
 public class KnapToServerHandler implements IMessageHandler<KnapToServer, IMessage> {

@@ -26,6 +26,7 @@ public abstract class MetaItem extends FirmaItem {
 		setSubs(Arrays.asList(list));
 	}
 
+	@Override
 	public int getMetadata(int damage) {
 		return damage;
 	}

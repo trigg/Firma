@@ -27,7 +27,6 @@ public class PlayerInv {
 	}
 
 	private static void addToolbarSlots(Container container, InventoryPlayer inventory, int x, int y, boolean freezeHeld) {
-		// TODO Auto-generated method stub
 		for(int j = 0; j < 9; ++j)
 		{
 			if(freezeHeld && j == inventory.currentItem){
@@ -41,7 +40,7 @@ public class PlayerInv {
 	private static Slot addSlotToContainer(Container container, Slot slot) {
 		slot.slotNumber = container.inventorySlots.size();
 		container.inventorySlots.add(slot);
-		container.inventoryItemStacks.add((ItemStack)new ItemStack(Item.getByNameOrId("minecraft:air")));
+		container.inventoryItemStacks.add(new ItemStack(Item.getByNameOrId("minecraft:air")));
 		return slot;
 	}
 

@@ -44,4 +44,13 @@ public enum WoodEnum implements IStringSerializable {
 		}
 		return null;
 	}
+
+	public static WoodEnum get(String string) {
+		for(WoodEnum e : WoodEnum.values()){
+			if(e.getName() == string){
+				return e;
+			}
+		}
+		return null;
+	}
 }

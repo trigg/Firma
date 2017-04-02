@@ -1,21 +1,16 @@
 package uk.co.aperistudios.firma;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
-import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAir;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -77,22 +72,22 @@ public class ClientProxy extends CommonProxy {
 			if (i instanceof MetaItem) {
 				MetaItem mi = (MetaItem) i;
 				ResourceLocation[] list = new ResourceLocation[mi.getSubCount()];
-				for (int d = 0; d < mi.getSubCount(); d++) {
+				for (int f = 0; f < mi.getSubCount(); f++) {
 					String loc = mi.getRegistryName().toString();// +"#variants="+s;
 					ResourceLocation res = new ResourceLocation(loc);
 					// FirmaMod.MODID + ":" +
 					// this.getUnlocalizedName().substring(5)+"."+s
-					ModelResourceLocation mrl = new ModelResourceLocation(loc, "variants=" + mi.getSubName(d));
-					ModelLoader.setCustomModelResourceLocation(i, d, mrl);
+					ModelResourceLocation mrl = new ModelResourceLocation(loc, "variants=" + mi.getSubName(f));
+					ModelLoader.setCustomModelResourceLocation(i, f, mrl);
 					// ModelBakery.registerItemVariants(Item.getItemFromBlock(this),
 					// res);
-					list[d] = res;
+					list[f] = res;
 				}
 				ModelBakery.registerItemVariants(mi, list);
 			}else{
-				FirmaItem fi = (FirmaItem) i;
+				FirmaItem fi = i;
 				String loc = fi.getBlockStateName();
-				ResourceLocation rl = new ResourceLocation(loc);
+				//ResourceLocation rl = new ResourceLocation(loc);
 				ModelResourceLocation mrl = new ModelResourceLocation(loc, "variants="+fi.getVariant());
 				ModelLoader.setCustomModelResourceLocation(i, 0, mrl);
 				//ModelBakery.registerItemVariants(fi, rl);
@@ -100,7 +95,7 @@ public class ClientProxy extends CommonProxy {
 		}
 
 		for (BaseLiquid f : FirmaMod.allFluids) {
-			final Item item = Item.getItemFromBlock((Block) f.getFluidBlock());
+			final Item item = Item.getItemFromBlock(f.getFluidBlock());
 			assert !(item instanceof ItemAir);
 
 			ModelBakery.registerItemVariants(item);
@@ -113,7 +108,7 @@ public class ClientProxy extends CommonProxy {
 			};
 			ModelLoader.setCustomMeshDefinition(item, imd);
 
-			ModelLoader.setCustomStateMapper((Block) f.getFluidBlock(), new StateMapperBase() {
+			ModelLoader.setCustomStateMapper(f.getFluidBlock(), new StateMapperBase() {
 				@Override
 				protected ModelResourceLocation getModelResourceLocation(IBlockState p_178132_1_) {
 					return new ModelResourceLocation(f.getModelPath(), ((IFluidBlock) f.getFluidBlock()).getFluid().getName());
@@ -138,4 +133,5 @@ public class ClientProxy extends CommonProxy {
 	public void postInit(FMLPostInitializationEvent e) {
 		super.postInit(e);
 	}
+	
 }

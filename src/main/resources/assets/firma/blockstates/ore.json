@@ -1,0 +1,77 @@
+{
+  "forge_marker":1,
+  "defaults":
+  {
+    "model":"firma:firmaore"
+  },
+  "variants":
+  {
+    "variants": {"oneoretofindthem":{}},
+    "normal": [{}],
+    "inventory": [{}],
+    "rock":
+    {
+      "andesite":
+        {
+          "textures":
+          {
+            "all":"firma:blocks/rock/andesite"
+          }
+        },
+        "basalt":{"textures":{"all":"firma:blocks/rock/basalt"}}
+,"chalk":{"textures":{"all":"firma:blocks/rock/chalk"}}
+,"chert":{"textures":{"all":"firma:blocks/rock/chert"}}
+,"claystone":{"textures":{"all":"firma:blocks/rock/claystone"}}
+,"conglomerate":{"textures":{"all":"firma:blocks/rock/conglomerate"}}
+,"dacite":{"textures":{"all":"firma:blocks/rock/dacite"}}
+,"diorite":{"textures":{"all":"firma:blocks/rock/diorite"}}
+,"dolomite":{"textures":{"all":"firma:blocks/rock/dolomite"}}
+,"gabbro":{"textures":{"all":"firma:blocks/rock/gabbro"}}
+,"gneiss":{"textures":{"all":"firma:blocks/rock/gneiss"}}
+,"granite":{"textures":{"all":"firma:blocks/rock/granite"}}
+,"limestone":{"textures":{"all":"firma:blocks/rock/limestone"}}
+,"marble":{"textures":{"all":"firma:blocks/rock/marble"}}
+,"phyllite":{"textures":{"all":"firma:blocks/rock/phyllite"}}
+,"quartzite":{"textures":{"all":"firma:blocks/rock/quartzite"}}
+,"rhyolite":{"textures":{"all":"firma:blocks/rock/rhyolite"}}
+,"rocksalt":{"textures":{"all":"firma:blocks/rock/rocksalt"}}
+,"schist":{"textures":{"all":"firma:blocks/rock/schist"}}
+,"shale":{"textures":{"all":"firma:blocks/rock/shale"}}
+,"slate":{"textures":{"all":"firma:blocks/rock/slate"}}
+},"ore":{
+"bismuthinite":{"textures":{"overlay":"firma:blocks/ore/bismuthiniteore"}}
+,"bituminouscoal":{"textures":{"overlay":"firma:blocks/ore/bituminouscoalore"}}
+,"borax":{"textures":{"overlay":"firma:blocks/ore/boraxore"}}
+,"cassiterite":{"textures":{"overlay":"firma:blocks/ore/cassiteriteore"}}
+,"cinnabar":{"textures":{"overlay":"firma:blocks/ore/cinnabarore"}}
+,"cryolite":{"textures":{"overlay":"firma:blocks/ore/cryoliteore"}}
+,"galena":{"textures":{"overlay":"firma:blocks/ore/galenaore"}}
+,"garnierite":{"textures":{"overlay":"firma:blocks/ore/garnieriteore"}}
+,"graphite":{"textures":{"overlay":"firma:blocks/ore/graphiteore"}}
+,"gypsum":{"textures":{"overlay":"firma:blocks/ore/gypsumore"}}
+,"hematite":{"textures":{"overlay":"firma:blocks/ore/hematiteore"}}
+,"jet":{"textures":{"overlay":"firma:blocks/ore/jetore"}}
+,"kaolinite":{"textures":{"overlay":"firma:blocks/ore/kaoliniteore"}}
+,"kimberlite":{"textures":{"overlay":"firma:blocks/ore/bismuthiniteore"}}
+,"lapislazuli":{"textures":{"overlay":"firma:blocks/ore/lapislazuliore"}}
+,"lignite":{"textures":{"overlay":"firma:blocks/ore/ligniteore"}}
+,"limonite":{"textures":{"overlay":"firma:blocks/ore/limoniteore"}}
+,"magnetite":{"textures":{"overlay":"firma:blocks/ore/magnetiteore"}}
+,"malachite":{"textures":{"overlay":"firma:blocks/ore/malachiteore"}}
+,"microcline":{"textures":{"overlay":"firma:blocks/ore/microclineore"}}
+,"nativecopper":{"textures":{"overlay":"firma:blocks/ore/nativecopperore"}}
+,"nativegold":{"textures":{"overlay":"firma:blocks/ore/nativegoldore"}}
+,"nativeplatinum":{"textures":{"overlay":"firma:blocks/ore/nativeplatinumore"}}
+,"nativesilver":{"textures":{"overlay":"firma:blocks/ore/nativesilverore"}}
+,"olivine":{"textures":{"overlay":"firma:blocks/ore/olivineore"}}
+,"petrifiedwood":{"textures":{"overlay":"firma:blocks/ore/petrifiedwoodore"}}
+,"pitchblende":{"textures":{"overlay":"firma:blocks/ore/pitchblendeore"}}
+,"saltpeter":{"textures":{"overlay":"firma:blocks/ore/saltpeterore"}}
+,"satinspar":{"textures":{"overlay":"firma:blocks/ore/satinsparore"}}
+,"selenite":{"textures":{"overlay":"firma:blocks/ore/seleniteore"}}
+,"serpentine":{"textures":{"overlay":"firma:blocks/ore/serpentineore"}}
+,"sphalerite":{"textures":{"overlay":"firma:blocks/ore/sphaleriteore"}}
+,"sulfur":{"textures":{"overlay":"firma:blocks/ore/sulfur0ore"}}
+,"sylvite":{"textures":{"overlay":"firma:blocks/ore/sylviteore"}}
+,"tetrahedrite":{"textures":{"overlay":"firma:blocks/ore/tetrahedriteore"}}
+}}}

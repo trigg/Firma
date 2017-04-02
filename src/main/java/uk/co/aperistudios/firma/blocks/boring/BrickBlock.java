@@ -9,7 +9,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.types.RockEnum;
@@ -39,7 +38,7 @@ public class BrickBlock extends BaseBlock {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		RockEnum type = (RockEnum) state.getValue(properties);
+		RockEnum type = state.getValue(properties);
 
 		return type.getMeta();
 	}
@@ -70,5 +69,4 @@ public class BrickBlock extends BaseBlock {
 	public String getMetaName(int meta) {
 		return RockEnum.getName(meta);
 	}
-
 }

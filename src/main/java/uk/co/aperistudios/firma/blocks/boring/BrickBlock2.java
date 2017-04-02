@@ -38,7 +38,7 @@ public class BrickBlock2 extends BaseBlock {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		RockEnum2 type = (RockEnum2) state.getValue(properties);
+		RockEnum2 type = state.getValue(properties);
 
 		return type.getMeta();
 	}

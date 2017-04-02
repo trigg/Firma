@@ -6,7 +6,6 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import uk.co.aperistudios.firma.gui.PlayerInv;
 
 public class ContainerSpecialCrafting extends Container {

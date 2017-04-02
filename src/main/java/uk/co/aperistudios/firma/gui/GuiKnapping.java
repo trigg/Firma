@@ -3,17 +3,10 @@ package uk.co.aperistudios.firma.gui;
 import java.io.IOException;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.GuiScreenEvent.ActionPerformedEvent;
-import net.minecraftforge.common.MinecraftForge;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.container.ContainerSpecialCrafting;
 import uk.co.aperistudios.firma.crafting.CraftMat;
@@ -59,7 +52,7 @@ public class GuiKnapping extends FirmaGuiContainer {
 				}
 			} else {
 				if (Minecraft.getMinecraft().player.openContainer instanceof ContainerSpecialCrafting) {
-					Block air = (Block) Block.REGISTRY.getObjectById(0);
+					Block air = Block.REGISTRY.getObjectById(0);
 					((ContainerSpecialCrafting) Minecraft.getMinecraft().player.openContainer).craftResult.setInventorySlotContents(0, new ItemStack(air));
 				}
 			}
