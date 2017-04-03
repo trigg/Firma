@@ -28,7 +28,7 @@ public class ToolItem extends FirmaItem {
 		boolean isWood = (b == FirmaMod.plank || b == FirmaMod.plank2); // (b==FirmaMod)
 		boolean isLeaf = (b == FirmaMod.leaf || b == FirmaMod.leaf2);
 		boolean isDirt = (b == FirmaMod.dirt || b == FirmaMod.dirt2 || b == FirmaMod.grass || b == FirmaMod.grass2 || b == FirmaMod.gravel
-				|| b == FirmaMod.gravel2 || b == FirmaMod.sand || b == FirmaMod.sand2);
+				|| b == FirmaMod.gravel2 || b == FirmaMod.sand || b == FirmaMod.sand2 || b == FirmaMod.grasss || b == FirmaMod.grasss2);
 		switch (tt) {
 		case Axe:
 			if (isWood) {

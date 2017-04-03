@@ -46,10 +46,14 @@ import uk.co.aperistudios.firma.blocks.living.LogBlock;
 import uk.co.aperistudios.firma.blocks.living.LogBlock2;
 import uk.co.aperistudios.firma.blocks.living.SaplingBlock;
 import uk.co.aperistudios.firma.blocks.living.SaplingBlock2;
+import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock;
+import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock2;
+import uk.co.aperistudios.firma.blocks.recolour.LeafColor;
 import uk.co.aperistudios.firma.blocks.tileentity.FirmaOreTileEntity;
 import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.generation.FirmaBiome;
 import uk.co.aperistudios.firma.generation.FirmaOreGen;
+import uk.co.aperistudios.firma.generation.FirmaTreeGen;
 import uk.co.aperistudios.firma.generation.FirmaWorld;
 import uk.co.aperistudios.firma.generation.FirmaWorldProvider;
 import uk.co.aperistudios.firma.generation.layers.Layer;
@@ -99,6 +103,8 @@ public class CommonProxy {
 		FirmaMod.dirt2 = new DirtBlock2(Material.GROUND);
 		FirmaMod.grass = new GrassBlock(Material.GROUND);
 		FirmaMod.grass2 = new GrassBlock2(Material.GROUND);
+		FirmaMod.grasss = new SparseGrassBlock(Material.GROUND);
+		FirmaMod.grasss2 = new SparseGrassBlock2(Material.GROUND);
 		FirmaMod.gravel = new GravelBlock(Material.GROUND);
 		FirmaMod.gravel2 = new GravelBlock2(Material.GROUND);
 		FirmaMod.plank = new PlankBlock(Material.WOOD);
@@ -212,9 +218,11 @@ public class CommonProxy {
 		}
 
 		Layer.prep();
+		LeafColor.init();
 		
 		GameRegistry.registerWorldGenerator(new FirmaOreGen(), 0);
 		GameRegistry.registerTileEntity(FirmaOreTileEntity.class, "firmaorete");
+		GameRegistry.registerWorldGenerator(new FirmaTreeGen(), 0);
 	}
 
 	public void init(FMLInitializationEvent e) {

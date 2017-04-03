@@ -3,8 +3,8 @@
     "textures": {
         "particle": "#dirt",
         "bottom": "#dirt",
-        "top": "firma:blocks/grasstop",
+        "top": "firma:blocks/grasssparsetop",
         "side": "#dirt",
-        "overlay": "firma:blocks/grassside"
+        "overlay": "firma:blocks/grasssidessparse"
     }
 }

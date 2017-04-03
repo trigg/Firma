@@ -43,6 +43,8 @@ import uk.co.aperistudios.firma.blocks.living.LogBlock;
 import uk.co.aperistudios.firma.blocks.living.LogBlock2;
 import uk.co.aperistudios.firma.blocks.living.SaplingBlock;
 import uk.co.aperistudios.firma.blocks.living.SaplingBlock2;
+import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock;
+import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock2;
 import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.items.BrickItem;
 import uk.co.aperistudios.firma.items.ClayItem;
@@ -122,6 +124,8 @@ public class FirmaMod {
 	public static CreativeTabs toolTab;
 	public static IceBlock ice;
 	public static OreBlock ore;
+	public static SparseGrassBlock2 grasss2;
+	public static SparseGrassBlock grasss;
 	
 	
 

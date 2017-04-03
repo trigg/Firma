@@ -21,7 +21,7 @@ public class BaseLiquid extends Fluid {
 		this.setUnlocalizedName(FirmaMod.MODID + ":fluid." + fluidName);
 		FluidRegistry.registerFluid(this);
 		f.accept(this);
-		block = new BlockFluidClassic(this, Material.WATER);
+		block = new BaseBlockLiquid(this, Material.WATER);
 		block.setRegistryName(FirmaMod.MODID + ":" + fluidName);
 		block.setUnlocalizedName(FirmaMod.MODID + ":blocks.fluid." + fluidName);
 		block.setCreativeTab(FirmaMod.blockTab);
@@ -46,5 +46,4 @@ public class BaseLiquid extends Fluid {
 	public Item getFluidItem() {
 		return i;
 	}
-
 }

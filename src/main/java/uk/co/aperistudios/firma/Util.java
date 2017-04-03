@@ -2,13 +2,18 @@ package uk.co.aperistudios.firma;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.RockEnum2;
 
 public class Util {
+	static int daysInMonth=28, monthsInYear=12, daysInYear = daysInMonth * monthsInYear;
+	static int ticksInDay=24000;
+	public static long mainWorldTick;
 
 	public static boolean isGrass(Block b) {
-		return b == FirmaMod.grass || b == FirmaMod.grass2;
+		return b == FirmaMod.grass || b == FirmaMod.grass2  || b == FirmaMod.grasss || b == FirmaMod.grasss2;
 	}
 
 	public static boolean isDirt(Block b) {
@@ -73,11 +78,11 @@ public class Util {
 	}
 	
 	public static boolean isRockEnum1(Block b){
-		return b == FirmaMod.rock || b == FirmaMod.dirt || b == FirmaMod.grass || b == FirmaMod.gravel || b == FirmaMod.sand || b == FirmaMod.rockb || b == FirmaMod.rockc || b==FirmaMod.rocks;
+		return b == FirmaMod.rock || b == FirmaMod.dirt || b == FirmaMod.grass || b == FirmaMod.gravel || b == FirmaMod.sand || b == FirmaMod.rockb || b == FirmaMod.rockc || b==FirmaMod.rocks || b == FirmaMod.grasss;
 	}
 	
 	public static boolean isRockEnum2(Block b) {
-		return b == FirmaMod.rock2 || b == FirmaMod.dirt2 || b==FirmaMod.grass2 || b== FirmaMod.gravel2 || b== FirmaMod.sand2 || b== FirmaMod.rockb2 || b == FirmaMod.rockc2 || b == FirmaMod.rocks2;
+		return b == FirmaMod.rock2 || b == FirmaMod.dirt2 || b==FirmaMod.grass2 || b== FirmaMod.gravel2 || b== FirmaMod.sand2 || b== FirmaMod.rockb2 || b == FirmaMod.rockc2 || b == FirmaMod.rocks2 || b == FirmaMod.grasss2;
 	}
 	
 	public static RockEnum getRockEnum(IBlockState b){
@@ -94,7 +99,11 @@ public class Util {
 		return null;		
 	}
 
-
+	public static IBlockState getSparseGrass(IBlockState in) {
+		int meta = in.getBlock().getMetaFromState(in);
+		Block b = in.getBlock();
+		return isRockEnum1(b) ? FirmaMod.grasss.getStateFromMeta(meta) : FirmaMod.grasss2.getStateFromMeta(meta);
+	}
 
 	public static IBlockState getGrass(IBlockState in) {
 		int meta = in.getBlock().getMetaFromState(in);
@@ -128,6 +137,84 @@ public class Util {
 		return isRockEnum1(in.getBlock());
 	}
 	
-	
+	/**
+	 * Get Temperature ignoring given season and any heat producing blocks. 
+	 * Mostly used for world gen.
+	 * @param pos
+	 * @return
+	 */
+	public static int getEquatorialHeat(BlockPos pos){
+		return getEquatorialHeat(pos.getZ());
+	}
 
+	/**
+	 * Get Temperature ignoring given season and any heat producing blocks. 
+	 * Mostly used for world gen.
+	 * @param z
+	 * @return
+	 */
+	public static int getEquatorialHeat(int z) {
+		z = Math.abs(z);
+		int temp = 25 - (z/500);
+		if(temp < -20){
+			temp = -20;
+		}
+		return temp;
+	}
+
+	public static boolean isWoodEnum1(IBlockState state) {
+		return isWoodEnum1(state.getBlock());
+	}
+	
+	public static boolean isWoodEnum2(IBlockState state){
+		return isWoodEnum2(state.getBlock());
+	}
+
+	public static boolean isWoodEnum1(Block b) {
+		return b == FirmaMod.log || b== FirmaMod.leaf || b==FirmaMod.plank || b==FirmaMod.sapling;
+	}
+	
+	public static boolean isWoodEnum2(Block b){
+		return b == FirmaMod.log2 || b == FirmaMod.leaf2 || b == FirmaMod.plank2 || b == FirmaMod.sapling2;
+	}
+
+	public static float getHeat(long ticks, BlockPos pos) {
+		return getEquatorialHeat(pos) + getSeasonModifier(ticks);
+	}
+
+	public static float getSeasonModifier(long time) {
+		return 0; // TODO this
+	}
+	
+	public static long getYear(long time){
+		return time / daysInYear;
+	}
+	
+	public static long getTotalDays(long time){
+		return time / ticksInDay;
+	}
+	
+	public static long getTotalMonths(long time){
+		return time / daysInMonth;
+	}
+	
+	public static int getMonthOfYear(long time){
+		return (int) (getTotalMonths(time) % monthsInYear);
+	}
+	
+	public static int getDayOfYear(long time){
+		return (int) (getTotalDays(time) % daysInYear);
+	}
+	
+	public static int getDayOfMonth(long time){
+		return getDayOfYear(time) - getMonthOfYear(time) * daysInMonth;
+	}
+	
+	public static int getTimeOfDay(long time){
+		return (int) (time - getTotalDays(time) * ticksInDay);
+	}
+
+	public static long getMainWorldTicks() {
+		return -1;// TODO Fill
+	}	
 }

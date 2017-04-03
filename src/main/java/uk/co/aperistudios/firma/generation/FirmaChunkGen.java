@@ -54,7 +54,7 @@ public class FirmaChunkGen implements IChunkGenerator {
 
 		String customSetting = worldIn.getWorldInfo().getGeneratorOptions();
 		if(customSetting.length()==0){
-			customSetting = "{\"baseSize\":20.0,\"heightScale\":2.0,\"seaLevel\":145}";
+			customSetting = "{\"baseSize\":20.0,\"heightScale\":2.0,\"seaLevel\":151}";
 		}
 		this.settings = ChunkProviderSettings.Factory.jsonToFactory(customSetting).build();
 		this.OCEAN = this.settings.useLavaOceans ? FirmaMod.lava.getBlock().getDefaultState() : OCEAN;
@@ -99,11 +99,15 @@ public class FirmaChunkGen implements IChunkGenerator {
 		int cx, cy, cz, top, lt, lb, lm;
 		for (cx = 0; cx < 16; cx++) {
 			for (cz = 0; cz < 16; cz++) {
-				FirmaBiome biome = (FirmaBiome) biomesForBiomeGen[cz + 1 + (cx + 1) * 18];
+				FirmaBiome biome = (FirmaBiome) biomesForBiomeGen[(cz + 1)*18 + (cx + 1) ];
 				if (isDirtBiome(biome)) {
 					dirt = Util.getDirt(topRock);
 
 					grass = Util.getGrass(topRock);
+					int heat = Util.getEquatorialHeat(z*16);
+					if(biome == FirmaBiome.PLAINS && heat > 21){
+						grass = Util.getSparseGrass(topRock);
+					}
 				} else if (isSandBiome(biome)) {
 					dirt = Util.getSand(topRock);
 					grass = dirt;

@@ -31,7 +31,6 @@ public class TreeWillow extends FirmaTree {
 		for(int y = 0; y < h; y++){
 			fill(w,pos.add(0,y,0));
 		}
-		Mouse.setGrabbed(false);
 		for(int branch = 0; branch < 5; branch++){
 			float incx = rand.nextFloat()*2f-1f;
 			float incz = rand.nextFloat()*2f-1f;

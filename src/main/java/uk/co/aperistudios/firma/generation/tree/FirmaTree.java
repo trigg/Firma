@@ -3,13 +3,16 @@ package uk.co.aperistudios.firma.generation.tree;
 import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import uk.co.aperistudios.firma.FirmaMod;
+import uk.co.aperistudios.firma.Util;
 import uk.co.aperistudios.firma.types.WoodEnum;
 import uk.co.aperistudios.firma.types.WoodEnum2;
 
@@ -21,11 +24,24 @@ public abstract class FirmaTree extends WorldGenerator implements IWorldGenerato
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		System.out.println("Generating "+bs+" at "+chunkX+", "+chunkZ);
+		int x = random.nextInt(16);
+		int z = random.nextInt(16);
+		BlockPos pos = new BlockPos((chunkX*16)+x,0,(chunkZ*16)+z);
+		pos = world.getTopSolidOrLiquidBlock(pos);
+		//pos = pos.up();
+		generate(world, random, pos);
 	}
 	
 	@Override
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
-		return generateTree(worldIn, rand, position);
+		BlockPos pd = position.down();
+		Block b = worldIn.getBlockState(pd).getBlock();
+		Block b2 = worldIn.getBlockState(position.up()).getBlock(); // Allow one-deep in water for willows
+		boolean canGrow =Util.isDirt(b) || Util.isGrass(b) || Util.isClay(b);
+		if(canGrow && b2 == Blocks.AIR){
+			return generateTree(worldIn, rand, position);	
+		}
+		return false;
 	}
 
 	public abstract boolean generateTree(World worldIn, Random rand, BlockPos position);

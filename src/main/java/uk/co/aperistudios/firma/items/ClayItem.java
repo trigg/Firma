@@ -22,7 +22,7 @@ public class ClayItem extends MetaItem {
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn) {
-		Mouse.setGrabbed(false);
+		Mouse.setGrabbed(false); // TODO Remove debug
 		ItemStack is = player.getHeldItem(handIn);
 		if (player.getHeldItemMainhand().getCount() > 4) {
 			if (worldIn.isRemote) {

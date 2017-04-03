@@ -2,6 +2,7 @@ package uk.co.aperistudios.firma.blocks.living;
 
 import java.util.ArrayList;
 import java.util.Random;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -128,5 +129,16 @@ public class SaplingBlock extends BaseBlock {
 			float hitY, float hitZ) {
 		growTree(worldIn,pos,new Random());
 		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+	}
+	
+    @Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        IBlockState soil = worldIn.getBlockState(pos.down());
+        return super.canPlaceBlockAt(worldIn, pos) && canHoldTree(soil.getBlock());
+    }
+
+	private static boolean canHoldTree(Block block) {
+		return FirmaMod.dirt == block || FirmaMod.dirt2 == block || FirmaMod.grass == block || FirmaMod.grass2 == block || FirmaMod.grasss == block || FirmaMod.grasss2 == block;
 	}
 }

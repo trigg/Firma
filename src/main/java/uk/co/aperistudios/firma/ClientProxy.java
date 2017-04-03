@@ -123,6 +123,8 @@ public class ClientProxy extends CommonProxy {
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LeafColor(), FirmaMod.leaf2);
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grass);
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grass2);
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grasss);
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grasss2);
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LiquidColor(0xffaaff00), FirmaMod.saltwater.getFluidBlock());
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LiquidColor(0xffaaff00), FirmaMod.freshwater.getFluidBlock());
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new LiquidItemColor(), FirmaMod.saltwater.getFluidItem());

@@ -28,6 +28,7 @@ public class LeafBlock2 extends BaseBlock {
 		this.setResistance(10);
 		this.setCreativeTab(FirmaMod.blockTab);
 		this.setDefaultState(this.getStateFromMeta(0));
+		this.needsRandomTick=true;
 	}
 
 	@Override
