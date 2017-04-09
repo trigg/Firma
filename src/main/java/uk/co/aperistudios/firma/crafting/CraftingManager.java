@@ -71,14 +71,14 @@ public class CraftingManager {
 		RecipeShape potShape = RecipeShape.makeRecipeShape(" SSS ", " SSS ", " SSS ", " SSS ", "     ");
 		RecipeShape vesselShape = RecipeShape.makeRecipeShape("S   S", "     ", "     ", "     ", "S   S");
 
-		Recipe.makeRecipe(new ItemStack(FirmaMod.stoneHeads, 1, FirmaMod.stoneHeads.getSubMeta("knife")), CraftMat.STONE, null, knifeShape1);
-		Recipe.makeRecipe(new ItemStack(FirmaMod.stoneHeads, 2, FirmaMod.stoneHeads.getSubMeta("knife")), CraftMat.STONE, null, knifeShape2);
-		Recipe.makeRecipe(new ItemStack(FirmaMod.stoneHeads, 1, FirmaMod.stoneHeads.getSubMeta("axe")), CraftMat.STONE, null, axeShape);
-		Recipe.makeRecipe(new ItemStack(FirmaMod.stoneHeads, 1, FirmaMod.stoneHeads.getSubMeta("hammer")), CraftMat.STONE, null, hammerShape);
-		Recipe.makeRecipe(new ItemStack(FirmaMod.stoneHeads, 1, FirmaMod.stoneHeads.getSubMeta("hoe")), CraftMat.STONE, null, hoeShape1);
-		Recipe.makeRecipe(new ItemStack(FirmaMod.stoneHeads, 2, FirmaMod.stoneHeads.getSubMeta("hoe")), CraftMat.STONE, null, hoeShape2);
-		Recipe.makeRecipe(new ItemStack(FirmaMod.stoneHeads, 1, FirmaMod.stoneHeads.getSubMeta("javelin")), CraftMat.STONE, null, javelinShape);
-		Recipe.makeRecipe(new ItemStack(FirmaMod.stoneHeads, 1, FirmaMod.stoneHeads.getSubMeta("shovel")), CraftMat.STONE, null, shovelShape);
+		Recipe.makeRecipe(new ItemStack(FirmaMod.metalHeads, 1, FirmaMod.metalHeads.getSubMeta("stoneknife")), CraftMat.STONE, null, knifeShape1);
+		Recipe.makeRecipe(new ItemStack(FirmaMod.metalHeads, 2, FirmaMod.metalHeads.getSubMeta("stoneknife")), CraftMat.STONE, null, knifeShape2);
+		Recipe.makeRecipe(new ItemStack(FirmaMod.metalHeads, 1, FirmaMod.metalHeads.getSubMeta("stoneaxe")), CraftMat.STONE, null, axeShape);
+		Recipe.makeRecipe(new ItemStack(FirmaMod.metalHeads, 1, FirmaMod.metalHeads.getSubMeta("stonehammer")), CraftMat.STONE, null, hammerShape);
+		Recipe.makeRecipe(new ItemStack(FirmaMod.metalHeads, 1, FirmaMod.metalHeads.getSubMeta("stonehoe")), CraftMat.STONE, null, hoeShape1);
+		Recipe.makeRecipe(new ItemStack(FirmaMod.metalHeads, 2, FirmaMod.metalHeads.getSubMeta("stonehoe")), CraftMat.STONE, null, hoeShape2);
+		Recipe.makeRecipe(new ItemStack(FirmaMod.metalHeads, 1, FirmaMod.metalHeads.getSubMeta("stonejavelin")), CraftMat.STONE, null, javelinShape);
+		Recipe.makeRecipe(new ItemStack(FirmaMod.metalHeads, 1, FirmaMod.metalHeads.getSubMeta("stoneshovel")), CraftMat.STONE, null, shovelShape);
 
 		ItemStack normalClayOnly = new ItemStack(FirmaMod.clay, 1, FirmaMod.clay.getSubMeta("clay"));
 		ItemStack fireClayOnly = new ItemStack(FirmaMod.clay, 1, FirmaMod.clay.getSubMeta("fireclay"));

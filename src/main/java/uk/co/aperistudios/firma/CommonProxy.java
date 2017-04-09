@@ -71,7 +71,6 @@ import uk.co.aperistudios.firma.items.MetalHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
-import uk.co.aperistudios.firma.items.StoneHeads;
 import uk.co.aperistudios.firma.items.ToolItem;
 import uk.co.aperistudios.firma.items.UnfiredClay;
 import uk.co.aperistudios.firma.packet.KnapToServer;
@@ -133,7 +132,6 @@ public class CommonProxy {
 		FirmaMod.scrapmetal = new ScrapMetalItem("scrapmetal");
 		FirmaMod.unfiredClayBits = new UnfiredClay("unfiredclay");
 		FirmaMod.metalHeads = new MetalHeads("metalheads");
-		FirmaMod.stoneHeads = new StoneHeads("stoneheads");
 		FirmaMod.clay = new ClayItem("clay");
 
 		rockLayerTop = new IBlockState[] { FirmaMod.rock2.getStateFromMeta(RockEnum2.Shale.getMeta()),

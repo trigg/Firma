@@ -130,4 +130,17 @@
 ,"wroughtironscythe":{"textures":{"layer0":"firma:items/toolheads/wroughtironscythe"}}
 ,"wroughtironshovel":{"textures":{"layer0":"firma:items/toolheads/wroughtironshovel"}}
 ,"wroughtironsword":{"textures":{"layer0":"firma:items/toolheads/wroughtironsword"}}
+,"stoneaxe":{"textures":{"layer0":"firma:items/toolheads/stoneaxe"}}
+,"stonechisel":{"textures":{"layer0":"firma:items/toolheads/stonechisel"}}
+,"stonehammer":{"textures":{"layer0":"firma:items/toolheads/stonehammer"}}
+,"stonehoe":{"textures":{"layer0":"firma:items/toolheads/stonehoe"}}
+,"stonejavelin":{"textures":{"layer0":"firma:items/toolheads/stonejavelin"}}
+,"stoneknife":{"textures":{"layer0":"firma:items/toolheads/stoneknife"}}
+,"stonemace":{"textures":{"layer0":"firma:items/toolheads/stonemace"}}
+,"stonepick":{"textures":{"layer0":"firma:items/toolheads/stonepick"}}
+,"stonepropick":{"textures":{"layer0":"firma:items/toolheads/stonepropick"}}
+,"stonesaw":{"textures":{"layer0":"firma:items/toolheads/stonesaw"}}
+,"stonescythe":{"textures":{"layer0":"firma:items/toolheads/stonescythe"}}
+,"stoneshovel":{"textures":{"layer0":"firma:items/toolheads/stoneshovel"}}
+,"stonesword":{"textures":{"layer0":"firma:items/toolheads/stonesword"}}
 }}}

@@ -117,4 +117,15 @@ public class GrassBlock extends BaseBlock {
             }
         }
     }
+    
+    @Override
+    public String getHarvestTool(IBlockState state) {
+    	return null;
+    }
+    
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+    	IBlockState bs = Util.getDirt(state);
+    	return Item.getItemFromBlock(bs.getBlock());
+    }
 }

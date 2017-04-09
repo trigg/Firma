@@ -56,7 +56,6 @@ import uk.co.aperistudios.firma.items.MetalHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
-import uk.co.aperistudios.firma.items.StoneHeads;
 import uk.co.aperistudios.firma.items.ToolItem;
 import uk.co.aperistudios.firma.items.UnfiredClay;
 
@@ -118,7 +117,6 @@ public class FirmaMod {
 	public static ClayItem clay;
 	public static ArrayList<ToolItem> bunchOfTools = new ArrayList<ToolItem>();
 	public static MetalHeads metalHeads;
-	public static StoneHeads stoneHeads;
 	public static UnfiredClay unfiredClayBits;
 	public static CrucibleBlock crucible;
 	public static CreativeTabs toolTab;

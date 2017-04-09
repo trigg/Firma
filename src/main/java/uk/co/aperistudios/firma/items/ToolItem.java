@@ -1,5 +1,6 @@
 package uk.co.aperistudios.firma.items;
 
+import org.lwjgl.input.Mouse;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,72 +17,35 @@ public class ToolItem extends FirmaItem {
 		super("tool." + tm.getName() + tt.getName());
 		this.tm = tm;
 		this.tt = tt;
+		this.maxStackSize=1;
 
 		this.setCreativeTab(FirmaMod.toolTab);
 	}
 
-	@Override
-	public int getHarvestLevel(ItemStack stack, String toolClass, EntityPlayer player, IBlockState bs) {
-		Block b = bs.getBlock();
-		boolean isRock = (b == FirmaMod.rock || b == FirmaMod.rock2 || b == FirmaMod.rockb || b == FirmaMod.rockb2 || b == FirmaMod.rockc
-				|| b == FirmaMod.rockc2 || b == FirmaMod.rocks || b == FirmaMod.rocks2);
-		boolean isWood = (b == FirmaMod.plank || b == FirmaMod.plank2); // (b==FirmaMod)
-		boolean isLeaf = (b == FirmaMod.leaf || b == FirmaMod.leaf2);
-		boolean isDirt = (b == FirmaMod.dirt || b == FirmaMod.dirt2 || b == FirmaMod.grass || b == FirmaMod.grass2 || b == FirmaMod.gravel
-				|| b == FirmaMod.gravel2 || b == FirmaMod.sand || b == FirmaMod.sand2 || b == FirmaMod.grasss || b == FirmaMod.grasss2);
-		switch (tt) {
-		case Axe:
-			if (isWood) {
-				return tm.getHarvestLevel();
-			}
-			break;
-		case Chisel:
-			break;
-		case Hammer:
-			break;
-		case Hoe:
-			break;
-		case Javelin:
-			break;
-		case Knife:
-			if (isLeaf) {
-				return tm.getHarvestLevel();
-			}
-			break;
-		case Mace:
-			break;
-		case Pick:
-			if (isRock) {
-				return tm.getHarvestLevel();
-			}
-			break;
-		case ProPick:
-			break;
-		case Saw:
-			break;
-		case Scythe:
-			if (isRock) {
-				return tm.getHarvestLevel();
-			}
-			break;
-		case Shovel:
-			if (isDirt) {
-				return tm.getHarvestLevel();
-			}
-			break;
-		case Sword:
-			break;
-		default:
-			break;
-		}
-		return -1;
+	private static boolean isDirt(Block b) {
+		return (b == FirmaMod.dirt || b == FirmaMod.dirt2 || b == FirmaMod.grass || b == FirmaMod.grass2 || b == FirmaMod.gravel || b == FirmaMod.gravel2
+				|| b == FirmaMod.sand || b == FirmaMod.sand2 || b == FirmaMod.grasss || b == FirmaMod.grasss2);
+	}
+
+	private static boolean isLeaf(Block b) {
+		return (b == FirmaMod.leaf || b == FirmaMod.leaf2);
+	}
+
+	private static boolean isWood(Block b) {
+		return (b == FirmaMod.plank || b == FirmaMod.plank2 || b == FirmaMod.log || b == FirmaMod.log2);
+	}
+
+	private static boolean isRock(Block b) {
+		return (b == FirmaMod.rock || b == FirmaMod.rock2 || b == FirmaMod.rockb || b == FirmaMod.rockb2 || b == FirmaMod.rockc || b == FirmaMod.rockc2
+				|| b == FirmaMod.rocks || b == FirmaMod.rocks2);
 	}
 
 	@Override
 	public boolean canHarvestBlock(IBlockState blockIn) {
+		Block b = blockIn.getBlock();
 		switch (tt) {
 		case Axe:
-			break;
+			return isWood(b);
 		case Chisel:
 			break;
 		case Hammer:
@@ -91,19 +55,19 @@ public class ToolItem extends FirmaItem {
 		case Javelin:
 			break;
 		case Knife:
-			break;
+			return isLeaf(b);
 		case Mace:
 			break;
 		case Pick:
-			break;
+			return isRock(b);
 		case ProPick:
 			break;
 		case Saw:
 			break;
 		case Scythe:
-			break;
+			return isLeaf(b);
 		case Shovel:
-			break;
+			return isDirt(b);
 		case Sword:
 			break;
 		default:
@@ -113,7 +77,6 @@ public class ToolItem extends FirmaItem {
 	}
 
 	public void addRecipe() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -125,6 +88,43 @@ public class ToolItem extends FirmaItem {
 	@Override
 	public String getVariant() {
 		return tm.getName() + tt.getName();
+	}
+	
+	@Override
+	public float getStrVsBlock(ItemStack stack, IBlockState state) {
+		Block b = state.getBlock();
+		float str= tm.getHarvestLevel();
+		switch (tt) {
+		case Axe:
+			return isWood(b) ? str :1f;
+		case Chisel:
+			break;
+		case Hammer:
+			break;
+		case Hoe:
+			break;
+		case Javelin:
+			break;
+		case Knife:
+			return isLeaf(b) ? str : 1f;
+		case Mace:
+			break;
+		case Pick:
+			return isRock(b)? str : 1f;
+		case ProPick:
+			break;
+		case Saw:
+			break;
+		case Scythe:
+			return isLeaf(b)? str : 1f;
+		case Shovel:
+			return isDirt(b)? str : 1f;
+		case Sword:
+			break;
+		default:
+			break;
+		}
+		return 1f;
 	}
 
 }
