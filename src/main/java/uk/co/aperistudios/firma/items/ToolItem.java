@@ -6,14 +6,14 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import uk.co.aperistudios.firma.FirmaMod;
-import uk.co.aperistudios.firma.types.ToolMetals;
+import uk.co.aperistudios.firma.types.ToolMaterials;
 import uk.co.aperistudios.firma.types.ToolType;
 
 public class ToolItem extends FirmaItem {
 	private ToolType tt;
-	private ToolMetals tm;
+	private ToolMaterials tm;
 
-	public ToolItem(ToolMetals tm, ToolType tt) {
+	public ToolItem(ToolMaterials tm, ToolType tt) {
 		super("tool." + tm.getName() + tt.getName());
 		this.tm = tm;
 		this.tt = tt;

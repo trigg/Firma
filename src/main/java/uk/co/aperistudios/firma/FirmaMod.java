@@ -52,7 +52,7 @@ import uk.co.aperistudios.firma.items.DoubleIngotItem;
 import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
-import uk.co.aperistudios.firma.items.MetalHeads;
+import uk.co.aperistudios.firma.items.ToolHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
@@ -116,7 +116,7 @@ public class FirmaMod {
 	public static CraftingManager craftingManager = new CraftingManager();
 	public static ClayItem clay;
 	public static ArrayList<ToolItem> bunchOfTools = new ArrayList<ToolItem>();
-	public static MetalHeads metalHeads;
+	public static ToolHeads metalHeads;
 	public static UnfiredClay unfiredClayBits;
 	public static CrucibleBlock crucible;
 	public static CreativeTabs toolTab;

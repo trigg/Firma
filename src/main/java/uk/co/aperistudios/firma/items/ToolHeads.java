@@ -2,16 +2,16 @@ package uk.co.aperistudios.firma.items;
 
 import java.util.ArrayList;
 import uk.co.aperistudios.firma.FirmaMod;
-import uk.co.aperistudios.firma.types.ToolMetals;
+import uk.co.aperistudios.firma.types.ToolMaterials;
 
-public class MetalHeads extends MetaItem {
+public class ToolHeads extends MetaItem {
 
-	public MetalHeads(String name) {
+	public ToolHeads(String name) {
 		super(name);
 		ArrayList<String> list = new ArrayList<String>();
 		for (String type : new String[] { "axe", "chisel", "hammer", "hoe", "javelin", "knife", "mace", "pick", "propick", "saw", "scythe", "shovel",
 				"sword" }) {
-			for (ToolMetals metals : ToolMetals.values()) {
+			for (ToolMaterials metals : ToolMaterials.values()) {
 				list.add(metals.getName() + type);
 			}
 		}

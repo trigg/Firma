@@ -67,7 +67,7 @@ import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
-import uk.co.aperistudios.firma.items.MetalHeads;
+import uk.co.aperistudios.firma.items.ToolHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
@@ -76,7 +76,7 @@ import uk.co.aperistudios.firma.items.UnfiredClay;
 import uk.co.aperistudios.firma.packet.KnapToServer;
 import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.RockEnum2;
-import uk.co.aperistudios.firma.types.ToolMetals;
+import uk.co.aperistudios.firma.types.ToolMaterials;
 import uk.co.aperistudios.firma.types.ToolType;
 
 public class CommonProxy {
@@ -131,7 +131,7 @@ public class CommonProxy {
 		FirmaMod.metalsheet = new MetalSheetItem("metalsheet");
 		FirmaMod.scrapmetal = new ScrapMetalItem("scrapmetal");
 		FirmaMod.unfiredClayBits = new UnfiredClay("unfiredclay");
-		FirmaMod.metalHeads = new MetalHeads("metalheads");
+		FirmaMod.metalHeads = new ToolHeads("metalheads");
 		FirmaMod.clay = new ClayItem("clay");
 
 		rockLayerTop = new IBlockState[] { FirmaMod.rock2.getStateFromMeta(RockEnum2.Shale.getMeta()),
@@ -164,7 +164,7 @@ public class CommonProxy {
 				FirmaMod.sapling.getStateFromMeta(15), FirmaMod.sapling2.getStateFromMeta(0) };
 
 		ToolItem thisTool = null;
-		for (ToolMetals tm : ToolMetals.values()) {
+		for (ToolMaterials tm : ToolMaterials.values()) {
 			for (ToolType tt : ToolType.values()) {
 				thisTool = new ToolItem(tm, tt);
 				FirmaMod.bunchOfTools.add(thisTool);
