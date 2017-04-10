@@ -158,7 +158,7 @@ public class Util {
 	 */
 	public static int getEquatorialHeat(int z) {
 		z = Math.abs(z);
-		int temp = 25 - (z/500);
+		int temp = 25 - (z/250);
 		if(temp < -20){
 			temp = -20;
 		}

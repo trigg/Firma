@@ -102,11 +102,11 @@ public class FirmaChunkGen implements IChunkGenerator {
 				FirmaBiome biome = (FirmaBiome) biomesForBiomeGen[(cz + 1)*18 + (cx + 1) ];
 				if (isDirtBiome(biome)) {
 					dirt = Util.getDirt(topRock);
-
-					grass = Util.getGrass(topRock);
 					int heat = Util.getEquatorialHeat(z*16);
-					if(biome == FirmaBiome.PLAINS && heat > 21){
+					if(heat > 21){
 						grass = Util.getSparseGrass(topRock);
+					}else{
+						grass = Util.getGrass(topRock);	
 					}
 				} else if (isSandBiome(biome)) {
 					dirt = Util.getSand(topRock);
@@ -129,8 +129,14 @@ public class FirmaChunkGen implements IChunkGenerator {
 						break;
 					}
 				}
-				lt = top - 3;
-				lb = lt / 3;
+				int dirtDepth = biome.getDirtDepth();
+				dirtDepth += ((FirmaBiome) biomesForBiomeGen[(cz+2)*18+(cx+1)]).getDirtDepth();
+				dirtDepth += ((FirmaBiome) biomesForBiomeGen[(cz)*18+(cx+1)]).getDirtDepth();
+				dirtDepth += ((FirmaBiome) biomesForBiomeGen[(cz+1)*18+(cx+2)]).getDirtDepth();
+				dirtDepth += ((FirmaBiome) biomesForBiomeGen[(cz+1)*18+(cx)]).getDirtDepth();
+				dirtDepth = (int) ((dirtDepth * 1f)/5f);
+				lt = top - dirtDepth;
+				lb = lt / 3; // Lower layers below dirt layer
 				lm = lb * 2;
 				int bid = Biome.getIdForBiome(biome);
 				for (cy = 0; cy <= top; cy++) {

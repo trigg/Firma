@@ -1,8 +1,8 @@
-{"forge_marker":1,"defaults":{"model":"firma:firmagrass"},"variants":{    "normal": [{}],
+{"forge_marker":1,"defaults":{"model":"firma:firmasparsegrass"},"variants":{    "normal": [{}],
     "inventory": [{}],"variants":{
-"rhyolite":{"textures":{"dirt":"firma:blocks/dirt2/rhyolite"}}
-,"rocksalt":{"textures":{"dirt":"firma:blocks/dirt2/rocksalt"}}
-,"schist":{"textures":{"dirt":"firma:blocks/dirt2/schist"}}
-,"shale":{"textures":{"dirt":"firma:blocks/dirt2/shale"}}
-,"slate":{"textures":{"dirt":"firma:blocks/dirt2/slate"}}
+"rhyolite":{"textures":{"dirt":"firma:blocks/dirt2/rhyolite", "grass":"firma:blocks/grasssparsetop","particle":"#dirt"}}
+,"rocksalt":{"textures":{"dirt":"firma:blocks/dirt2/rocksalt", "grass":"firma:blocks/grasssparsetop","particle":"#dirt"}}
+,"schist":{"textures":{"dirt":"firma:blocks/dirt2/schist", "grass":"firma:blocks/grasssparsetop","particle":"#dirt"}}
+,"shale":{"textures":{"dirt":"firma:blocks/dirt2/shale", "grass":"firma:blocks/grasssparsetop","particle":"#dirt"}}
+,"slate":{"textures":{"dirt":"firma:blocks/dirt2/slate", "grass":"firma:blocks/grasssparsetop","particle":"#dirt"}}
 }}}
