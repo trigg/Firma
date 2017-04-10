@@ -1,6 +1,8 @@
 package uk.co.aperistudios.firma.blocks;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -121,9 +123,14 @@ public class OreBlock extends BaseBlock implements ITileEntityProvider {
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX,
 			float hitY, float hitZ) {
 		FirmaOreTileEntity te = (FirmaOreTileEntity) worldIn.getTileEntity(pos);
-		if(te!=null && te.ore != null && te.rock!=null){
+		if(te!=null && te.ore != null && te.rock!=null){ // TODO Prospectors pick
 			playerIn.sendMessage(new TextComponentString(te.ore+" "+te.rock));
 		}
 		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+	}
+	
+	@Override
+	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+		return super.getDrops(world, pos, state, fortune);
 	}
 }

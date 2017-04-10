@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import uk.co.aperistudios.firma.blocks.CrucibleBlock;
 import uk.co.aperistudios.firma.blocks.OreBlock;
+import uk.co.aperistudios.firma.blocks.ShitOnFloor;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock2;
@@ -54,6 +55,7 @@ import uk.co.aperistudios.firma.items.GemItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.ToolHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
+import uk.co.aperistudios.firma.items.OreItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
 import uk.co.aperistudios.firma.items.ToolItem;
@@ -97,6 +99,7 @@ public class FirmaMod {
 	public static ClayBlock2 clayBlock2;
 
 	public static PebbleItem pebble;
+	public static OreItem oreItem;
 	public static BrickItem brick;
 	public static GemItem gem;
 	public static IngotItem ingot;
@@ -116,7 +119,7 @@ public class FirmaMod {
 	public static CraftingManager craftingManager = new CraftingManager();
 	public static ClayItem clay;
 	public static ArrayList<ToolItem> bunchOfTools = new ArrayList<ToolItem>();
-	public static ToolHeads metalHeads;
+	public static ToolHeads toolHeads;
 	public static UnfiredClay unfiredClayBits;
 	public static CrucibleBlock crucible;
 	public static CreativeTabs toolTab;
@@ -124,8 +127,8 @@ public class FirmaMod {
 	public static OreBlock ore;
 	public static SparseGrassBlock2 grasss2;
 	public static SparseGrassBlock grasss;
-	
-	
+	public static ShitOnFloor shitOnFloor;
+
 
 	public FirmaMod() {
 		instance = this;

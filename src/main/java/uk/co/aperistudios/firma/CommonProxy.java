@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import uk.co.aperistudios.firma.blocks.CrucibleBlock;
 import uk.co.aperistudios.firma.blocks.OreBlock;
+import uk.co.aperistudios.firma.blocks.ShitOnFloor;
 import uk.co.aperistudios.firma.blocks.boring.BaseBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock;
 import uk.co.aperistudios.firma.blocks.boring.BrickBlock2;
@@ -50,12 +51,14 @@ import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock;
 import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock2;
 import uk.co.aperistudios.firma.blocks.recolour.LeafColor;
 import uk.co.aperistudios.firma.blocks.tileentity.FirmaOreTileEntity;
+import uk.co.aperistudios.firma.blocks.tileentity.SoFTileEntity;
 import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.generation.FirmaBiome;
 import uk.co.aperistudios.firma.generation.FirmaOreGen;
 import uk.co.aperistudios.firma.generation.FirmaTreeGen;
 import uk.co.aperistudios.firma.generation.FirmaWorld;
 import uk.co.aperistudios.firma.generation.FirmaWorldProvider;
+import uk.co.aperistudios.firma.generation.ShitOnFloorGen;
 import uk.co.aperistudios.firma.generation.layers.Layer;
 import uk.co.aperistudios.firma.generation.tree.FirmaTree;
 import uk.co.aperistudios.firma.gui.GuiHandler;
@@ -69,6 +72,7 @@ import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
 import uk.co.aperistudios.firma.items.ToolHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
+import uk.co.aperistudios.firma.items.OreItem;
 import uk.co.aperistudios.firma.items.PebbleItem;
 import uk.co.aperistudios.firma.items.ScrapMetalItem;
 import uk.co.aperistudios.firma.items.ToolItem;
@@ -120,10 +124,13 @@ public class CommonProxy {
 		FirmaMod.sapling2 = new SaplingBlock2(Material.PLANTS);
 		FirmaMod.log = new LogBlock(Material.WOOD);
 		FirmaMod.log2 = new LogBlock2(Material.WOOD);
+		
+		FirmaMod.shitOnFloor = new ShitOnFloor(Material.PLANTS);
 		FirmaMod.crucible = new CrucibleBlock();
 		FirmaMod.ore = new OreBlock();
 
 		FirmaMod.pebble = new PebbleItem("pebble");
+		FirmaMod.oreItem = new OreItem("oreitem");
 		FirmaMod.brick = new BrickItem("brickitem");
 		FirmaMod.gem = new GemItem("gem");
 		FirmaMod.ingot = new IngotItem("ingot");
@@ -131,7 +138,7 @@ public class CommonProxy {
 		FirmaMod.metalsheet = new MetalSheetItem("metalsheet");
 		FirmaMod.scrapmetal = new ScrapMetalItem("scrapmetal");
 		FirmaMod.unfiredClayBits = new UnfiredClay("unfiredclay");
-		FirmaMod.metalHeads = new ToolHeads("metalheads");
+		FirmaMod.toolHeads = new ToolHeads("toolheads");
 		FirmaMod.clay = new ClayItem("clay");
 
 		rockLayerTop = new IBlockState[] { FirmaMod.rock2.getStateFromMeta(RockEnum2.Shale.getMeta()),
@@ -186,6 +193,9 @@ public class CommonProxy {
 			Item i = new MetaBlockItem(b);
 			GameRegistry.register(i);
 		}
+		
+		GameRegistry.register(FirmaMod.crucible);
+		GameRegistry.register(FirmaMod.shitOnFloor);
 
 		for (FirmaItem i : FirmaMod.allItems) {
 			GameRegistry.register(i);
@@ -218,9 +228,13 @@ public class CommonProxy {
 		Layer.prep();
 		LeafColor.init();
 		
-		GameRegistry.registerWorldGenerator(new FirmaOreGen(), 0);
+		
 		GameRegistry.registerTileEntity(FirmaOreTileEntity.class, "firmaorete");
+		GameRegistry.registerTileEntity(SoFTileEntity.class, "firmasof");
+		
+		GameRegistry.registerWorldGenerator(new FirmaOreGen(), 0);
 		GameRegistry.registerWorldGenerator(new FirmaTreeGen(), 0);
+		GameRegistry.registerWorldGenerator(new ShitOnFloorGen(), 0);
 	}
 
 	public void init(FMLInitializationEvent e) {

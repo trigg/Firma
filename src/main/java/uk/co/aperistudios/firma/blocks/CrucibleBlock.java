@@ -7,6 +7,7 @@ public class CrucibleBlock extends Block {
 
 	public CrucibleBlock() {
 		super(Material.ROCK);
+		this.setRegistryName("crucible");
 	}
 
 }

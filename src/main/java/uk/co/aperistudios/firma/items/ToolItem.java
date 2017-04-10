@@ -4,7 +4,9 @@ import org.lwjgl.input.Mouse;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.types.ToolMaterials;
 import uk.co.aperistudios.firma.types.ToolType;
@@ -77,7 +79,7 @@ public class ToolItem extends FirmaItem {
 	}
 
 	public void addRecipe() {
-
+		GameRegistry.addShapelessRecipe(new ItemStack(this), new Object[] {Items.STICK, new ItemStack(FirmaMod.toolHeads, 1, FirmaMod.toolHeads.getSubMeta(tm.getName()+tt.getName()))});
 	}
 
 	@Override

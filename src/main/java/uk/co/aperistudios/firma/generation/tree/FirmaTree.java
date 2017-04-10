@@ -23,7 +23,7 @@ public abstract class FirmaTree extends WorldGenerator implements IWorldGenerato
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-		System.out.println("Generating "+bs+" at "+chunkX+", "+chunkZ);
+		//System.out.println("Generating "+bs+" at "+chunkX+", "+chunkZ);
 		int x = random.nextInt(16);
 		int z = random.nextInt(16);
 		BlockPos pos = new BlockPos((chunkX*16)+x,0,(chunkZ*16)+z);

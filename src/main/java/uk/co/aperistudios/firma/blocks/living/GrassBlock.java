@@ -26,7 +26,7 @@ public class GrassBlock extends BaseBlock {
 		super(materialIn, "grass");
 		this.setHardness(10);
 		this.setResistance(10);
-		this.setCreativeTab(FirmaMod.blockTab);
+		this.setCreativeTab(null);
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setTickRandomly(true);
 	}

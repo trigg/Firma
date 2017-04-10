@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.IFluidBlock;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -21,8 +22,10 @@ import uk.co.aperistudios.firma.blocks.recolour.GrassColor;
 import uk.co.aperistudios.firma.blocks.recolour.LeafColor;
 import uk.co.aperistudios.firma.blocks.recolour.LiquidColor;
 import uk.co.aperistudios.firma.blocks.recolour.LiquidItemColor;
+import uk.co.aperistudios.firma.blocks.tileentity.SoFTileEntity;
 import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.MetaItem;
+import uk.co.aperistudios.firma.renderer.ShitOnFloorRenderer;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 
 public class ClientProxy extends CommonProxy {
@@ -53,7 +56,7 @@ public class ClientProxy extends CommonProxy {
 		FirmaMod.headTab = new CreativeTabs("FirmaHead") {
 			@Override
 			public ItemStack getTabIconItem() {
-				return new ItemStack(FirmaMod.metalHeads, 1, 14);
+				return new ItemStack(FirmaMod.toolHeads, 1, 14);
 			}
 		};
 		FirmaMod.toolTab = new CreativeTabs("FirmaTools"){
@@ -115,6 +118,9 @@ public class ClientProxy extends CommonProxy {
 				}
 			});
 		}
+		
+		// Special Renderers
+		ClientRegistry.bindTileEntitySpecialRenderer(SoFTileEntity.class, new ShitOnFloorRenderer());
 	}
 
 	@Override
