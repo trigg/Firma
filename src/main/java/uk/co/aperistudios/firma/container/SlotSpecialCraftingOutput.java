@@ -22,16 +22,13 @@ public class SlotSpecialCraftingOutput extends Slot {
 
 	@Override
 	public ItemStack onTake(EntityPlayer player, ItemStack itemstack) {
-		//itemstack.onCrafting(thePlayer.world, thePlayer, slotNumber);
-		//FMLCommonHandler.instance().firePlayerCraftingEvent(player, itemstack, null);
-		
-		//PlayerData pd = PlayerData.getPlayerData(thePlayer.getUniqueID());
-		//pd.resetKnapCraft();
+
 		if (player.world.isRemote) {
 			KnapToServer nts = new KnapToServer(-1, -1, false);
 			FirmaMod.dispatcher.sendToServer(nts);
 			((GuiKnapping) Minecraft.getMinecraft().currentScreen).resetButtons(false);
 		}
-		return itemstack;
+		return ItemStack.EMPTY;
+		//return itemstack;
 	}
 }

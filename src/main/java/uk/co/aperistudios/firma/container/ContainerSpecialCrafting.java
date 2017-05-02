@@ -1,4 +1,4 @@
-package uk.co.aperistudios.firma.container;
+	package uk.co.aperistudios.firma.container;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -30,9 +30,10 @@ public class ContainerSpecialCrafting extends Container {
 		super.onContainerClosed(player);
 		if (!player.world.isRemote)
 		{
-			ItemStack is = this.craftResult.getStackInSlot(0);
-			if (is != null)
-				player.entityDropItem(is, 0);
+			// DO NOT DROP THE ITEM FOR FREE
+			//ItemStack is = this.craftResult.getStackInSlot(0); 
+			//if (is != null)
+			//	player.entityDropItem(is, 0);
 		}
 	}
 

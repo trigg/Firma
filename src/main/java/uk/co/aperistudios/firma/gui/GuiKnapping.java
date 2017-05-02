@@ -23,7 +23,7 @@ public class GuiKnapping extends FirmaGuiContainer {
 	}
 
 	public static CraftMat staticMaterial;
-	public static String staticMaterialRock;
+	public static String staticMaterialSub;
 
 	@Override
 	public void initGui() {
@@ -63,17 +63,31 @@ public class GuiKnapping extends FirmaGuiContainer {
 
 	public String getTexture() {
 		if (staticMaterial == CraftMat.ANVIL) {
-
+			if (staticMaterialSub != null) {
+				return "firma:textures/blocks/metal/" + staticMaterialSub + ".png";
+			}
 		} else if (staticMaterial == CraftMat.CLAY) {
-			return "firma:textures/blocks/clay.png";
+			if (staticMaterialSub != null) {
+				return "firma:textures/blocks/" + staticMaterialSub + ".png";
+			}
 		} else if (staticMaterial == CraftMat.STONE) {
-			if (staticMaterialRock != null) {
-				return "firma:textures/blocks/rock/" + staticMaterialRock + ".png";
+			if (staticMaterialSub != null) {
+				return "firma:textures/blocks/rock/" + staticMaterialSub + ".png";
 			}
 		} else if (staticMaterial == CraftMat.LEATHER) {
 
 		}
 		return "firma:textures/blocks/rock/andesite.png";
+	}
+	
+	public String getRemovedTexture(){
+		if(staticMaterial == CraftMat.LEATHER){
+			if(staticMaterialSub!=null){
+				return "firma:textures/items/leather"+ staticMaterialSub + ".png";
+			}
+			return "firma:textures/blocks/flatleather.png";
+		}
+		return null;
 	}
 
 	public void resetButtons(boolean b) {

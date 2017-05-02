@@ -2,7 +2,9 @@ package uk.co.aperistudios.firma.crafting;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import uk.co.aperistudios.firma.FirmaMod;
+import uk.co.aperistudios.firma.blocks.tileentity.AnvilTileEntity;
 
 public class Recipe {
 	CraftMat material;
@@ -95,12 +97,18 @@ public class Recipe {
 				}
 			}
 			return false;
-		} else if (material == CraftMat.LEATHER) {
-			// BLOCK BASED
-			assert 1 == 0;
-		} else if (material == CraftMat.ANVIL) {
-			// BLOCK BASED
-			assert 1 == 0;
+		}
+		return false;
+	}
+
+	public boolean payPrice(TileEntity tileEntity) {
+		if(material == CraftMat.ANVIL){
+			AnvilTileEntity ate = (AnvilTileEntity) tileEntity;
+			ItemStack is1 = ate.getStackInSlot(0);
+			if(is1.getItem() == FirmaMod.ingot && FirmaMod.ingot.getSubName(is1.getMetadata()).equals(metaSub)){ // Ingot of the right sub
+				ate.setInventorySlotContents(0, ItemStack.EMPTY);
+				return true;
+			}
 		}
 		return false;
 	}

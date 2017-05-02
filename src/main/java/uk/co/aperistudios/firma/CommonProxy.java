@@ -1,11 +1,13 @@
 package uk.co.aperistudios.firma;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
+import net.minecraft.world.storage.MapStorage;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
@@ -13,6 +15,8 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import uk.co.aperistudios.firma.blocks.CrucibleBlock;
@@ -49,7 +53,9 @@ import uk.co.aperistudios.firma.blocks.living.SaplingBlock;
 import uk.co.aperistudios.firma.blocks.living.SaplingBlock2;
 import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock;
 import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock2;
+import uk.co.aperistudios.firma.blocks.machine.AnvilBlock;
 import uk.co.aperistudios.firma.blocks.recolour.LeafColor;
+import uk.co.aperistudios.firma.blocks.tileentity.AnvilTileEntity;
 import uk.co.aperistudios.firma.blocks.tileentity.FirmaOreTileEntity;
 import uk.co.aperistudios.firma.blocks.tileentity.SoFTileEntity;
 import uk.co.aperistudios.firma.crafting.CraftingManager;
@@ -68,6 +74,7 @@ import uk.co.aperistudios.firma.items.ClayItem;
 import uk.co.aperistudios.firma.items.DoubleIngotItem;
 import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.GemItem;
+import uk.co.aperistudios.firma.items.HideItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.MetaBlockItem;
 import uk.co.aperistudios.firma.items.ToolHeads;
@@ -78,19 +85,22 @@ import uk.co.aperistudios.firma.items.ScrapMetalItem;
 import uk.co.aperistudios.firma.items.ToolItem;
 import uk.co.aperistudios.firma.items.UnfiredClay;
 import uk.co.aperistudios.firma.packet.KnapToServer;
+import uk.co.aperistudios.firma.packet.SetDayPacket;
+import uk.co.aperistudios.firma.types.AlcoholType;
 import uk.co.aperistudios.firma.types.RockEnum;
 import uk.co.aperistudios.firma.types.RockEnum2;
 import uk.co.aperistudios.firma.types.ToolMaterials;
 import uk.co.aperistudios.firma.types.ToolType;
 
-public class CommonProxy {
+public abstract class CommonProxy {
 
 	public static DimensionType firmaDimension;
 	public static IBlockState[] rockLayerTop, rockLayerMid, rockLayerBot, saplingLayer;
-	public static int d=0;
-	
+	public static int d = 0;
+
 	FirmaWorld fw = new FirmaWorld();
 
+	
 	public void preInit(FMLPreInitializationEvent e) {
 		MinecraftForge.EVENT_BUS.register(new JoinHandler());
 
@@ -124,9 +134,10 @@ public class CommonProxy {
 		FirmaMod.sapling2 = new SaplingBlock2(Material.PLANTS);
 		FirmaMod.log = new LogBlock(Material.WOOD);
 		FirmaMod.log2 = new LogBlock2(Material.WOOD);
-		
+
 		FirmaMod.shitOnFloor = new ShitOnFloor(Material.PLANTS);
 		FirmaMod.crucible = new CrucibleBlock();
+		FirmaMod.anvil = new AnvilBlock(Material.ANVIL);
 		FirmaMod.ore = new OreBlock();
 
 		FirmaMod.pebble = new PebbleItem("pebble");
@@ -140,6 +151,7 @@ public class CommonProxy {
 		FirmaMod.unfiredClayBits = new UnfiredClay("unfiredclay");
 		FirmaMod.toolHeads = new ToolHeads("toolheads");
 		FirmaMod.clay = new ClayItem("clay");
+		FirmaMod.hide = new HideItem("hide");
 
 		rockLayerTop = new IBlockState[] { FirmaMod.rock2.getStateFromMeta(RockEnum2.Shale.getMeta()),
 				FirmaMod.rock.getStateFromMeta(RockEnum.Claystone.getMeta()), FirmaMod.rock2.getStateFromMeta(RockEnum2.RockSalt.getMeta()),
@@ -178,14 +190,19 @@ public class CommonProxy {
 				thisTool.addRecipe();
 			}
 		}
-
-		FirmaMod.saltwater = new BaseLiquid("saltwater", fluid -> fluid.setLuminosity(0).setDensity(800).setViscosity(1500), MapColor.WATER);
-		FirmaMod.freshwater = new BaseLiquid("freshwater", fluid -> fluid.setLuminosity(0).setDensity(800).setViscosity(1500), MapColor.WATER);
-		FirmaMod.lava = new BaseLiquid("lava", fluid -> fluid.setLuminosity(100).setDensity(800).setViscosity(1500), MapColor.RED);
-
+		
+		FirmaMod.lava = new BaseLiquid("lava", fluid -> fluid.setLuminosity(100).setDensity(800).setViscosity(1500), 0xffff0000);
+		FirmaMod.saltwater = new BaseLiquid("saltwater", fluid -> fluid.setLuminosity(0).setDensity(800).setViscosity(1500), 0xff0022ff);
+		FirmaMod.freshwater = new BaseLiquid("freshwater", fluid -> fluid.setLuminosity(0).setDensity(800).setViscosity(1500), 0xff0022ff);
+		for(AlcoholType at : AlcoholType.values()){ 
+			new BaseLiquid(at.getName(), fluid -> fluid.setLuminosity(0).setDensity(800).setViscosity(1500), at.getCol());
+		}
+		
 		NetworkRegistry.INSTANCE.registerGuiHandler(FirmaMod.instance, new GuiHandler());
 
 		KnapToServer.init();
+		SetDayPacket.init();
+		
 		CraftingManager.addKnappingRecipes();
 
 		for (BaseBlock b : FirmaMod.allBlocks) {
@@ -193,7 +210,7 @@ public class CommonProxy {
 			Item i = new MetaBlockItem(b);
 			GameRegistry.register(i);
 		}
-		
+
 		GameRegistry.register(FirmaMod.crucible);
 		GameRegistry.register(FirmaMod.shitOnFloor);
 
@@ -207,12 +224,12 @@ public class CommonProxy {
 
 		FirmaBiome.init();
 		// Dirty hack to put Firma as first world to gen before default
-		
+
 		int i = fw.getWorldTypeID();
-		WorldType.WORLD_TYPES[i]=WorldType.WORLD_TYPES[0];
-		WorldType.WORLD_TYPES[0]=fw;
-		
-		//d = DimensionManager.getNextFreeDimId();
+		WorldType.WORLD_TYPES[i] = WorldType.WORLD_TYPES[0];
+		WorldType.WORLD_TYPES[0] = fw;
+
+		// d = DimensionManager.getNextFreeDimId();
 		DimensionManager.unregisterDimension(0);
 		firmaDimension = DimensionType.register("Firma", "-" + d, d, FirmaWorldProvider.class, true);
 		DimensionManager.registerDimension(d, firmaDimension);
@@ -226,15 +243,17 @@ public class CommonProxy {
 		}
 
 		Layer.prep();
-		LeafColor.init();
-		
-		
+
 		GameRegistry.registerTileEntity(FirmaOreTileEntity.class, "firmaorete");
 		GameRegistry.registerTileEntity(SoFTileEntity.class, "firmasof");
-		
+		GameRegistry.registerTileEntity(AnvilTileEntity.class, "firmaanvil");
+
 		GameRegistry.registerWorldGenerator(new FirmaOreGen(), 0);
 		GameRegistry.registerWorldGenerator(new FirmaTreeGen(), 0);
 		GameRegistry.registerWorldGenerator(new ShitOnFloorGen(), 0);
+		
+		
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public void init(FMLInitializationEvent e) {
@@ -243,5 +262,25 @@ public class CommonProxy {
 
 	public void postInit(FMLPostInitializationEvent e) {
 
+	}
+
+	public abstract void setDate(TimeData data);
+	
+	@SubscribeEvent
+	public void onWorldTick(TickEvent.WorldTickEvent event) {
+		if(event.world.isRemote){ return; } // Not called on client
+		long time = event.world.getWorldTime();
+		if (time > Util.ticksInDay) {
+			MapStorage storage = event.world.getPerWorldStorage();
+			TimeData td = (TimeData) storage.getOrLoadData(TimeData.class, "firmatime");
+			if(td==null){
+				td = new TimeData("");
+				storage.setData("firmatime", td);
+			}
+			td.addDay();
+			event.world.setWorldTime(time - Util.ticksInDay);
+			td.setDirty(true);
+			System.out.println("Day inceremented on Server " + td.toString());
+		}
 	}
 }

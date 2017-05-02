@@ -26,9 +26,8 @@ public class PebbleItem extends MetaItem {
 		if (player.getHeldItemMainhand().getCount() > 1) {
 			if (worldIn.isRemote) {
 				GuiKnapping.staticMaterial = CraftMat.STONE;
-				GuiKnapping.staticMaterialRock = this.getSubName(is.getItemDamage());
+				GuiKnapping.staticMaterialSub = this.getSubName(is.getItemDamage());
 
-				player.openGui(FirmaMod.instance, GuiHandler.GUI_KNAPPING, player.world, (int) player.posX, (int) player.posY, (int) player.posZ);
 			} else {
 				PlayerData pd = PlayerData.getPlayerData(player.getUniqueID());
 				pd.resetKnapCraft();
@@ -36,6 +35,7 @@ public class PebbleItem extends MetaItem {
 				pd.setCraftingMaterial(CraftMat.STONE);
 			}
 		}
+		player.openGui(FirmaMod.instance, GuiHandler.GUI_KNAPPING, player.world, (int) player.posX, (int) player.posY, (int) player.posZ);
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, is);
 	}
 }

@@ -27,7 +27,7 @@ public class ClayItem extends MetaItem {
 		if (player.getHeldItemMainhand().getCount() > 4) {
 			if (worldIn.isRemote) {
 				GuiKnapping.staticMaterial = CraftMat.CLAY;
-				GuiKnapping.staticMaterialRock = this.getSubName(is.getItemDamage());
+				GuiKnapping.staticMaterialSub = this.getSubName(is.getItemDamage());
 
 				player.openGui(FirmaMod.instance, GuiHandler.GUI_KNAPPING, player.world, (int) player.posX, (int) player.posY, (int) player.posZ);
 			} else {

@@ -1,5 +1,6 @@
 package uk.co.aperistudios.firma.items;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import uk.co.aperistudios.firma.FirmaMod;

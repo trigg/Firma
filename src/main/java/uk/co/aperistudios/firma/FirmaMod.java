@@ -1,6 +1,7 @@
 package uk.co.aperistudios.firma;
 
 import java.util.ArrayList;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -46,12 +47,14 @@ import uk.co.aperistudios.firma.blocks.living.SaplingBlock;
 import uk.co.aperistudios.firma.blocks.living.SaplingBlock2;
 import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock;
 import uk.co.aperistudios.firma.blocks.living.SparseGrassBlock2;
+import uk.co.aperistudios.firma.blocks.machine.AnvilBlock;
 import uk.co.aperistudios.firma.crafting.CraftingManager;
 import uk.co.aperistudios.firma.items.BrickItem;
 import uk.co.aperistudios.firma.items.ClayItem;
 import uk.co.aperistudios.firma.items.DoubleIngotItem;
 import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.GemItem;
+import uk.co.aperistudios.firma.items.HideItem;
 import uk.co.aperistudios.firma.items.IngotItem;
 import uk.co.aperistudios.firma.items.ToolHeads;
 import uk.co.aperistudios.firma.items.MetalSheetItem;
@@ -70,7 +73,7 @@ public class FirmaMod {
 
 	public static final String MODID = "firma";
 	public static final String VERSION = "1.0";
-	public static CreativeTabs blockTab, itemTab, gemTab, headTab;
+	public static CreativeTabs blockTab, itemTab, gemTab, headTab, toolTab;
 	public static RockBlock rock;
 	public static RockBlock2 rock2;
 	public static BrickBlock rockb;
@@ -106,6 +109,7 @@ public class FirmaMod {
 	public static DoubleIngotItem doubleingot;
 	public static MetalSheetItem metalsheet;
 	public static ScrapMetalItem scrapmetal;
+	public static HideItem hide;
 
 	public static BaseLiquid freshwater;
 	public static BaseLiquid saltwater;
@@ -122,12 +126,14 @@ public class FirmaMod {
 	public static ToolHeads toolHeads;
 	public static UnfiredClay unfiredClayBits;
 	public static CrucibleBlock crucible;
-	public static CreativeTabs toolTab;
+	public static ShitOnFloor shitOnFloor;
+	public static AnvilBlock anvil;
+
 	public static IceBlock ice;
 	public static OreBlock ore;
 	public static SparseGrassBlock2 grasss2;
 	public static SparseGrassBlock grasss;
-	public static ShitOnFloor shitOnFloor;
+	
 
 
 	public FirmaMod() {

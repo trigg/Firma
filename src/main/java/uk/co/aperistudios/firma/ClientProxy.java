@@ -30,6 +30,8 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 
 public class ClientProxy extends CommonProxy {
 
+	public static TimeData staticDate;
+
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
 		FirmaMod.blockTab = new CreativeTabs("FirmaBlocks") {
@@ -106,21 +108,22 @@ public class ClientProxy extends CommonProxy {
 			ItemMeshDefinition imd = new ItemMeshDefinition() {
 				@Override
 				public ModelResourceLocation getModelLocation(ItemStack stack) {
-					return new ModelResourceLocation(f.getModelPath(), ((IFluidBlock) f.getFluidBlock()).getFluid().getName());
+					return new ModelResourceLocation(f.getModelPath(), "fluid"); // ((IFluidBlock) f.getFluidBlock()).getFluid().getName()
 				}
 			};
 			ModelLoader.setCustomMeshDefinition(item, imd);
 
 			ModelLoader.setCustomStateMapper(f.getFluidBlock(), new StateMapperBase() {
 				@Override
-				protected ModelResourceLocation getModelResourceLocation(IBlockState p_178132_1_) {
-					return new ModelResourceLocation(f.getModelPath(), ((IFluidBlock) f.getFluidBlock()).getFluid().getName());
+				protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+					return new ModelResourceLocation(f.getModelPath(), "fluid"); // ((IFluidBlock) f.getFluidBlock()).getFluid().getName()
 				}
 			});
 		}
 		
 		// Special Renderers
 		ClientRegistry.bindTileEntitySpecialRenderer(SoFTileEntity.class, new ShitOnFloorRenderer());
+		LeafColor.init();
 	}
 
 	@Override
@@ -131,9 +134,11 @@ public class ClientProxy extends CommonProxy {
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grass2);
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grasss);
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new GrassColor(), FirmaMod.grasss2);
-		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LiquidColor(0xffaaff00), FirmaMod.saltwater.getFluidBlock());
-		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LiquidColor(0xffaaff00), FirmaMod.freshwater.getFluidBlock());
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new LiquidItemColor(), FirmaMod.saltwater.getFluidItem());
+		
+		// More than one way to skin a cat. Moved into fluid like it apparently should have been
+		//Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LiquidColor(0xffaaff00), FirmaMod.saltwater.getFluidBlock());
+		//Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new LiquidColor(0xffaaff00), FirmaMod.freshwater.getFluidBlock());
+		//Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new LiquidItemColor(), FirmaMod.saltwater.getFluidItem());
 		super.init(e);
 	}
 
@@ -141,5 +146,9 @@ public class ClientProxy extends CommonProxy {
 	public void postInit(FMLPostInitializationEvent e) {
 		super.postInit(e);
 	}
-	
+
+	@Override
+	public void setDate(TimeData data) {
+		staticDate = data;
+	}
 }

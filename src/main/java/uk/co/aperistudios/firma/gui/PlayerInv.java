@@ -14,9 +14,9 @@ public class PlayerInv {
 	public static int invYSize = 87;
 	private static ResourceLocation invTexture = new ResourceLocation(FirmaMod.MODID+":textures/gui/gui_inventory_lower.png");
 	public static InventoryCrafting containerInv;
-	private static int index;
+	//private static int index;
 	public static void addInventory(Container container, InventoryPlayer inventory, int x, int y, boolean freezeHeld) {
-		index = 0;
+		int index = 0;
 		for (int i = 0; i < 3; ++i) {
 			for (int k = 0; k < 9; ++k) {
 				index = k + (i + 1) * 9;
@@ -65,7 +65,7 @@ public class PlayerInv {
 	
 	public static void buildInventoryLayout(Container container, InventoryPlayer inventory, int x, int y, boolean freezeSlot, boolean toolBarAfterMainInv)
 	{
-		index = 0;
+		int index = 0;
 		if(!toolBarAfterMainInv)
 			addToolbarSlots(container, inventory, x, y, freezeSlot);
 

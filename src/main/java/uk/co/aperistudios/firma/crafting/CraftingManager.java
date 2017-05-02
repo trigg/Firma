@@ -5,9 +5,12 @@ import net.minecraft.item.ItemStack;
 import uk.co.aperistudios.firma.FirmaMod;
 import uk.co.aperistudios.firma.items.FirmaItem;
 import uk.co.aperistudios.firma.items.MetaItem;
+import uk.co.aperistudios.firma.types.ToolMaterials;
+import uk.co.aperistudios.firma.types.ToolType;
 
 public class CraftingManager {
 	private static ArrayList<Recipe> list = new ArrayList<Recipe>();
+	public static RecipeShape knifeShape1, knifeShape2,axeShape,hammerShape,hoeShape1,hoeShape2,javelinShape,shovelShape,jugShape,moldShape,chiselShape,maceShape,pickaxeShape,propickaxeShape,sawShape,swordShape,scytheShape,potShape,vesselShape;
 	public static final int knapWidth = 5, knapHeight = 5; // Constants for
 															// size of grid.
 															// Maybe we'll want
@@ -51,25 +54,25 @@ public class CraftingManager {
 	}
 
 	public static void addKnappingRecipes() {
-		RecipeShape knifeShape1 = RecipeShape.makeRecipeShape("S ", "SS", "SS", "SS", "SS");
-		RecipeShape knifeShape2 = RecipeShape.makeRecipeShape("S   S", "SS SS", "SS SS", "SS SS", "SS SS");
-		RecipeShape axeShape = RecipeShape.makeRecipeShape(" S   ", "SSSS ", "SSSSS", "SSSS ", " S   ");
-		RecipeShape hammerShape = RecipeShape.makeRecipeShape("SSSSS", "SSSSS", "  S  ");
-		RecipeShape hoeShape1 = RecipeShape.makeRecipeShape("SSSS ", "    S");
-		RecipeShape hoeShape2 = RecipeShape.makeRecipeShape("SSSS ", "    S", "     ", "SSSS ", "    S");
-		RecipeShape javelinShape = RecipeShape.makeRecipeShape("  S  ", " SSS ", " SSS ", " SSS ", " SSS ");
-		RecipeShape shovelShape = RecipeShape.makeRecipeShape(" SSS ", " SSS ", " SSS ", " SSS ", "  S  ");
-		RecipeShape jugShape = RecipeShape.makeRecipeShape("S SSS", "    S", "   S ", "    S", "   SS");
-		RecipeShape moldShape = RecipeShape.makeRecipeShape("    ", " SS ", " SS ", " SS ", "    ");
-		RecipeShape chiselShape = RecipeShape.makeRecipeShape(" S ", " S ", " S ", " S ", " S ");
-		RecipeShape maceShape = RecipeShape.makeRecipeShape(" S ", "SSS", "SSS", "SSS", "S");
-		RecipeShape pickaxeShape = RecipeShape.makeRecipeShape(" SSS ", "S   S");
-		RecipeShape propickaxeShape = RecipeShape.makeRecipeShape("SSSS ", "S   S", "S    ");
-		RecipeShape sawShape = RecipeShape.makeRecipeShape("SSSSS", "S S S");
-		RecipeShape swordShape = RecipeShape.makeRecipeShape("    S", "   S ", "  S  ", " S   ", "S    ");
-		RecipeShape scytheShape = RecipeShape.makeRecipeShape("  SSS", " SSS ", "SSS  ");
-		RecipeShape potShape = RecipeShape.makeRecipeShape(" SSS ", " SSS ", " SSS ", " SSS ", "     ");
-		RecipeShape vesselShape = RecipeShape.makeRecipeShape("S   S", "     ", "     ", "     ", "S   S");
+		knifeShape1 = RecipeShape.makeRecipeShape("S ", "SS", "SS", "SS", "SS");
+		knifeShape2 = RecipeShape.makeRecipeShape("S   S", "SS SS", "SS SS", "SS SS", "SS SS");
+		axeShape = RecipeShape.makeRecipeShape(" S   ", "SSSS ", "SSSSS", "SSSS ", " S   ");
+		hammerShape = RecipeShape.makeRecipeShape("SSSSS", "SSSSS", "  S  ");
+		hoeShape1 = RecipeShape.makeRecipeShape("SSSS ", "    S");
+		hoeShape2 = RecipeShape.makeRecipeShape("SSSS ", "    S", "     ", "SSSS ", "    S");
+		javelinShape = RecipeShape.makeRecipeShape("  S  ", " SSS ", " SSS ", " SSS ", " SSS ");
+		shovelShape = RecipeShape.makeRecipeShape(" SSS ", " SSS ", " SSS ", " SSS ", "  S  ");
+		jugShape = RecipeShape.makeRecipeShape("S SSS", "    S", "   S ", "    S", "   SS");
+		moldShape = RecipeShape.makeRecipeShape("    ", " SS ", " SS ", " SS ", "    ");
+		chiselShape = RecipeShape.makeRecipeShape(" S ", " S ", " S ", " S ", " S ");
+		maceShape = RecipeShape.makeRecipeShape(" S ", "SSS", "SSS", "SSS", "S");
+		pickaxeShape = RecipeShape.makeRecipeShape(" SSS ", "S   S");
+		propickaxeShape = RecipeShape.makeRecipeShape("SSSS ", "S   S", "S    ");
+		sawShape = RecipeShape.makeRecipeShape("SSSSS", "S S S");
+		swordShape = RecipeShape.makeRecipeShape("    S", "   S ", "  S  ", " S   ", "S    ");
+		scytheShape = RecipeShape.makeRecipeShape("  SSS", " SSS ", "SSS  ");
+		potShape = RecipeShape.makeRecipeShape(" SSS ", " SSS ", " SSS ", " SSS ", "     ");
+		vesselShape = RecipeShape.makeRecipeShape("S   S", "     ", "     ", "     ", "S   S");
 
 		Recipe.makeRecipe(new ItemStack(FirmaMod.toolHeads, 1, FirmaMod.toolHeads.getSubMeta("stoneknife")), CraftMat.STONE, null, knifeShape1);
 		Recipe.makeRecipe(new ItemStack(FirmaMod.toolHeads, 2, FirmaMod.toolHeads.getSubMeta("stoneknife")), CraftMat.STONE, null, knifeShape2);
@@ -111,5 +114,12 @@ public class CraftingManager {
 		Recipe.makeRecipe(new ItemStack(FirmaMod.unfiredClayBits, 1, FirmaMod.unfiredClayBits.getSubMeta("vessel")), CraftMat.CLAY, normalClayOnly,
 				vesselShape);
 		Recipe.makeRecipe(new ItemStack(FirmaMod.crucible), CraftMat.CLAY, fireClayOnly, potShape);
+		
+		for(ToolType tt : ToolType.values()){
+			for(ToolMaterials tm : ToolMaterials.values()){
+				if(tm == ToolMaterials.Stone){ continue; }
+				Recipe.makeRecipe(new ItemStack(FirmaMod.toolHeads,1,FirmaMod.toolHeads.getSubMeta(tm.getName()+tt.getName())), CraftMat.ANVIL, new ItemStack(FirmaMod.ingot,1,FirmaMod.ingot.getSubMeta(tm.getName())), tt.getShape());
+			}
+		}
 	}
 }

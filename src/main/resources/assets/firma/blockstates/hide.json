@@ -1,0 +1,8 @@
+{"forge_marker":1,"defaults":{"model":"firma:item/generated"},"variants":{    "normal": [{}],
+    "inventory": [{"model": "firma:item/generated"}],"variants":{
+"prep":{"textures":{"layer0":"firma:items/leather/prephide"}}
+,"raw":{"textures":{"layer0":"firma:items/leather/rawhide"}}
+,"scraped":{"textures":{"layer0":"firma:items/leather/scrapedhide"}}
+,"sheep":{"textures":{"layer0":"firma:items/leather/sheephide"}}
+,"soaked":{"textures":{"layer0":"firma:items/leather/soakedhide"}}
+}}}

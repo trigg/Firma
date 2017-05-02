@@ -4,6 +4,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import uk.co.aperistudios.firma.blocks.OreBlock.OreEnum;
 import uk.co.aperistudios.firma.types.OresEnum;
@@ -13,7 +14,6 @@ import uk.co.aperistudios.firma.types.RockEnum2;
 public class Util {
 	static int daysInMonth=28, monthsInYear=12, daysInYear = daysInMonth * monthsInYear;
 	static int ticksInDay=24000;
-	public static long mainWorldTick;
 
 	public static boolean isGrass(Block b) {
 		return b == FirmaMod.grass || b == FirmaMod.grass2  || b == FirmaMod.grasss || b == FirmaMod.grasss2;
@@ -181,8 +181,8 @@ public class Util {
 		return b == FirmaMod.log2 || b == FirmaMod.leaf2 || b == FirmaMod.plank2 || b == FirmaMod.sapling2;
 	}
 
-	public static float getHeat(long ticks, BlockPos pos) {
-		return getEquatorialHeat(pos) + getSeasonModifier(ticks);
+	public static float getHeat(World worldIn, BlockPos pos) {
+		return getEquatorialHeat(pos) + getSeasonModifier(worldIn.getTotalWorldTime());
 	}
 
 	public static float getSeasonModifier(long time) {
@@ -215,10 +215,6 @@ public class Util {
 	
 	public static int getTimeOfDay(long time){
 		return (int) (time - getTotalDays(time) * ticksInDay);
-	}
-
-	public static long getMainWorldTicks() {
-		return -1;// TODO Fill
 	}
 
 	public static OresEnum getOreForRock(Random r, String meta) {

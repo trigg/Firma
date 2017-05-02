@@ -25,7 +25,9 @@ public class GuiKnappingButton extends GuiButton {
 		GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(screen.getTexture()));
 		if (show) {
-			Gui.drawModalRectWithCustomSizedTexture(this.xPosition, this.yPosition, 0, 0, 16, 16, 16, 16);
+			//Gui.drawModalRectWithCustomSizedTexture(this.xPosition, this.yPosition, 0, 0, 16, 16, 16, 16);
+			//Gui.draw
+			Gui.drawModalRectWithCustomSizedTexture(this.xPosition, this.yPosition, 16*locx, 16*locy, 16, 16, 80, 80);
 		}
 	}
 

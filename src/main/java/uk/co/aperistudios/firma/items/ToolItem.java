@@ -12,14 +12,14 @@ import uk.co.aperistudios.firma.types.ToolMaterials;
 import uk.co.aperistudios.firma.types.ToolType;
 
 public class ToolItem extends FirmaItem {
-	private ToolType tt;
-	private ToolMaterials tm;
+	private ToolType toolType;
+	private ToolMaterials toolMaterial;
 
 	public ToolItem(ToolMaterials tm, ToolType tt) {
 		super("tool." + tm.getName() + tt.getName());
-		this.tm = tm;
-		this.tt = tt;
-		this.maxStackSize=1;
+		this.toolMaterial = tm;
+		this.toolType = tt;
+		this.maxStackSize = 1;
 
 		this.setCreativeTab(FirmaMod.toolTab);
 	}
@@ -45,7 +45,7 @@ public class ToolItem extends FirmaItem {
 	@Override
 	public boolean canHarvestBlock(IBlockState blockIn) {
 		Block b = blockIn.getBlock();
-		switch (tt) {
+		switch (toolType) {
 		case Axe:
 			return isWood(b);
 		case Chisel:
@@ -79,7 +79,8 @@ public class ToolItem extends FirmaItem {
 	}
 
 	public void addRecipe() {
-		GameRegistry.addShapelessRecipe(new ItemStack(this), new Object[] {Items.STICK, new ItemStack(FirmaMod.toolHeads, 1, FirmaMod.toolHeads.getSubMeta(tm.getName()+tt.getName()))});
+		GameRegistry.addShapelessRecipe(new ItemStack(this),
+				new Object[] { Items.STICK, new ItemStack(FirmaMod.toolHeads, 1, FirmaMod.toolHeads.getSubMeta(toolMaterial.getName() + toolType.getName())) });
 	}
 
 	@Override
@@ -89,16 +90,16 @@ public class ToolItem extends FirmaItem {
 
 	@Override
 	public String getVariant() {
-		return tm.getName() + tt.getName();
+		return toolMaterial.getName() + toolType.getName();
 	}
-	
+
 	@Override
 	public float getStrVsBlock(ItemStack stack, IBlockState state) {
 		Block b = state.getBlock();
-		float str= tm.getHarvestLevel();
-		switch (tt) {
+		float str = toolMaterial.getHarvestLevel();
+		switch (toolType) {
 		case Axe:
-			return isWood(b) ? str :1f;
+			return isWood(b) ? str : 1f;
 		case Chisel:
 			break;
 		case Hammer:
@@ -112,15 +113,15 @@ public class ToolItem extends FirmaItem {
 		case Mace:
 			break;
 		case Pick:
-			return isRock(b)? str : 1f;
+			return isRock(b) ? str : 1f;
 		case ProPick:
 			break;
 		case Saw:
 			break;
 		case Scythe:
-			return isLeaf(b)? str : 1f;
+			return isLeaf(b) ? str : 1f;
 		case Shovel:
-			return isDirt(b)? str : 1f;
+			return isDirt(b) ? str : 1f;
 		case Sword:
 			break;
 		default:
@@ -129,4 +130,15 @@ public class ToolItem extends FirmaItem {
 		return 1f;
 	}
 
+	public ToolType getToolType() {
+		return toolType;
+	}
+	
+	public ToolMaterials getToolMaterial() {
+		return toolMaterial;
+	}
+	
+	public boolean isToolType(ToolType tt){
+		return this.toolType == tt;
+	}
 }

@@ -1,0 +1,13 @@
+{"forge_marker":1,"defaults":{"model":"firma:anvil"},"variants":{    "normal": [{}],
+    "inventory": [{}],"variants":{
+"stone":{"textures":{"-1":"firma:blocks/rock/andesite"}}
+,"copper":{"textures":{"-1":"firma:blocks/metal/copper"}}
+,"bronze":{"textures":{"-1":"firma:blocks/metal/bronze"}}
+,"bismuthbronze":{"textures":{"-1":"firma:blocks/metal/bismuthbronze"}}
+,"blackbronze":{"textures":{"-1":"firma:blocks/metal/blackbronze"}}
+,"wroughtiron":{"textures":{"-1":"firma:blocks/metal/wroughtiron"}}
+,"steel":{"textures":{"-1":"firma:blocks/metal/steel"}}
+,"blacksteel":{"textures":{"-1":"firma:blocks/metal/blacksteel"}}
+,"bluesteel":{"textures":{"-1":"firma:blocks/metal/bluesteel"}}
+,"redsteel":{"textures":{"-1":"firma:blocks/metal/redsteel"}}
+}}}

@@ -3,7 +3,11 @@ package uk.co.aperistudios.firma.player;
 import java.util.HashMap;
 import java.util.UUID;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import uk.co.aperistudios.firma.crafting.CraftMat;
 
 public class PlayerData {
@@ -29,6 +33,8 @@ public class PlayerData {
 	private boolean knapCraft[] = new boolean[25];
 	private CraftMat knapMaterial = null;
 	private ItemStack is = null;
+	private World world;
+	private BlockPos pos;
 
 	public PlayerData() {
 	}
@@ -38,7 +44,7 @@ public class PlayerData {
 		for (int i = 0; i < 25; i++) {
 			knapCraft[i] = true;
 		}
-		knapMaterial=null;
+		knapMaterial = null;
 		is = null;
 	}
 
@@ -49,8 +55,8 @@ public class PlayerData {
 	public CraftMat getCraftingMaterial() {
 		return knapMaterial;
 	}
-	
-	public void setCraftingMaterial(CraftMat cm){
+
+	public void setCraftingMaterial(CraftMat cm) {
 		this.knapMaterial = cm;
 	}
 
@@ -65,8 +71,25 @@ public class PlayerData {
 	public ItemStack getItemStack() {
 		return is;
 	}
-	
-	public void setItemStack(ItemStack is){
+
+	public void setItemStack(ItemStack is) {
 		this.is = is;
+	}
+
+	public void setTileEntity(World world, BlockPos pos) {
+		this.world = world;
+		this.pos = pos;
+	}
+
+	public TileEntity getTileEntity() {
+		return world.getTileEntity(pos);
+	}
+
+	public World getWorld() {
+		return world;
+	}
+	
+	public BlockPos getPosition(){
+		return pos;
 	}
 }

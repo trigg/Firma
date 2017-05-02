@@ -1,6 +1,6 @@
 {
     "parent": "forge:fluid",
     "textures": {
-        "fluid":"#fluid", "tintindex":0
+        "fluid":"#fluid", "tintindex":255
     }
 }
